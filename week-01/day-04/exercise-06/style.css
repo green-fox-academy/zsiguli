@@ -1,0 +1,9 @@
+main {
+  font-family: 'Merriweather', serif;
+}
+
+p {
+  border-left: solid 2px black;
+  padding: 0 0 0 10px;
+  font-size: 18px;
+}

@@ -1,0 +1,30 @@
+main {
+  width: 380px;
+  height: 580px;
+}
+
+.content {
+  border: solid 15px #4F66F7;
+  height: 285px;
+  margin-bottom: 5px;
+}
+
+.box {
+  text-align: center;
+  width: auto;
+  font-size: 36px;
+  color: #fff;
+  height: 143px;
+  margin: 0;
+  line-height: 3.6em;
+}
+
+
+
+.background-red {
+  background-color: #E67676;
+}
+
+.background-turquoise {
+  background-color: #A9E6E6;
+}

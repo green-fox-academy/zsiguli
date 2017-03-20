@@ -1,0 +1,35 @@
+main {
+  width: 380px;
+  height: 550px;
+  background-color: #4f66f7;
+}
+
+.content {
+  padding: 15px;
+  height: 310px;
+}
+
+.box {
+  text-align: center;
+  font-size: 36px;
+  color: #fff;
+  height: 130px;
+  margin: 0;
+  line-height: 3.6em;
+}
+
+.background-red {
+  background-color: #f3666f;
+}
+
+.background-yellow {
+  background-color: #EAff5A;
+}
+
+.background-turquoise {
+  background-color: #9AE9E7;
+}
+
+.background-blue {
+  background-color: #7B7EE6;
+}

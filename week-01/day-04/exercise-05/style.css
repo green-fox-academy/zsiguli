@@ -1,0 +1,24 @@
+h1 {
+  color: #0007EA;
+}
+
+h2 {
+  color: #FBB62A;
+}
+
+.important {
+  color: red;
+}
+
+.categories ul {
+  list-style: disc;
+}
+
+.categories {
+  color: #0007EA;
+  list-style: square;
+}
+
+.sub-categories {
+  color: black;
+}

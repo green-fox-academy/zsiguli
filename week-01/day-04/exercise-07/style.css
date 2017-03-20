@@ -1,0 +1,7 @@
+.container .asteroid {
+  border: solid 1px green;
+}
+
+div .asteroid{
+  font-style: bold;
+}

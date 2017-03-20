@@ -1,0 +1,64 @@
+body {
+  background: url('../images/darthvader.png') center fixed;
+  min-width: 1050px;
+}
+
+img {
+  width: 100%;
+  padding-top: 1%;
+}
+
+hgroup {
+  margin-top: 20px;
+  background: #eee;
+  color: blue;
+  text-align: center;
+}
+
+h2 {
+  color: blue;
+}
+
+section {
+  padding: 5%;
+}
+
+blockquote {
+  text-align: right;
+  color: #666;
+  font-size: 2em;
+}
+
+blockquote p {
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: red;
+}
+
+.content {
+  background: #eee;
+}
+
+.dark-side {
+  min-width: 200px;
+  margin: 0 51% 0 1%;
+}
+
+.right-side {
+  min-width: 200px;
+  margin: -1045px 1% 0 51%;
+}
+
+.contacts li{
+  display: inline-block;
+  margin: 0 30px;
+  padding: 10px;
+  border: solid 1px grey;
+}

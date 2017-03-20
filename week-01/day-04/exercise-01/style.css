@@ -1,0 +1,17 @@
+body {
+  background-color: rgb(221, 221, 221);
+}
+.box {
+  background-color: rgb(0, 146, 162);
+  border: solid 5px rgb(92, 218, 148);
+  width: auto;
+  height: 100px;
+  font-size: 36px;
+  color: rgb(0, 86, 104);
+  padding: 20px;
+  margin: 14px 5px;
+}
+
+.main-content {  
+  width: 370px;
+}

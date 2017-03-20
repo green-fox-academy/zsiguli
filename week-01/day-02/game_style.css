@@ -1,0 +1,76 @@
+body {
+  background-color: salmon;
+}
+
+button {
+  height: 35px;
+  width: 170px;
+}
+
+.main-content {
+
+}
+
+.displays {
+  display: flex;
+  justify-content: space-around;;
+  border: 5px solid green;
+}
+
+.displays
+
+.play-field {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid blue;
+  background: red;
+  width: 500px;
+  height: 500px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.timer {
+  border: 1px solid red;
+  height: 35px;
+  width: 170px;
+}
+
+.counter {
+  border: 1px solid blue;
+  height: 35px;
+  width: 170px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#box,
+#bomb,
+#candy {
+  border: solid 1px grey;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  width: 100px;
+}
+
+#box {
+  background-color: lightblue;
+  color: blue;
+}
+
+#bomb {
+  background-color: black;
+  color: red;
+}
+
+#candy {
+  background-color: lightgreen;
+  color: purple;
+}
