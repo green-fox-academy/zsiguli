@@ -4,9 +4,9 @@
 public class Exercises05 {
   public static void main(String[] args) {
 
-    int num1 = 22;
-    int num2 = 13;
-    int result;
+    double num1 = 22;
+    double num2 = 13;
+    double result;
 
     result = num1 + num2;
     System.out.println(result);
@@ -19,6 +19,6 @@ public class Exercises05 {
 
     result = num1 / num2;
     System.out.println(result);
-    
+
   }
 }
