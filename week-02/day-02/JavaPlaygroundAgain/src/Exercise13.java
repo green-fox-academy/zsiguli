@@ -51,18 +51,19 @@ public class Exercise13 {
     int f1 = 123;
     int f2 = 345;
     // tell if f1 is bigger than f2 (print as a boolean)
-
-
+    if (f1 > f2) {
+      System.out.println(f1 > f2);
+    }
 
 
 
     int g1 = 350;
     int g2 = 200;
     // tell if the double of g2 is bigger than g1 (print as a boolean)
-
-
-
-
+    g2 *= 2;
+    if (g2 > g1) {
+      System.out.println(g2 > g1);
+    }
     double h = 1357988018575474.0;
     // tell if it has 11 as a divisor (print as a boolean)
 
