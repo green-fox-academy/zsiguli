@@ -20,6 +20,8 @@ public class Exercises05 {
     result = num1 / num2;
     System.out.println(result);
     System.out.println((int) result);
-    System.out.println(result - Math.floor(result));
+
+    result = num1 % num2;
+    System.out.println(result);
   }
 }
