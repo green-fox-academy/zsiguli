@@ -66,9 +66,9 @@ public class Exercise13 {
     }
     double h = 1357988018575474.0;
     // tell if it has 11 as a divisor (print as a boolean)
-
-
-
+    if (h % 11 == 0) {
+      System.out.println(h % 11 == 0);
+    }
 
 
     int i1 = 10;
