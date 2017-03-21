@@ -9,7 +9,9 @@ public class Exercises05 {
     int result;
 
     result = num1 + num2;
+    System.out.println(result);
 
+    result = num1 - num2;
     System.out.println(result);
 
   }
