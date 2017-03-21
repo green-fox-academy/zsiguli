@@ -23,7 +23,7 @@ public class Exercise13 {
 
     int c = 44;
     // please double c's value
-
+    c *= 2;
 
     System.out.println(c);
 
