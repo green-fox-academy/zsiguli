@@ -14,7 +14,7 @@ public class Exercise13 {
 
     int b = 100;
     // make it smaller by 7
-
+    b -= 7;
 
     System.out.println(b);
 
@@ -63,7 +63,7 @@ public class Exercise13 {
 
 
 
-    int h = 1357988018575474;
+    double h = 1357988018575474.0;
     // tell if it has 11 as a divisor (print as a boolean)
 
 
@@ -88,7 +88,5 @@ public class Exercise13 {
 
 
     System.out.println(k);
-  }
-}
   }
 }
