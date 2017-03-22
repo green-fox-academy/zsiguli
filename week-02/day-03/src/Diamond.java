@@ -6,6 +6,12 @@ public class Diamond {
     String one = "+";
     String another = "-";
 
-    System.out.println(one);
+    System.out.print(another);
+    System.out.print(another);
+    System.out.print(another);
+    System.out.print(one);
+    System.out.print(another);
+    System.out.print(another);
+    System.out.print(another);
   }
 }
