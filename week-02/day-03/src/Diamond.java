@@ -15,8 +15,13 @@ public class Diamond {
           System.out.print(another);
         }
       }
-      target1--;
-      target2++;
+      if (i < 3) {
+        target1--;
+        target2++;
+      } else {
+        target1++;
+        target2--;
+      }
       System.out.println();
     }
   }
