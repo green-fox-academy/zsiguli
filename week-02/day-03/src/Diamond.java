@@ -5,13 +5,15 @@ public class Diamond {
   public static void main(String[] args) {
     String one = "+";
     String another = "-";
-
     for (int i = 0; i < 7; i++) {
-      if (i == 3) {
-        System.out.print(one);
-      } else {
-        System.out.print(another);
+      for (int j = 0; j < 7; j++) {
+        if (j == 3) {
+          System.out.print(one);
+        } else {
+          System.out.print(another);
+        }
       }
+      System.out.println();
     }
   }
 }
