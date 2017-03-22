@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class PrintArgument {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    String [] strings = {scanner.nextLine(), scanner.nextLine(), scanner.nextLine()};
+    String[] strings = {scanner.nextLine(), scanner.nextLine(), scanner.nextLine()};
     printer(strings);
   }
   public static void printer (String... strArr) {
