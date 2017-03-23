@@ -10,10 +10,6 @@ public class Matchmaking {
     ArrayList<String> boys = new ArrayList<String>(Arrays.asList("Joe","Fred","Béla","Todd","Neef","Jeff"));
     ArrayList<String> order = new ArrayList<String>();
 
-
-    // Join the two lists by matching one girl with one boy in the order list
-    // Exepected output: "Eve", "Joe", "Ashley", "Fred"...
-
     System.out.println(girlsOrder(girls, order));
   }
   public static ArrayList<String> girlsOrder(ArrayList<String> girls, ArrayList<String > order) {
