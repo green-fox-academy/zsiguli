@@ -10,12 +10,16 @@ public class Matchmaking {
     ArrayList<String> boys = new ArrayList<String>(Arrays.asList("Joe","Fred","Béla","Todd","Neef","Jeff"));
     ArrayList<String> order = new ArrayList<String>();
 
-    for (int i = 0; i < girls.size(); i++) {
-      order.add(i, girls.get(i));
-    }
+
     // Join the two lists by matching one girl with one boy in the order list
     // Exepected output: "Eve", "Joe", "Ashley", "Fred"...
 
-    System.out.println(order);
+    System.out.println(girlsOrder(girls, order));
+  }
+  public static ArrayList<String> girlsOrder(ArrayList<String> girls, ArrayList<String > order) {
+    for (int i = 0; i < girls.size(); i++) {
+      order.add(i, girls.get(i));
+    }
+  return order;
   }
 }
