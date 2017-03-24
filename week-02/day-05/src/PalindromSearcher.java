@@ -24,7 +24,10 @@ public class PalindromSearcher {
         }
       }
     }
-    System.out.println(palindromes);
+    for (String str: palindromes) {
+      printWithDelays(str, TimeUnit.MILLISECONDS, 70);
+      System.out.println();
+    }
   }
 
   public static StringBuilder stringToBuilder(String str) {
