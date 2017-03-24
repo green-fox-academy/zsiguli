@@ -1,15 +1,19 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by markovich on 2017.03.24..
  */
 public class PalindromSearcher {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception{
     Scanner scanner = new Scanner(System.in);
     ArrayList<String> palindromes = new ArrayList<>();
 
-    System.out.print("Hello there! Give me some text and I will give you back the palindromes.");
+    printWithDelays("Hello there!", TimeUnit.MILLISECONDS, 70);
+    System.out.println();
+    printWithDelays("Give me some text and I will give you back the palindromes.", TimeUnit.MILLISECONDS, 70);
+
     System.out.println();
     String input = scanner.nextLine();
 
@@ -27,5 +31,13 @@ public class PalindromSearcher {
     StringBuilder strB = new StringBuilder();
     strB.append(str);
     return strB;
+  }
+
+  public static void printWithDelays(String data, TimeUnit unit, long delay)
+          throws InterruptedException {
+    for (char ch:data.toCharArray()) {
+      System.out.print(ch);
+      unit.sleep(delay);
+    }
   }
 }
