@@ -10,10 +10,13 @@ public class PalindromSearcher {
     String input = scanner.nextLine();
     ArrayList<String> palindromes = new ArrayList<>();
 
-    if (input.equals(stringReverser(stringToBuilder(input)).toString())){
-      palindromes.add(input);
+    for (int i = 3; i <= input.length(); ++i) {
+      for (int j = 0; j <= input.length() - i; ++j) {
+        if ((input.substring(j, j+i)).equals(stringReverser(stringToBuilder((input.substring(j, j+i)))).toString())){
+          palindromes.add(("\"" + input.substring(j, j+i) + "\""));
+        };
+      }
     }
-
     System.out.println(palindromes);
   }
 
