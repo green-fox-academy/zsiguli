@@ -12,21 +12,12 @@ public class PalindromSearcher {
 
     for (int i = 3; i <= input.length(); ++i) {
       for (int j = 0; j <= input.length() - i; ++j) {
-        if ((input.substring(j, j+i)).equals(stringReverser(stringToBuilder((input.substring(j, j+i)))).toString())){
+        if ((input.substring(j, j+i)).equals((stringToBuilder((input.substring(j, j+i)))).reverse().toString())){
           palindromes.add(("\"" + input.substring(j, j+i) + "\""));
         };
       }
     }
     System.out.println(palindromes);
-  }
-
-  public static StringBuilder stringReverser(StringBuilder str) {
-    for (int i = 0; i < str.length() / 2; i++ ) {
-      char temp = str.charAt(i);
-      str.setCharAt(i, str.charAt(str.length()-1-i));
-      str.setCharAt(str.length() - 1 - i, temp );
-    }
-    return str;
   }
 
   public static StringBuilder stringToBuilder(String str) {
