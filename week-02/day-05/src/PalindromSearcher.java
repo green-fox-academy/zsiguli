@@ -10,19 +10,15 @@ public class PalindromSearcher {
     Scanner scanner = new Scanner(System.in);
     ArrayList<String> palindromes = new ArrayList<>();
     String input = "";
-    int speed = 70;
+    long printingSpeed = 70;
 
     if (args.length == 0) {
-      System.out.println(args.length);
-      printWithDelays("Hello there!", TimeUnit.MILLISECONDS, speed);
+      printWithDelays("Hello there!", TimeUnit.MILLISECONDS, printingSpeed);
       System.out.println();
-      printWithDelays("Give me some text and I will give you back the palindromes.", TimeUnit.MILLISECONDS, speed);
+      printWithDelays("Give me some text and I will give you back the palindromes.", TimeUnit.MILLISECONDS, printingSpeed);
 
       System.out.println();
       input = scanner.nextLine();
-    }
-    else {
-      input = args[0];
     }
 
     for (int i = 3; i <= input.length(); ++i) {
@@ -33,7 +29,7 @@ public class PalindromSearcher {
       }
     }
     for (String str: palindromes) {
-      printWithDelays(str, TimeUnit.MILLISECONDS, speed);
+      printWithDelays(str, TimeUnit.MILLISECONDS, printingSpeed);
       System.out.println();
     }
   }
