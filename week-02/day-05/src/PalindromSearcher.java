@@ -9,13 +9,20 @@ public class PalindromSearcher {
   public static void main(String[] args) throws Exception{
     Scanner scanner = new Scanner(System.in);
     ArrayList<String> palindromes = new ArrayList<>();
+    String input = "";
 
-    printWithDelays("Hello there!", TimeUnit.MILLISECONDS, 70);
-    System.out.println();
-    printWithDelays("Give me some text and I will give you back the palindromes.", TimeUnit.MILLISECONDS, 70);
+    if (args.length == 0) {
+      System.out.println(args.length);
+      printWithDelays("Hello there!", TimeUnit.MILLISECONDS, 70);
+      System.out.println();
+      printWithDelays("Give me some text and I will give you back the palindromes.", TimeUnit.MILLISECONDS, 70);
 
-    System.out.println();
-    String input = scanner.nextLine();
+      System.out.println();
+      input = scanner.nextLine();
+    }
+    else {
+      input = args[0];
+    }
 
     for (int i = 3; i <= input.length(); ++i) {
       for (int j = 0; j <= input.length() - i; ++j) {
