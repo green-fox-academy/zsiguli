@@ -1,9 +1,12 @@
+import java.util.Scanner;
+
 /**
  * Created by markovich on 2017.03.24..
  */
 public class PalindromSearcher {
   public static void main(String[] args) {
-    String input = "dog goat dad duck doodle never";
+    Scanner scanner = new Scanner(System.in);
+    String input = scanner.nextLine();
     System.out.println(stringReverser(stringToBuilder(input)));
   }
 
