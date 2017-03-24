@@ -20,6 +20,9 @@ public class PalindromSearcher {
       System.out.println();
       input = scanner.nextLine();
     }
+    else if (args.length == 1){
+      input = args[0];
+    }
 
     for (int i = 3; i <= input.length(); ++i) {
       for (int j = 0; j <= input.length() - i; ++j) {
