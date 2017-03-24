@@ -20,7 +20,7 @@ public class PalindromSearcher {
       System.out.println();
       input = scanner.nextLine();
     }
-    else if (args.length == 1){
+    else {
       input = args[0];
     }
 
