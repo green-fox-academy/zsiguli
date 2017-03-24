@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -7,7 +8,13 @@ public class PalindromSearcher {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     String input = scanner.nextLine();
-    System.out.println(stringReverser(stringToBuilder(input)));
+    ArrayList<String> palindromes = new ArrayList<>();
+
+    if (input.equals(stringReverser(stringToBuilder(input)).toString())){
+      palindromes.add(input);
+    }
+
+    System.out.println(palindromes);
   }
 
   public static StringBuilder stringReverser(StringBuilder str) {
