@@ -8,13 +8,29 @@ import java.util.Scanner;
 public class Calculator {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    double result = 0;
 
-    System.out.println("Please type in the expression:");
-    String inputOperation = scanner.next();
-    double inputFirstNumber = scanner.nextDouble();
-    double inputSecondNumber = scanner.nextDouble();
-    
-    System.out.println(result);
+    do {
+      System.out.println("Please type in the expression:");
+      System.out.println("The reslult is: " +
+              operation(scanner.next(), scanner.nextDouble(), scanner.nextDouble()));
+
+    } while (true);
+
+  }
+
+  public static double operation(String str, double num1, double num2) {
+    double result = 0;
+    switch (str) {
+      case "+": result = num1 + num2;
+      break;
+      case "-": result = num1 - num2;
+      break;
+      case "*": result = num1 * num2;
+      break;
+      case "/": result = num1 / num2;
+      break;
+      case "%": result = num1 % num2;
+    }
+    return result;
   }
 }
