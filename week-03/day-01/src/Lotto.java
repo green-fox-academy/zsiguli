@@ -14,10 +14,10 @@ import java.util.Scanner;
  */
 public class Lotto {
   public static void main(String[] args) {
-    makeTempFileWithUsefulData(parseUsefulDataFromInput("otos.txt"));
-    writeTemp2(readIntsFromATextFile("temp.txt"));
+   // makeTempFileWithUsefulData(parseUsefulDataFromInput("otos.txt"));
+   // writeTemp2(readIntsFromATextFile("temp.txt"));
    // System.out.println(readThePerfectOnes("temp2.txt"));
-    readThePerfectOnes("temp2.txt");
+   // readThePerfectOnes("temp2.txt");
   }
 
   public static List<String> parseUsefulDataFromInput(String inputFile) {
@@ -80,7 +80,7 @@ public class Lotto {
       File file = new File(path);
       Scanner scanner = new Scanner(file);
       while (scanner.hasNextInt()) {
-        bestFive.put(scanner.nextInt());
+     //   bestFive.put(scanner.nextInt());
       }
     } catch (FileNotFoundException ex) {
       System.out.println("Wrong!");
