@@ -8,8 +8,12 @@ public class Doubled {
   public static final String TXT_PATH = "assets/duplicated-chars.txt";
 
   public static void main(String[] args) {
-    List<String> lines;
-    //test
+    List<String> lines = loadFileToList();
+    System.out.println(lines);
+  }
+
+  public static List<String> loadFileToList() {
+    List<String> lines = new ArrayList<>();
     try {
       Path filePath = Paths.get(TXT_PATH);
       lines = Files.readAllLines(filePath);
@@ -17,6 +21,6 @@ public class Doubled {
       System.out.println("Uh-oh, an error happend: " + e.getClass());
       lines = new ArrayList<>();
     }
-    System.out.println(lines);
+    return lines;
   }
 }
