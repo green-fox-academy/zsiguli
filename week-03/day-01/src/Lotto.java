@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public class Lotto {
   public static void main(String[] args) {
-    System.out.println(parseUsefulDataFromInput("otos.txt"));
+    makeTempFileWithUsefulData(parseUsefulDataFromInput("otos.txt"));
   }
 
   public static List<String> parseUsefulDataFromInput(String inputFile) {
@@ -19,8 +20,17 @@ public class Lotto {
         winnerNums.add(line.substring(line.lastIndexOf(("Ft")) + 3));
       }
     } catch (IOException e) {
-      winnerNums.add("Ooops something went wrong");
+      winnerNums.add("Ooops something went wrong, during the reading");
     }
     return winnerNums;
+  }
+
+  public static void makeTempFileWithUsefulData(List<String> goesToTemp) {
+    Path tempPath = Paths.get("temp.txt");
+    try{
+        Files.write(tempPath, goesToTemp);
+    } catch (IOException e) {
+      System.out.println("Oops something went wrong");
+    }
   }
 }
