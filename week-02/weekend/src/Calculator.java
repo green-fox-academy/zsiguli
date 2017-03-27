@@ -1,5 +1,3 @@
-import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
-
 import java.util.Scanner;
 
 /**
@@ -8,14 +6,9 @@ import java.util.Scanner;
 public class Calculator {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-
-    do {
-      System.out.println("Please type in the expression:");
-      System.out.println("The reslult is: " +
-              operation(scanner.next(), scanner.nextDouble(), scanner.nextDouble()));
-
-    } while (true);
-
+    System.out.println("Please type in the expression:");
+    System.out.println("The reslult is: " +
+            operation(scanner.next(), scanner.nextDouble(), scanner.nextDouble()));
   }
 
   public static double operation(String str, double num1, double num2) {
