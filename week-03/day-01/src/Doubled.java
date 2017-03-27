@@ -9,11 +9,12 @@ public class Doubled {
 
   public static void main(String[] args) {
     List<String> lines = loadFileToList();
-    System.out.println(lines);
+    String decodedText = duplicationRemover(lines);
+    System.out.println(decodedText.replaceAll("\\.", ". "));
   }
 
   public static List<String> loadFileToList() {
-    List<String> lines = new ArrayList<>();
+    List<String> lines;
     try {
       Path filePath = Paths.get(TXT_PATH);
       lines = Files.readAllLines(filePath);
@@ -22,5 +23,15 @@ public class Doubled {
       lines = new ArrayList<>();
     }
     return lines;
+  }
+
+  public static String duplicationRemover(List<String> lines) {
+    String decodedText = "";
+    for (String line : lines) {
+      for (int i = 0; i < line.length(); i += 2) {
+        decodedText += line.charAt(i);
+      }
+    }
+    return decodedText;
   }
 }
