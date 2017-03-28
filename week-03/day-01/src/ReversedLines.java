@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -9,8 +10,15 @@ public class ReversedLines {
 
   public static void main(String[] args) {
     List<String> lines = loadFileToList();
-    String reversedLines = lineReverser(lines);
-    System.out.println(reversedLines);
+    List<String> reversedLines = lineReverser(lines);
+    try {
+      Path filePath = Paths.get(TXT_PATH);
+      Files.write(filePath, reversedLines);
+
+    } catch (IOException e) {
+      System.out.println("oops@");
+    }
+
   }
 
   public static List<String> loadFileToList() {
@@ -25,11 +33,11 @@ public class ReversedLines {
     return lines;
   }
 
-  public static String lineReverser(List<String> lines) {
-    String reversedLines = "";
+  public static List<String> lineReverser(List<String> lines) {
+    List<String> reversedLines = new ArrayList<>();
     for (String line : lines) {
       StringBuilder lineB = new StringBuilder(line);
-      reversedLines += (lineB.reverse().toString() + "\n");
+      reversedLines.add(lineB.reverse().toString() + "\n");
     }
     return reversedLines;
   }
