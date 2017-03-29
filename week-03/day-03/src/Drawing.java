@@ -24,13 +24,13 @@ public class Drawing {
   }
 
   public static void mainDraw(Graphics g) {
-    for (int i = 0; i < 3; i++) {
-      extendedDrawer(g, 0 + i * 10, 0 + i * 10);
-    }
-  }
-
-  public static void extendedDrawer(Graphics g, int x, int y) {
     g.setColor(Color.GREEN);
-    g.drawLine(x,y,x + 50,y);
+    g.drawRect(145, 145,10, 10);
+
+    g.setColor(Color.RED);
+    g.drawLine(0, 150, 300, 150);
+
+    g.setColor(Color.RED);
+    g.drawLine(150, 0, 150, 300);
   }
 }
