@@ -24,10 +24,17 @@ public class Drawing {
   public static void mainDraw(Graphics g){
 
     g.setColor(Color.GREEN);
-    g.drawLine(150,0,150,300);
+    g.drawLine(10,10,250,10);
 
     g.setColor(Color.RED);
-    g.drawLine(0,150,300,150);
+    g.drawLine(250,10,250,250);
+
+    g.setColor(Color.BLUE);
+    g.drawLine(250,250,10,250);
+
+    g.setColor(Color.YELLOW);
+    g.drawLine(10,250,10,10);
+
 
   }
 }
