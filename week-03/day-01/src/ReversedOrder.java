@@ -11,7 +11,12 @@ public class ReversedOrder {
   public static void main(String[] args) {
     List<String> lines = cacheInputFileInAList();
     List<String> correctLines = lineReverser(lines);
-    System.out.println(correctLines);
+    Path path = Paths.get(TEXT_PATH);
+    try {
+      Files.write(path, correctLines);
+    } catch (IOException e) {
+      System.out.println("OOps it's wrong");
+    }
   }
 
   public static List<String> cacheInputFileInAList() {
