@@ -9,13 +9,19 @@ public class ReversedOrder {
   public static final String TEXT_PATH = "assets/reversed-order.txt";
 
   public static void main(String[] args) {
-    List<String> lines = new ArrayList<>();
+    List<String> lines = cacheInputFileInAList();
+    System.out.println(lines);
+  }
+
+  public static List<String> cacheInputFileInAList() {
+    List<String> lines;
     Path path = Paths.get(TEXT_PATH);
     try {
       lines = Files.readAllLines(path);
     } catch (IOException e) {
       System.out.println("oops something went wrong");
+      lines = new ArrayList<>();
     }
-    System.out.println(lines);
+    return lines;
   }
 }
