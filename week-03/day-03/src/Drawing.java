@@ -24,13 +24,16 @@ public class Drawing {
   }
 
   public static void mainDraw(Graphics g) {
+    g.setColor(Color.RED);
+    g.fillRect(0,0,10,10);
+
     g.setColor(Color.GREEN);
-    g.drawRect(145, 145,10, 10);
+    g.fillRect(50,30,30,30);
 
-    g.setColor(Color.RED);
-    g.drawLine(0, 150, 300, 150);
+    g.setColor(Color.BLUE);
+    g.fillRect(30,50,20,20);
 
-    g.setColor(Color.RED);
-    g.drawLine(150, 0, 150, 300);
+    g.setColor(Color.YELLOW);
+    g.fillRect(150,150,150,150);
   }
 }
