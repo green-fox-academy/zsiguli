@@ -24,11 +24,15 @@ public class Drawing {
   }
 
   public static void mainDraw(Graphics g) {
-    for (int i = 0; i <= 300; i += 10) {
+    for (int i = 0; i <= 150; i += 10) {
       g.setColor(Color.GREEN);
-      g.drawLine(0 + i , 0, 300, 0 + i);
+      g.drawLine(150 + i , 0, 300, 0 + i);
       g.setColor(Color.CYAN);
-      g.drawLine(0, 0 + i, 0 + i, 300);
+      g.drawLine(0, 150 + i, 0 + i, 300);
+      g.setColor(Color.BLUE);
+      g.drawLine(0, 0 + i, 150 - i, 0);
+      g.setColor(Color.MAGENTA);
+      g.drawLine(300, 300 - i, 150 + i, 300);
     }
   }
 }
