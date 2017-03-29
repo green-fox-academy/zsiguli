@@ -24,11 +24,14 @@ public class Drawing {
   }
 
   public static void mainDraw(Graphics g) {
-    g.setColor(Color.YELLOW);
-    int offset = 0;
-    for (int i = 0; i < 6; ++i) {
-      g.fillRect(offset, offset, i * 10, i * 10);
-      offset += i * 10;
+    g.setColor(Color.GREEN);
+    extendedDraw(g, 0, 0);
+  }
+
+  public static void extendedDraw(Graphics g, int x, int y) {
+    for (int i = 0; i <= 300; i += 20) {
+      g.drawLine(x + i, y, 300 - i, 300);
+      g.drawLine(x, y + i, 300, 300 - i);
     }
   }
 }
