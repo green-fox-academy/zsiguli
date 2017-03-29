@@ -11,14 +11,7 @@ public class ReversedLines {
   public static void main(String[] args) {
     List<String> lines = loadFileToList();
     List<String> reversedLines = lineReverser(lines);
-    try {
-      Path filePath = Paths.get(TXT_PATH);
-      Files.write(filePath, reversedLines);
-
-    } catch (IOException e) {
-      System.out.println("oops@");
-    }
-
+    corretLinesBackToFile(reversedLines);
   }
 
   public static List<String> loadFileToList() {
@@ -40,5 +33,14 @@ public class ReversedLines {
       reversedLines.add(lineB.reverse().toString() + "\n");
     }
     return reversedLines;
+  }
+
+  public static void corretLinesBackToFile(List<String> reversedLines) {
+    try {
+      Path filePath = Paths.get(TXT_PATH);
+      Files.write(filePath, reversedLines);
+    } catch (IOException e) {
+      System.out.println("oops@");
+    }
   }
 }
