@@ -25,12 +25,12 @@ public class Drawing {
 
   public static void mainDraw(Graphics g) {
     for (int i = 0; i < 3; i++) {
-      extendedDrawer(g, 0 + i * 10, 0 + i);
+      extendedDrawer(g, 0 + i * 10, 0 + i * 10);
     }
   }
 
   public static void extendedDrawer(Graphics g, int x, int y) {
     g.setColor(Color.GREEN);
-    g.drawLine(x,y,150,150);
+    g.drawLine(x,y,x + 50,y);
   }
 }
