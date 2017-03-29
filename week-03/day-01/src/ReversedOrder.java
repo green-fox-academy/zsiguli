@@ -10,7 +10,12 @@ public class ReversedOrder {
 
   public static void main(String[] args) {
     List<String> lines = cacheInputFileInAList();
-    System.out.println(lines);
+    List<String> correctLines = new ArrayList<>();
+    for (String line : lines) {
+      StringBuilder reverser = new StringBuilder(line);
+      correctLines.add(0, reverser.toString());
+    }
+    System.out.println(correctLines);
   }
 
   public static List<String> cacheInputFileInAList() {
