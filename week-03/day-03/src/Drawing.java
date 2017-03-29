@@ -24,13 +24,19 @@ public class Drawing {
   }
 
   public static void mainDraw(Graphics g) {
-    for (int i = 0; i < 3; i++) {
-      rectDrawer(g, 20 + i * 80, 20 + i * 100, 50);
+    for (int i = 0; i < 3; ++i) {
+      rectDrawer(g, 300 - (i * 100), i);
     }
   }
 
-  public static void rectDrawer(Graphics g, int x, int y, int size) {
-    g.setColor(Color.RED);
-    g.fillRect(x, y, size, size);
+  public static void rectDrawer(Graphics g, int size, int i) {
+    switch (i) {
+      case 0: g.setColor(Color.RED);
+       break;
+      case 1: g.setColor(Color.GREEN);
+       break;
+      case 2: g.setColor(Color.BLUE);
+    }
+    g.fillRect(150 - size / 2, 150 - size / 2, size, size);
   }
 }
