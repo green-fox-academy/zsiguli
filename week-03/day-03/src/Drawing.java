@@ -19,14 +19,18 @@ public class Drawing {
     @Override
     protected void paintComponent(Graphics g) {
       super.paintComponent(g);
-        mainDraw(g, 0, 0);
+        mainDraw(g);
     }
   }
 
-  public static void mainDraw(Graphics g, int x, int y) {
+  public static void mainDraw(Graphics g) {
     for (int i = 0; i < 3; i++) {
-      g.setColor(Color.GREEN);
-      g.drawLine(x + 10 * i,y + i,150,150);
+      extendedDrawer(g, 0 + i * 10, 0 + i);
     }
+  }
+
+  public static void extendedDrawer(Graphics g, int x, int y) {
+    g.setColor(Color.GREEN);
+    g.drawLine(x,y,150,150);
   }
 }
