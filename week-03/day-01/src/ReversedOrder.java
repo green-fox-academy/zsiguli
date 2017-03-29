@@ -10,11 +10,7 @@ public class ReversedOrder {
 
   public static void main(String[] args) {
     List<String> lines = cacheInputFileInAList();
-    List<String> correctLines = new ArrayList<>();
-    for (String line : lines) {
-      StringBuilder reverser = new StringBuilder(line);
-      correctLines.add(0, reverser.toString());
-    }
+    List<String> correctLines = lineReverser(lines);
     System.out.println(correctLines);
   }
 
@@ -28,5 +24,13 @@ public class ReversedOrder {
       lines = new ArrayList<>();
     }
     return lines;
+  }
+
+  public static List<String> lineReverser(List<String> lines) {
+    List<String> correctLines = new ArrayList<>();
+    for (String line : lines) {
+      correctLines.add(0, line);
+    }
+    return correctLines;
   }
 }
