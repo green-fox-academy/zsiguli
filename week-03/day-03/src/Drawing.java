@@ -24,21 +24,11 @@ public class Drawing {
   }
 
   public static void mainDraw(Graphics g) {
-    int numberOfSquaresPerLine = 8;
-    int size = 300 / numberOfSquaresPerLine;
-    int switcher = 2;
-    for (int i = 0; i < numberOfSquaresPerLine; ++i) {
-      for (int j = 0; j < numberOfSquaresPerLine; ++j) {
-        if (switcher % 2 == 0) {
-          g.setColor(Color.BLUE);
-        }
-        else {
-          g.setColor(Color.YELLOW);
-        }
-        g.fillRect(j * size, i * size, size, size);
-        ++switcher;
-      }
-      ++switcher;
+    g.setColor(Color.YELLOW);
+    int offset = 0;
+    for (int i = 0; i < 6; ++i) {
+      g.fillRect(offset, offset, i * 10, i * 10);
+      offset += i * 10;
     }
   }
 }
