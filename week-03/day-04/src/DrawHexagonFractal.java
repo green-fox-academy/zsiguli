@@ -4,9 +4,9 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class DrawHexagonFractal {
   final static int DIMENSION = 500;
-  final static int MAXFINALDIMENSION = 1;
-  final static int XCORD = 0;
-  final static int YCORD = 0;
+  final static int XCORD = 250;
+  final static int YCORD = 250;
+  final static int SIZE = 250;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
@@ -21,17 +21,28 @@ public class DrawHexagonFractal {
     @Override
     protected void paintComponent(Graphics g) {
       super.paintComponent(g);
-      mainDraw(g);
       this.setBackground(Color.WHITE);
+      mainDraw(g, XCORD, YCORD, SIZE);
     }
   }
 
-  public static void mainDraw(Graphics g) {
-    extendedDrawer(g, XCORD, YCORD, DIMENSION);
-  }
-
-  public static void extendedDrawer(Graphics g, int x, int y, int dim) {
-
+  public static void mainDraw(Graphics g, int x, int y, int dim) {
+    if (dim < 10) {
+      return;
+    }
+    else {
+      Polygon hexagon = new Polygon();
+      double a;
+      for (int i=0; i < 7; i++) {
+        a = Math.PI / 3.0 * i;
+        hexagon.addPoint((int)(Math.round(x + Math.sin(a) * dim)), (int)(Math.round(y + Math.cos(a) * dim)));
+      }
+      g.drawPolygon(hexagon);
+      dim = dim / 2;
+      mainDraw(g, x, y - dim, dim);
+      mainDraw(g, x - (int)(dim * 0.866), y + (int)(dim * 0.5), dim);
+      mainDraw(g, x + (int)(dim * 0.866), y + (int)(dim * 0.5), dim);
+    }
   }
 }
 
