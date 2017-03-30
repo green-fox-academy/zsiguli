@@ -40,8 +40,8 @@ public class DrawHexagonFractal {
       g.drawPolygon(hexagon);
       dim = dim / 2;
       mainDraw(g, x, y - dim, dim);
-      mainDraw(g, x - (int)(dim * 0.866), y + (int)(dim * 0.5), dim);
-      mainDraw(g, x + (int)(dim * 0.866), y + (int)(dim * 0.5), dim);
+      mainDraw(g, x - (int)(dim * Math.sin(Math.PI / 3)), y + (int)(dim * Math.sin(Math.PI / 6)), dim);
+      mainDraw(g, x + (int)(dim * Math.sin(Math.PI / 3)), y + (int)(dim * Math.sin(Math.PI / 6)), dim);
     }
   }
 }
