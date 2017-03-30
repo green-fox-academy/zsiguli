@@ -4,6 +4,8 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class FirstDraw {
   final static int DIMENSION = 500;
+  final static int XCORD = 0;
+  final static int YCORD = 0;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
@@ -24,7 +26,7 @@ public class FirstDraw {
   }
 
   public static void mainDraw(Graphics g) {
-    extendedDrawer(g, 0, 0, DIMENSION);
+    extendedDrawer(g, XCORD, YCORD, DIMENSION);
   }
 
   public static void extendedDrawer(Graphics g, int x, int y, int dim) {
