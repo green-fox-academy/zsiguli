@@ -4,6 +4,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class FirstDraw {
   final static int DIMENSION = 500;
+  final static int MAXFINALDIMENSION = 1;
   final static int XCORD = 0;
   final static int YCORD = 0;
 
@@ -30,15 +31,12 @@ public class FirstDraw {
   }
 
   public static void extendedDrawer(Graphics g, int x, int y, int dim) {
-    if (dim < 10) {
+    if (dim <= MAXFINALDIMENSION) {
       return;
     }
     else {
+      g.drawRect(x, y, dim, dim);
       dim = dim / 3;
-      g.drawRect(x + dim, y, dim, dim);
-      g.drawRect(x, y + dim, dim, dim);
-      g.drawRect(x + 2 * dim, y + dim, dim, dim);
-      g.drawRect(x + dim, y + 2 * dim, dim, dim);
       extendedDrawer(g, x + dim, y, dim);
       extendedDrawer(g, x, y + dim, dim);
       extendedDrawer(g, x + 2 * dim, y + dim, dim);
