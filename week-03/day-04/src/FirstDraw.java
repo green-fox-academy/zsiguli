@@ -17,13 +17,29 @@ public class FirstDraw {
     protected void paintComponent(Graphics g) {
       super.paintComponent(g);
       mainDraw(g);
-
+      this.setBackground(Color.YELLOW);
     }
   }
 
   public static void mainDraw(Graphics g) {
-    g.setColor(Color.CYAN);
-    g.drawLine(20, 20, 300,150);
+    extendedDrawer(g, 0, 0, 300);
+  }
+
+  public static void extendedDrawer(Graphics g, int x, int y, int dim) {
+    if (dim < 10) {
+      return;
+    }
+    else {
+      g.drawRect(x + dim / 3, y, dim / 3, dim / 3);
+      g.drawRect(x, y + dim / 3, dim / 3, dim / 3);
+      g.drawRect(x + 2 * dim / 3, y + dim / 3, dim / 3, dim / 3);
+      g.drawRect(x + dim / 3, y + 2 * dim / 3, dim / 3, dim / 3);
+      extendedDrawer(g, x + dim / 3, y, dim / 3);
+      extendedDrawer(g, x, y + dim / 3, dim / 3);
+      extendedDrawer(g, x + 2 * dim / 3, y + dim / 3, dim / 3);
+      extendedDrawer(g, x + dim / 3, y + 2 * dim / 3, dim / 3);
+
+    }
   }
 }
 
