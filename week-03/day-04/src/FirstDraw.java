@@ -3,9 +3,11 @@ import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class FirstDraw {
+  final static int DIMENSION = 500;
+
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
-    jFrame.setSize(new Dimension(300, 300));
+    jFrame.setSize(new Dimension(DIMENSION, DIMENSION));
     jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     jFrame.add(new ImagePanel());
     jFrame.setLocationRelativeTo(null);
@@ -22,7 +24,7 @@ public class FirstDraw {
   }
 
   public static void mainDraw(Graphics g) {
-    extendedDrawer(g, 0, 0, 300);
+    extendedDrawer(g, 0, 0, DIMENSION);
   }
 
   public static void extendedDrawer(Graphics g, int x, int y, int dim) {
@@ -30,15 +32,15 @@ public class FirstDraw {
       return;
     }
     else {
-      g.drawRect(x + dim / 3, y, dim / 3, dim / 3);
-      g.drawRect(x, y + dim / 3, dim / 3, dim / 3);
-      g.drawRect(x + 2 * dim / 3, y + dim / 3, dim / 3, dim / 3);
-      g.drawRect(x + dim / 3, y + 2 * dim / 3, dim / 3, dim / 3);
-      extendedDrawer(g, x + dim / 3, y, dim / 3);
-      extendedDrawer(g, x, y + dim / 3, dim / 3);
-      extendedDrawer(g, x + 2 * dim / 3, y + dim / 3, dim / 3);
-      extendedDrawer(g, x + dim / 3, y + 2 * dim / 3, dim / 3);
-
+      dim = dim / 3;
+      g.drawRect(x + dim, y, dim, dim);
+      g.drawRect(x, y + dim, dim, dim);
+      g.drawRect(x + 2 * dim, y + dim, dim, dim);
+      g.drawRect(x + dim, y + 2 * dim, dim, dim);
+      extendedDrawer(g, x + dim, y, dim);
+      extendedDrawer(g, x, y + dim, dim);
+      extendedDrawer(g, x + 2 * dim, y + dim, dim);
+      extendedDrawer(g, x + dim, y + 2 * dim, dim);
     }
   }
 }
