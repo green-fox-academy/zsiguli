@@ -5,7 +5,7 @@ import static java.awt.image.ImageObserver.FRAMEBITS;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class SierpinskyKarpet {
-  final static int FRAMEDIMENSION = 300;
+  final static int FRAMEDIMENSION = 800;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
@@ -22,17 +22,24 @@ public class SierpinskyKarpet {
       super.paintComponent(g);
       this.setBackground(Color.WHITE);
       g.setColor(Color.BLACK);
-      mainDraw(g, FRAMEDIMENSION / 3, FRAMEDIMENSION / 3, FRAMEDIMENSION / 3);
+      mainDraw(g, FRAMEDIMENSION / 2, FRAMEDIMENSION / 2, FRAMEDIMENSION / 3);
     }
   }
 
   public static void mainDraw(Graphics g, int x, int y, int dim){
-    if (dim < 10) {
+    if (dim < 1) {
       return;
     }
     else {
-      g.fillRect(x, y, dim, dim);
-      mainDraw(g, x + dim, y, dim / 3);
+      g.fillRect(x - dim / 2, y - dim / 2, dim, dim);
+      mainDraw(g,x - dim, y, dim / 3);
+      mainDraw(g,x + dim, y, dim / 3);
+      mainDraw(g,x, y - dim, dim / 3);
+      mainDraw(g,x, y + dim, dim / 3);
+      mainDraw(g,x - dim, y - dim, dim / 3);
+      mainDraw(g,x + dim, y + dim, dim / 3);
+      mainDraw(g,x - dim, y + dim, dim / 3);
+      mainDraw(g,x + dim, y - dim, dim / 3);
     }
   }
 }
