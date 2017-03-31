@@ -1,11 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
-
-import static java.awt.image.ImageObserver.FRAMEBITS;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class SierpinskyKarpet {
-  final static int FRAMEDIMENSION = 800;
+  final static int FRAMEDIMENSION = 500;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
@@ -29,12 +27,11 @@ public class SierpinskyKarpet {
   public static void mainDraw(Graphics g, int x, int y, int dim) {
     if (dim < 5) {
       return;
-    }
-    else {
+    } else {
       g.fillRect(x - dim / 2, y - dim / 2, dim, dim);
       for (double i = 0; i <= Math.PI; i += Math.PI / 2) {
         for (double j = Math.PI; j <= 2 * Math.PI; j += Math.PI / 2) {
-          mainDraw(g, x + (int)(Math.cos(i)) * dim, y + (int)(Math.cos(j)) * dim, dim / 3);
+          mainDraw(g, x + (int) (Math.cos(i)) * dim, y + (int) (Math.cos(j)) * dim, dim / 3);
         }
       }
     }
