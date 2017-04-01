@@ -3,7 +3,7 @@ import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class SierpinskyKarpet {
-  final static int FRAMEDIMENSION = 500;
+  final static int FRAMEDIMENSION = 700;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
@@ -29,11 +29,13 @@ public class SierpinskyKarpet {
       return;
     } else {
       g.fillRect(x - dim / 2, y - dim / 2, dim, dim);
-      for (double i = 0; i <= Math.PI; i += Math.PI / 2) {
-        for (double j = Math.PI; j <= 2 * Math.PI; j += Math.PI / 2) {
-          mainDraw(g, x + (int) (Math.cos(i)) * dim, y + (int) (Math.cos(j)) * dim, dim / 3);
+      for (int i = -1; i <= 1; ++i) {
+        for (int j = -1; j <= 1; ++j) {
+          mainDraw(g, x + i * dim, y + j * dim, dim / 3);
         }
       }
     }
   }
 }
+
+
