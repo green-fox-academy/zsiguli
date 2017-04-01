@@ -31,7 +31,11 @@ public class SierpinskyKarpet {
       g.fillRect(x - dim / 2, y - dim / 2, dim, dim);
       for (int i = -1; i <= 1; ++i) {
         for (int j = -1; j <= 1; ++j) {
-          mainDraw(g, x + i * dim, y + j * dim, dim / 3);
+          if (i == 0 && j == 0) {
+            continue;
+          } else {
+            mainDraw(g, x + i * dim, y + j * dim, dim / 3);
+          }
         }
       }
     }
