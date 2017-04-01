@@ -30,20 +30,20 @@ public class Tree {
     if (len < 5) {
       return;
     } else {
-      g.drawLine(x, y, x + cosComponent(angle, len), y - sinComponent(angle, len));
-      x =  x + cosComponent(angle, len);
-      y = y - sinComponent(angle, len);
-      for (int i = -30; i <= 30; i += 30) {
-        mainDraw(g, x, y, (int)(len * .72), angle + i);
+      g.drawLine(x, y, x + xComponent(angle, len), y - yComponent(angle, len));
+      x = x + xComponent(angle, len);
+      y = y - yComponent(angle, len);
+      for (int i = -20; i <= 20; i += 20) {
+        mainDraw(g, x, y, (int) (len * .72), angle + i);
       }
     }
   }
 
-  public static int cosComponent(int angle, int len) {
+  public static int xComponent(int angle, int len) {
     return (int) (Math.cos(Math.toRadians(angle)) * len);
   }
 
-  public static int sinComponent(int angle, int len) {
+  public static int yComponent(int angle, int len) {
     return (int) (Math.sin(Math.toRadians(angle)) * len);
   }
 }
