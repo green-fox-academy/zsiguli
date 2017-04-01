@@ -1,14 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Tree {
-  final static int FRAMEDIMENSION = 500;
-  final static int INITIALLENGTH = 100;
+  final static int FRAME_DIMENSION = 500;
+  final static int INITIAL_LENGTH = 80;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
-    jFrame.setSize(new Dimension(FRAMEDIMENSION, FRAMEDIMENSION));
+    jFrame.setSize(new Dimension(FRAME_DIMENSION, FRAME_DIMENSION));
     jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     jFrame.add(new ImagePanel());
     jFrame.setLocationRelativeTo(null);
@@ -21,22 +22,20 @@ public class Tree {
       super.paintComponent(g);
       this.setBackground(new Color(003442));
       g.setColor(Color.YELLOW);
-      mainDraw(g, FRAMEDIMENSION / 2, (int)(FRAMEDIMENSION * .8), INITIALLENGTH, Math.PI / 2);
+      mainDraw(g, FRAME_DIMENSION / 2, (int) (FRAME_DIMENSION * .8), INITIAL_LENGTH, 90);
     }
   }
 
-  public static void mainDraw(Graphics g, int x, int y, int len, double angle) {
+  public static void mainDraw(Graphics g, int x, int y, int len, int angle) {
     if (len < 5) {
       return;
     } else {
-//      System.out.println("x: " + (int)(Math.cos(angle)) * len + " y: " + (int)(Math.sin(angle)) * len);
-      g.drawLine(x, y, x + (int)((Math.cos(angle)) * len), y - (int)((Math.sin(angle)) * len));
-
-      mainDraw(g, x + (int)(Math.cos(angle)) * len, y - len * (int)(Math.sin(angle)), (int)(len * .8), Math.PI / 3 );
-      mainDraw(g, x + (int)(Math.cos(angle)) * len, y - len * (int)(Math.sin(angle)), (int)(len * .8), Math.PI / 2 );
-      mainDraw(g, x + (int)(Math.cos(angle)) * len, y - len * (int)(Math.sin(angle)), (int)(len * .8), 2 * Math.PI / 3 );
-//      g.setColor(Color.RED);
-//      mainDraw(g, x - 5, y - 5, (int)(len * .9));
+      g.drawLine(x, y, x + (int) (Math.cos(Math.toRadians(angle)) * len), y - (int) (Math.sin(Math.toRadians(angle)) * len));
+      x =  x + (int) (Math.cos(Math.toRadians(angle)) * len);
+      y = y - (int) (Math.sin(Math.toRadians(angle)) * len);
+      mainDraw(g, x, y, (int)(len * .72), angle + 30);
+      mainDraw(g, x, y, (int)(len * .72), angle);
+      mainDraw(g, x, y, (int)(len * .72), angle - 30);
     }
   }
 }
