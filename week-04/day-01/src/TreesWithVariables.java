@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TreesWithVariables {
-  static List<String> Types = new ArrayList<>();
-  static List<String> LeafColors = new ArrayList<>();
-  static List<Long> Ages = new ArrayList<>();
-  static List<String> Sexes = new ArrayList<>();
+  static List<String> types = new ArrayList<>();
+  static List<String> leafColors = new ArrayList<>();
+  static List<Long> ages = new ArrayList<>();
+  static List<String> sexes = new ArrayList<>();
 
   public static void main(String[] args) {
     newTree("A", "red", 15, "male");
@@ -17,17 +17,17 @@ public class TreesWithVariables {
   }
 
   public static void newTree(String type, String leafColor, long age, String sex) {
-    Types.add(type);
-    LeafColors.add(leafColor);
-    Ages.add(new Long(age));
-    Sexes.add(sex);
+    types.add(type);
+    leafColors.add(leafColor);
+    ages.add(new Long(age));
+    sexes.add(sex);
   }
 
   public static void printTreeData(String type) {
-    int index = Types.indexOf(type);
-    System.out.println("Type: " + Types.get(index) + "\n" +
-            "Leaf color: " + LeafColors.get(index) + "\n" +
-            "Age: " + Ages.get(index) + "\n" +
-            "Sex: " + Sexes.get(index));
+    int index = types.indexOf(type);
+    System.out.println("Type: " + types.get(index) + "\n" +
+            "Leaf color: " + leafColors.get(index) + "\n" +
+            "Age: " + ages.get(index) + "\n" +
+            "Sex: " + sexes.get(index));
   }
 }
