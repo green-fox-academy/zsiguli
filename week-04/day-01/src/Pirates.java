@@ -75,6 +75,27 @@ public class Pirates {
     pirate.alive = false;
   }
 
+  public static void brawl(Pirates pir1, Pirates pir2) {
+    if (pir1.alive && pir2.alive) {
+      int winner = (int) (Math.random() * 4);
+      System.out.println(winner);
+      switch (winner) {
+        case 0:
+          pir1.rumCounter = 0;
+          pir2.rumCounter = 0;
+          break;
+        case 1:
+          die(pir2);
+          break;
+        case 2:
+          die(pir1);
+          break;
+      }
+    } else {
+      System.out.println("oops someone is dead");
+    }
+  }
+
   public static void main(String[] args) {
     Pirates pirate1 = new Pirates("Joe");
     Pirates pirate2 = new Pirates();
@@ -85,6 +106,7 @@ public class Pirates {
     drinkSomeRum(pirate2, 6);
     System.out.println(pirate1.name + " " + pirate1.id + " " + pirate1.rumCounter + " " + pirate1.alive);
     System.out.println(pirate2.name + " " + pirate2.id + " " + pirate2.rumCounter + " " + pirate2.alive);
+    brawl(pirate1, pirate2);
     howsItGoingMate(pirate1);
     System.out.println(pirate1.name + " " + pirate1.id + " " + pirate1.rumCounter + " " + pirate1.alive);
     howsItGoingMate(pirate2);
