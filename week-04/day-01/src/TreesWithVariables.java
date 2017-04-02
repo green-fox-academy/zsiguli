@@ -19,7 +19,7 @@ public class TreesWithVariables {
   public static void newTree(String type, String leafColor, long age, String sex) {
     types.add(type);
     leafColors.add(leafColor);
-    ages.add(new Long(age));
+    ages.add(age);
     sexes.add(sex);
   }
 
