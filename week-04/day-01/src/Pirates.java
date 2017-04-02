@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pirates {
   static int birthCounter;
+  static List<Pirates> alreadyBornPirates = new ArrayList<>();
 
   String name;
   int rumCounter;
@@ -11,6 +15,7 @@ public class Pirates {
 
     this.name = name;
 
+    alreadyBornPirates.add(this);
     birthCounter++;
   }
 
@@ -20,6 +25,7 @@ public class Pirates {
 
     this.name = "Jack";
 
+    alreadyBornPirates.add(this);
     birthCounter++;
   }
 
@@ -31,11 +37,18 @@ public class Pirates {
     pirate.rumCounter++;
   }
 
+  public static void drinkSomeRum() {
+    for (Pirates pirate : alreadyBornPirates) {
+      pirate.rumCounter++;
+    }
+  }
+
   public static void main(String[] args) {
     Pirates pirate1 = new Pirates("Joe");
     Pirates pirate2 = new Pirates();
+    drinkSomeRum();
     drinkSomeRum(pirate1);
-    drinkSomeRum(pirate2, 9);
+    drinkSomeRum(pirate2, 6);
     System.out.println(pirate1.name +  " " + pirate1.id + " " + pirate1.rumCounter);
     System.out.println(pirate2.name +  " " + pirate2.id + " " + pirate2.rumCounter);
   }
