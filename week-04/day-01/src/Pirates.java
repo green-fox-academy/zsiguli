@@ -71,8 +71,8 @@ public class Pirates {
     }
   }
 
-  public static void die(Pirates pirate) {
-    pirate.alive = false;
+  public void die() {
+    alive = false;
   }
 
   public static void brawl(Pirates pir1, Pirates pir2) {
@@ -85,10 +85,10 @@ public class Pirates {
           pir2.rumCounter = 0;
           break;
         case 1:
-          die(pir2);
+          pir2.die();
           break;
         case 2:
-          die(pir1);
+          pir1.die();
           break;
       }
     } else {
@@ -99,8 +99,8 @@ public class Pirates {
   public static void main(String[] args) {
     Pirates pirate1 = new Pirates("Joe");
     Pirates pirate2 = new Pirates();
-    die(pirate2);
-    die(pirate1);
+    pirate2.die();
+    pirate1.die();
     everyOneDrinksARum();
     pirate1.drinkOneRum();
     pirate2.drinkMoreRum(8);
