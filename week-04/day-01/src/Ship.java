@@ -13,4 +13,16 @@ public class Ship {
       crewList.add(new Pirates());
     }
   }
+
+  public void stateOfShip() {
+    List<Pirates> stillAlive = new ArrayList<>();
+    for (Pirates pirate : crewList) {
+      if (pirate.alive) {
+        stillAlive.add(pirate);
+      }
+    }
+    System.out.println("rum consumed by the captain: " + captain.rumCounter + "\n" +
+            "original crew number: " + crewList.size() + "\n" +
+            "still alive: " + stillAlive.size());
+  }
 }
