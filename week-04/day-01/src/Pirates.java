@@ -75,20 +75,20 @@ public class Pirates {
     alive = false;
   }
 
-  public static void brawl(Pirates pir1, Pirates pir2) {
-    if (pir1.alive && pir2.alive) {
-      int winner = (int) (Math.random() * 4);
+  public void brawl(Pirates opponent) {
+    if (alive && opponent.alive) {
+      int winner = (int) (Math.random() * 3);
       System.out.println(winner);
       switch (winner) {
         case 0:
-          pir1.rumCounter = 0;
-          pir2.rumCounter = 0;
+          rumCounter = 0;
+          opponent.rumCounter = 0;
           break;
         case 1:
-          pir2.die();
+          opponent.die();
           break;
         case 2:
-          pir1.die();
+          die();
           break;
       }
     } else {
@@ -104,9 +104,9 @@ public class Pirates {
     everyOneDrinksARum();
     pirate1.drinkOneRum();
     pirate2.drinkMoreRum(8);
+    pirate1.brawl(pirate2);
     System.out.println(pirate1.name + " " + pirate1.id + " " + pirate1.rumCounter + " " + pirate1.alive);
     System.out.println(pirate2.name + " " + pirate2.id + " " + pirate2.rumCounter + " " + pirate2.alive);
-    brawl(pirate1, pirate2);
     pirate1.howsItGoingMate();
     System.out.println(pirate1.name + " " + pirate1.id + " " + pirate1.rumCounter + " " + pirate1.alive);
     pirate2.howsItGoingMate();
