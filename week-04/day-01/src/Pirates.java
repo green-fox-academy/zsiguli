@@ -32,23 +32,23 @@ public class Pirates {
     birthCounter++;
   }
 
-  public static void drinkSomeRum(Pirates pirate, int rum) {
-    if (pirate.alive) {
-      pirate.rumCounter = pirate.rumCounter + rum;
+  public void drinkMoreRum(int rum) {
+    if (alive) {
+      rumCounter = rumCounter + rum;
     } else {
       System.out.println("he's dead");
     }
   }
 
-  public static void drinkSomeRum(Pirates pirate) {
-    if (pirate.alive) {
-      pirate.rumCounter++;
+  public void drinkOneRum() {
+    if (alive) {
+      rumCounter++;
     } else {
       System.out.println("he's dead");
     }
   }
 
-  public static void drinkSomeRum() {
+  public static void everyOneDrinksARum() {
     for (Pirates pirate : alreadyBornPirates) {
       if (pirate.alive) {
         pirate.rumCounter++;
@@ -101,9 +101,9 @@ public class Pirates {
     Pirates pirate2 = new Pirates();
     die(pirate2);
     die(pirate1);
-    drinkSomeRum();
-    drinkSomeRum(pirate1);
-    drinkSomeRum(pirate2, 6);
+    everyOneDrinksARum();
+    pirate1.drinkOneRum();
+    pirate2.drinkMoreRum(8);
     System.out.println(pirate1.name + " " + pirate1.id + " " + pirate1.rumCounter + " " + pirate1.alive);
     System.out.println(pirate2.name + " " + pirate2.id + " " + pirate2.rumCounter + " " + pirate2.alive);
     brawl(pirate1, pirate2);
