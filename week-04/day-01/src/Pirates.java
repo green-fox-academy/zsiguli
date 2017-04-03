@@ -99,6 +99,8 @@ public class Pirates {
   public static void main(String[] args) {
     Pirates pirate1 = new Pirates("Joe");
     Pirates pirate2 = new Pirates();
+    Parrot parrot = new Parrot("Cecil", "blue");
+    System.out.println(parrot.name + " " + parrot.color);
     pirate2.die();
     pirate1.die();
     everyOneDrinksARum();
