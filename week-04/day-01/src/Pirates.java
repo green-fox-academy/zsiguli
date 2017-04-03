@@ -95,23 +95,4 @@ public class Pirates {
       System.out.println("oops someone is dead");
     }
   }
-
-  public static void main(String[] args) {
-    Pirates pirate1 = new Pirates("Joe");
-    Pirates pirate2 = new Pirates();
-    Parrot parrot = new Parrot("Cecil", "blue");
-    System.out.println(parrot.name + " " + parrot.color);
-    pirate2.die();
-    pirate1.die();
-    everyOneDrinksARum();
-    pirate1.drinkOneRum();
-    pirate2.drinkMoreRum(8);
-    pirate1.brawl(pirate2);
-    System.out.println(pirate1.name + " " + pirate1.id + " " + pirate1.rumCounter + " " + pirate1.alive);
-    System.out.println(pirate2.name + " " + pirate2.id + " " + pirate2.rumCounter + " " + pirate2.alive);
-    pirate1.howsItGoingMate();
-    System.out.println(pirate1.name + " " + pirate1.id + " " + pirate1.rumCounter + " " + pirate1.alive);
-    pirate2.howsItGoingMate();
-    System.out.println(pirate2.name + " " + pirate2.id + " " + pirate2.rumCounter + " " + pirate2.alive);
-  }
 }
