@@ -27,6 +27,12 @@ public class Ship {
   }
 
   public boolean battle(Ship otherShip) {
+    System.out.println("Before the battle:\n");
+    System.out.println("First ship:");
+    stateOfShip();
+    System.out.println("Second ship:");
+    otherShip.stateOfShip();
+
     List<Pirates> stillAlive = new ArrayList<>();
     List<Pirates> stillAliveEnemies = new ArrayList<>();
 
@@ -53,6 +59,11 @@ public class Ship {
       for (int i = 0; i < (int) (Math.random() * stillAliveEnemies.size()); ++i) {
         stillAliveEnemies.get(i).alive = false;
       }
+      System.out.println("After the battle:\n");
+      System.out.println("First ship:");
+      stateOfShip();
+      System.out.println("Second ship:");
+      otherShip.stateOfShip();
       return true;
     } else {
       otherShip.captain.drinkMoreRum(2 * rumParty);
@@ -62,6 +73,11 @@ public class Ship {
       for (int i = 0; i < (int) (Math.random() * stillAlive.size()); ++i) {
         stillAlive.get(i).alive = false;
       }
+      System.out.println("After the battle:\n");
+      System.out.println("First ship:");
+      stateOfShip();
+      System.out.println("Second ship:");
+      otherShip.stateOfShip();
       return false;
     }
   }
