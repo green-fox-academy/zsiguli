@@ -58,13 +58,13 @@ public class Pirates {
     }
   }
 
-  public static void howsItGoingMate(Pirates pirate) {
-    if (pirate.alive) {
-      if (pirate.rumCounter < 5) {
+  public void howsItGoingMate() {
+    if (alive) {
+      if (rumCounter < 5) {
         System.out.println("Pour me anudder!");
       } else {
         System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
-        pirate.rumCounter = 0;
+        rumCounter = 0;
       }
     } else {
       System.out.println("he's dead");
@@ -107,9 +107,9 @@ public class Pirates {
     System.out.println(pirate1.name + " " + pirate1.id + " " + pirate1.rumCounter + " " + pirate1.alive);
     System.out.println(pirate2.name + " " + pirate2.id + " " + pirate2.rumCounter + " " + pirate2.alive);
     brawl(pirate1, pirate2);
-    howsItGoingMate(pirate1);
+    pirate1.howsItGoingMate();
     System.out.println(pirate1.name + " " + pirate1.id + " " + pirate1.rumCounter + " " + pirate1.alive);
-    howsItGoingMate(pirate2);
+    pirate2.howsItGoingMate();
     System.out.println(pirate2.name + " " + pirate2.id + " " + pirate2.rumCounter + " " + pirate2.alive);
   }
 }
