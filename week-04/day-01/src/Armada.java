@@ -12,4 +12,9 @@ public class Armada {
       ships.add(ship);
     }
   }
+
+  public void war(Armada enemyArmada) {
+    ships.get(0).battle(enemyArmada.ships.get(0));
+  }
 }
+
