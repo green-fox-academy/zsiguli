@@ -7,7 +7,9 @@ public class Armada {
   public void fillArmada() {
     int shipNumber = (int) (Math.random() * 20);
     for (int i = 0; i < shipNumber; ++i) {
-      ships.add(new Ship());
+      Ship ship = new Ship();
+      ship.fillShip();
+      ships.add(ship);
     }
   }
 }
