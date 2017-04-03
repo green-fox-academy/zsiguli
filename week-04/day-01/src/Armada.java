@@ -13,8 +13,29 @@ public class Armada {
     }
   }
 
-  public void war(Armada enemyArmada) {
-    ships.get(0).battle(enemyArmada.ships.get(0));
+  public boolean war(Armada enemyArmada) {
+    int i = 0;
+    int j = 0;
+    Ship ship1;
+    Ship ship2;
+    while (true) {
+      try {
+        ship1 = ships.get(i);
+      } catch (IndexOutOfBoundsException e) {
+        return false;
+      }
+      try {
+        ship2 = enemyArmada.ships.get(j);
+      } catch (IndexOutOfBoundsException e) {
+        return true;
+      }
+
+      if (ship1.battle(ship2)) {
+        ++j;
+      } else {
+        ++i;
+      }
+    }
   }
 }
 
