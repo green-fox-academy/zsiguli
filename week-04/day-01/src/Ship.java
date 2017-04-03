@@ -23,10 +23,10 @@ public class Ship {
     }
     System.out.println("rum consumed by the captain: " + captain.rumCounter + "\n" +
             "original crew number: " + originalCrewList.size() + "\n" +
-            "still alive: " + stillAlive.size());
+            "still alive: " + stillAlive.size() + "\n");
   }
 
-  public void battle(Ship otherShip) {
+  public boolean battle(Ship otherShip) {
     List<Pirates> stillAlive = new ArrayList<>();
     List<Pirates> stillAliveEnemies = new ArrayList<>();
 
@@ -53,7 +53,7 @@ public class Ship {
       for (int i = 0; i < (int) (Math.random() * stillAliveEnemies.size()); ++i) {
         stillAliveEnemies.get(i).alive = false;
       }
-      System.out.println(true);
+      return true;
     } else {
       otherShip.captain.drinkMoreRum(2 * rumParty);
       for (Pirates pirate : stillAliveEnemies) {
@@ -62,6 +62,7 @@ public class Ship {
       for (int i = 0; i < (int) (Math.random() * stillAlive.size()); ++i) {
         stillAlive.get(i).alive = false;
       }
+      return false;
     }
   }
 }
