@@ -55,10 +55,16 @@ public class Garden {
   public String waterState() {
     String waterState = new String();
     for (Plant plant : plants) {
-      if (isThirsty(plant)) {
-        waterState += "The " + plant.getColor() + " Tree needs water \n";
+      String plantType;
+      if (isTree(plant)) {
+        plantType = " Tree";
       } else {
-        waterState += "The " + plant.getColor() + " Tree doesn't needs water \n";
+        plantType = " Flower";
+      }
+      if (isThirsty(plant)) {
+        waterState += "The " + plant.getColor() + plantType + " needs water \n";
+      } else {
+        waterState += "The " + plant.getColor() + plantType + " doesn't needs water \n";
       }
     }
     return waterState;
