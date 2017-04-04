@@ -19,4 +19,9 @@ public class Sponsor extends Person {
     System.out.println("Hi, I'm " + getName() + ", a " + getAge() + " year old " + getGender() +
             " who represents " + company + " and hired " + hiredStudents + " students so far.");
   }
+
+  @Override
+  public void getGoal() {
+      System.out.println("Hire brilliant junior software developers.");
+  }
 }
