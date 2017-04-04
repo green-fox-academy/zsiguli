@@ -29,8 +29,8 @@ public class Plant {
     return currentWaterAmount;
   }
 
-  public void setCurrentWaterAmount(Double currentWaterAmount) {
-    this.currentWaterAmount = currentWaterAmount;
+  public void increaseCurrentWaterAmount(Double amountOfWater) {
+    this.currentWaterAmount += amountOfWater * getWaterAbsorbRate();
   }
 
   public String getColor() {
