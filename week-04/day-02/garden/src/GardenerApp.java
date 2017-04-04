@@ -6,10 +6,10 @@ public class GardenerApp {
     garden.plant(new Tree("purple"));
     garden.plant(new Tree("orange"));
 
-    System.out.println(garden.waterState());
+    garden.waterState();
     garden.water(40);
-    System.out.println(garden.waterState());
+    garden.waterState();
     garden.water(70);
-    System.out.println(garden.waterState());
+    garden.waterState();
   }
 }
