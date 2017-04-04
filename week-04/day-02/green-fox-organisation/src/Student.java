@@ -29,4 +29,8 @@ public class Student extends Person {
   public void skipDays() {
     skippedDays++;
   }
+
+  public void skipDays(int skippedDays) {
+    this.skippedDays += skippedDays;
+  }
 }
