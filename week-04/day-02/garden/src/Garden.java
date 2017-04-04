@@ -13,6 +13,7 @@ public class Garden {
   }
 
   public void water(double amountOfWater) {
+    System.out.println("Watering with " + (int) amountOfWater);
     List<Plant> thirstyOnes = findThirstyOnes();
     Double waterForOne = howManyWater(thirstyOnes, amountOfWater);
     for (Plant thirstyPlant : thirstyOnes) {
