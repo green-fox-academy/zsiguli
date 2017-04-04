@@ -13,7 +13,11 @@ public class Garden {
   }
 
   public void water(double amountOfWater) {
-
+    List<Plant> thirstyOnes = findThirstyOnes();
+    Double waterForOne = howManyWater(thirstyOnes, amountOfWater);
+    for (Plant thirstyPlant : thirstyOnes) {
+      thirstyPlant.increaseCurrentWaterAmount(waterForOne);
+    }
   }
 
   public List<Plant> findThirstyOnes() {
@@ -21,10 +25,8 @@ public class Garden {
     for (Plant plant : plants) {
       if (isTreeIsThirsty(plant)) {
         thirstyOnes.add(plant);
-        System.out.println("hy thirsty tree");
-      } else if (isFlowerIsThirsty(plant)){
+      } else if (isFlowerIsThirsty(plant)) {
         thirstyOnes.add(plant);
-        System.out.println("hy thirsty flower");
       }
     }
     return thirstyOnes;
@@ -36,6 +38,10 @@ public class Garden {
 
   public boolean isFlowerIsThirsty(Plant plant) {
     return plant instanceof Flower && plant.getCurrentWaterAmount() < 6;
+  }
+
+  public double howManyWater(List<Plant> thirstyOnes, Double fullAmountOfWater) {
+    return fullAmountOfWater / thirstyOnes.size();
   }
 }
 
