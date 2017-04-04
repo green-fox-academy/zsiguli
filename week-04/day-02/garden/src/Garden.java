@@ -23,21 +23,29 @@ public class Garden {
   public List<Plant> findThirstyOnes() {
     List<Plant> thirstyOnes = new ArrayList<>();
     for (Plant plant : plants) {
-      if (isTreeIsThirsty(plant)) {
-        thirstyOnes.add(plant);
-      } else if (isFlowerIsThirsty(plant)) {
+      if (isThirsty(plant)) {
         thirstyOnes.add(plant);
       }
     }
     return thirstyOnes;
   }
 
-  public boolean isTreeIsThirsty(Plant plant) {
-    return plant instanceof Tree && plant.getCurrentWaterAmount() < 11;
+  public boolean isTree(Plant plant) {
+    return plant instanceof Tree;
   }
 
-  public boolean isFlowerIsThirsty(Plant plant) {
-    return plant instanceof Flower && plant.getCurrentWaterAmount() < 6;
+  public boolean isFlower(Plant plant) {
+    return plant instanceof Flower;
+  }
+
+  public boolean isThirsty(Plant plant) {
+    if (isFlower(plant)) {
+      return plant instanceof Flower && plant.getCurrentWaterAmount() < 6;
+    } else if (isTree(plant)) {
+      return plant instanceof Tree && plant.getCurrentWaterAmount() < 11;
+    } else {
+      return false;
+    }
   }
 
   public double howManyWater(List<Plant> thirstyOnes, Double fullAmountOfWater) {
