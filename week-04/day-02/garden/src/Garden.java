@@ -53,7 +53,7 @@ public class Garden {
     return fullAmountOfWater / thirstyOnes.size();
   }
 
-  public String waterState() {
+  public void waterState() {
     String waterState = new String();
     for (Plant plant : plants) {
       String plantType;
@@ -68,7 +68,7 @@ public class Garden {
         waterState += "The " + plant.getColor() + plantType + " doesn't needs water \n";
       }
     }
-    return waterState;
+    System.out.println(waterState);
   }
 }
 
