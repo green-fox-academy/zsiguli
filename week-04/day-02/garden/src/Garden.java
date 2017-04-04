@@ -51,5 +51,17 @@ public class Garden {
   public double howManyWater(List<Plant> thirstyOnes, Double fullAmountOfWater) {
     return fullAmountOfWater / thirstyOnes.size();
   }
+
+  public String waterState() {
+    String waterState = new String();
+    for (Plant plant : plants) {
+      if (isThirsty(plant)) {
+        waterState += "The " + plant.getColor() + " Tree needs water \n";
+      } else {
+        waterState += "The " + plant.getColor() + " Tree doesn't needs water \n";
+      }
+    }
+    return waterState;
+  }
 }
 
