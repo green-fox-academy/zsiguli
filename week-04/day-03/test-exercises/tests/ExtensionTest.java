@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
- import java.util.Arrays;
+import java.util.Arrays;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
@@ -8,13 +8,8 @@ class ExtensionTest {
   Extension extension = new Extension();
 
   @Test
-  void testAdd_2and3is5() {
-    assertEquals(5, extension.add(2, 3));
-  }
-
-  @Test
-  void testAdd_1and4is5() {
-    assertEquals(5, extension.add(1, 4));
+  void testAdd() {
+    assertEquals(8, extension.add(3, 5));
   }
 
   @Test
