@@ -27,18 +27,10 @@ public class Garden {
     return thirstyOnes;
   }
 
-  public boolean isTree(Plant plant) {
-    return plant instanceof Tree;
-  }
-
-  public boolean isFlower(Plant plant) {
-    return plant instanceof Flower;
-  }
-
   public boolean isThirsty(Plant plant) {
-    if (isFlower(plant)) {
+    if (plant.isFlower()) {
       return plant instanceof Flower && plant.getCurrentWaterAmount() < 6;
-    } else if (isTree(plant)) {
+    } else if (plant.isTree()) {
       return plant instanceof Tree && plant.getCurrentWaterAmount() < 11;
     } else {
       return false;
@@ -53,7 +45,7 @@ public class Garden {
     String waterState = new String();
     for (Plant plant : plants) {
       String plantType;
-      if (isTree(plant)) {
+      if (plant.isTree()) {
         plantType = " Tree";
       } else {
         plantType = " Flower";

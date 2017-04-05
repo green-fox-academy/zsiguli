@@ -23,4 +23,12 @@ public class Plant {
   public String getColor() {
     return color;
   }
+
+  public boolean isFlower() {
+    return this instanceof Flower;
+  }
+
+  public boolean isTree() {
+    return this instanceof Tree;
+  }
 }
