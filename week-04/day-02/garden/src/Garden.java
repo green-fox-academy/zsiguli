@@ -4,10 +4,6 @@ import java.util.List;
 public class Garden {
   private List<Plant> plants = new ArrayList<>();
 
-  public List<Plant> getPlants() {
-    return plants;
-  }
-
   public void plant(Plant plant) {
     plants.add(plant);
   }

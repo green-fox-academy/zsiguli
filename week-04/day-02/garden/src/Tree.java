@@ -1,9 +1,14 @@
 public class Tree extends Plant {
   public Tree(String color) {
-    super(color, .4);
+    super(color);
   }
 
   public Tree() {
-    super("red", .4);
+    super("red");
+  }
+
+  @Override
+  public void increaseCurrentWaterAmount(Double amountOfWater) {
+    super.increaseCurrentWaterAmount(amountOfWater * .4);
   }
 }

@@ -1,9 +1,14 @@
 public class Flower extends Plant {
   public Flower(String color) {
-    super(color, .75);
+    super(color);
   }
 
   public Flower() {
-    super("red", .75);
+    super("red");
+  }
+
+  @Override
+  public void increaseCurrentWaterAmount(Double amountOfWater) {
+    super.increaseCurrentWaterAmount(amountOfWater * .75);
   }
 }
