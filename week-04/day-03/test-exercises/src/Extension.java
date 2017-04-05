@@ -14,7 +14,12 @@ public class Extension {
   }
 
   int median(List<Integer> pool) {
-    return pool.get((pool.size()-1)/2);
+    int size = pool.size();
+    if (size % 2 == 1) {
+      return pool.get(size / 2);
+    } else {
+      return (pool.get(size / 2 - 1) + pool.get(size / 2)) / 2;
+    }
   }
 
   boolean isVowel(char c) {
