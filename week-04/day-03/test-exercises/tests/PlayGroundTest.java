@@ -25,6 +25,13 @@ public class PlayGroundTest {
   }
 
   @Test
+  public void testLetterCounterWithEmptyString() throws Exception {
+    Map<String, Integer> map = PlayGround.letterCounter(new String());
+    Map<String, Integer> controlMap = new HashMap<>();
+    assertEquals(controlMap, map);
+  }
+
+  @Test
   public void testApples() throws Exception {
     PlayGround playGround = new PlayGround();
     assertEquals("apple", playGround.getApple());
