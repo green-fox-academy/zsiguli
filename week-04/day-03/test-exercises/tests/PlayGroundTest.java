@@ -21,6 +21,14 @@ public class PlayGroundTest {
   }
 
   @Test
+  public void testSumWithOneNumber() throws Exception {
+    PlayGround playGround = new PlayGround();
+    List<Integer> numbers;
+    numbers = Arrays.asList(5);
+    assertEquals(5, playGround.sum(numbers));
+  }
+
+  @Test
   public void testSumWithNull() throws Exception {
     PlayGround playGround = new PlayGround();
     List<Integer> numbers = new ArrayList<>();
