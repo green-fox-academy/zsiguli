@@ -7,10 +7,10 @@ public class Extension {
   }
 
   int maxOfThree(int a, int b, int c) {
-    if (a > b)
-      return a;
-    else
-      return c;
+    int max = a;
+    if (b > max) {max = b;}
+    if (c > max) {max = c;}
+    return max;
   }
 
   int median(List<Integer> pool) {
