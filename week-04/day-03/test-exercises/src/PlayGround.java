@@ -9,10 +9,10 @@ public class PlayGround {
     return "apple";
   }
 
-  public Long sum(List<Integer> numbers) {
+  public long sum(List<Integer> numbers) {
     long result = 0;
     for (Integer num : numbers) {
-      result += num;
+      result += (long) num;
     }
     return result;
   }
