@@ -1,9 +1,20 @@
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class PlayGround {
+  public static Map<String, Integer> letterCounter(String word) {
+    Map<String, Integer> letters = new HashMap<>();
+    for (int i = 0; i < word.length(); ++i) {
+      if (letters.containsKey(word.substring(i, i + 1))) {
+        int temp = letters.get(word.substring(i, i + 1));
+        letters.put(word.substring(i, i + 1), ++temp);
+      } else {
+        letters.put(word.substring(i, i + 1), 1);
+      }
+
+    }
+    return letters;
+  }
 
   public String getApple() {
     return "apple";
