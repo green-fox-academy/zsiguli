@@ -13,7 +13,7 @@ public class PlayGroundTest {
   }
 
   @Test
-  public void sum() throws Exception {
+  public void testSum() throws Exception {
     PlayGround playGround = new PlayGround();
     List<Integer> numbers;
     numbers = Arrays.asList(4,5,4,3,2);
@@ -21,14 +21,14 @@ public class PlayGroundTest {
   }
 
   @Test
-  public void sumWithNull() throws Exception {
+  public void testSumWithNull() throws Exception {
     PlayGround playGround = new PlayGround();
     List<Integer> numbers = new ArrayList<>();
     assertEquals(0, playGround.sum(numbers));
   }
 
   @Test
-  public void sumWithZero() throws Exception {
+  public void testSumWithZero() throws Exception {
     PlayGround playGround = new PlayGround();
     List<Integer> numbers = new ArrayList<>();
     numbers.add(0);
