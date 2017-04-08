@@ -29,9 +29,9 @@ public class Garden {
 
   public boolean isThirsty(Plant plant) {
     if (plant.isFlower()) {
-      return plant instanceof Flower && plant.getCurrentWaterAmount() < 6;
+      return plant.getCurrentWaterAmount() < 6;
     } else if (plant.isTree()) {
-      return plant instanceof Tree && plant.getCurrentWaterAmount() < 11;
+      return plant.getCurrentWaterAmount() < 11;
     } else {
       return false;
     }
