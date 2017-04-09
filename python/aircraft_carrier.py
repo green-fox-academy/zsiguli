@@ -9,6 +9,11 @@ class Aircraft():
         damage = self.current_ammo * self.base_damage
         self.current_ammo = 0
         return damage
+
+    def refill(self, given_ammos):
+        needed_amount_ammo = self.max_ammo - self.current_ammo
+        self.current_ammo += needed_amount_ammo
+        return given_ammos - needed_amount_ammo
  
 class F16(Aircraft):
     
@@ -24,14 +29,8 @@ class F35(Aircraft):
         self.base_damage = base_damage
         self.current_ammo = 0
 
-aircraft = Aircraft()
 f16 = F16()
 f35 = F35()
 
-print(aircraft.current_ammo)
-print(f16)
-print(f35.current_ammo)
-f16.current_ammo = 10
-print(f16.fight())
+print(f16.refill(50))
 print(f16.current_ammo)
-        
