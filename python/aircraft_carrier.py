@@ -16,7 +16,10 @@ class Aircraft():
         return given_ammos - needed_amount_ammo
  
     def get_type(self):
-        return self.__class__.__name__
+        return str(self.__class__.__name__)
+
+    def get_status(self):
+        return self.get_type() + ", Ammo: " + str(self.current_ammo) + ", Base Damage: " + str(self.base_damage) + ", All Damage: " + str(self.max_ammo * self.base_damage)
 
 class F16(Aircraft):
     
@@ -39,3 +42,4 @@ print(f16.refill(50))
 print(f16.current_ammo)
 print(f16.get_type())
 print(f35.get_type())
+print(f35.get_status())
