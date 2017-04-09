@@ -5,6 +5,11 @@ class Aircraft():
         self.base_damage = base_damage
         self.current_ammo = 0
 
+    def fight(self):
+        damage = self.current_ammo * self.base_damage
+        self.current_ammo = 0
+        return damage
+ 
 class F16(Aircraft):
     
     def __init__(self, max_ammo = 8, base_damage = 30):
@@ -26,4 +31,7 @@ f35 = F35()
 print(aircraft.current_ammo)
 print(f16)
 print(f35.current_ammo)
+f16.current_ammo = 10
+print(f16.fight())
+print(f16.current_ammo)
         
