@@ -15,6 +15,9 @@ class Aircraft():
         self.current_ammo += needed_amount_ammo
         return given_ammos - needed_amount_ammo
  
+    def get_type(self):
+        return self.__class__.__name__
+
 class F16(Aircraft):
     
     def __init__(self, max_ammo = 8, base_damage = 30):
@@ -34,3 +37,5 @@ f35 = F35()
 
 print(f16.refill(50))
 print(f16.current_ammo)
+print(f16.get_type())
+print(f35.get_type())
