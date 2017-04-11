@@ -1,22 +1,23 @@
-public class Hero {
-  String orientation;
-  int nextStepValue;
-  int actualPositionX;
-  int actualPositionY;
+public class Hero extends Character {
+  private String orientation;
 
   public Hero() {
+    super();
     this.orientation = "hero-down";
-    this.nextStepValue = 0;
-    this.actualPositionX = 0;
-    this.actualPositionY = 0;
   }
 
-  public Hero(String orientation, int nextStepValue, int actualPositionX, int actualPositionY) {
+  public Hero(String orientation) {
+    super();
     this.orientation = orientation;
-    this.nextStepValue = nextStepValue;
-    this.actualPositionX = actualPositionX;
-    this.actualPositionY = actualPositionY;
   }
 
+  @Override
+  public String getOrientation() {
+    return orientation;
+  }
 
+  @Override
+  public void setOrientation(String orientation) {
+    this.orientation = orientation;
+  }
 }

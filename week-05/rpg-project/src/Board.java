@@ -17,7 +17,7 @@ public class Board extends JComponent implements KeyListener {
           {0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0},
           {0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0}
   };
-  Hero hero1 = new Hero();
+  Character hero1 = new Hero();
 
   int heroX;
   int heroY;
@@ -76,25 +76,25 @@ public class Board extends JComponent implements KeyListener {
         heroY -= DIMENSION;
         --hero1.actualPositionY;
       }
-      hero1.orientation = "hero-up";
+      hero1.setOrientation("hero-up");
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
       if (heroY < (HEIGHT_IN_SQUARES * DIMENSION) - DIMENSION && hero1.nextStepValue != 1) {
         heroY += DIMENSION;
         ++hero1.actualPositionY;
       }
-      hero1.orientation = "hero-down";
+      hero1.setOrientation("hero-down");
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
       if (heroX < (WIDTH_IN_SQUARES * DIMENSION) - DIMENSION && hero1.nextStepValue != 1) {
         heroX += DIMENSION;
         ++hero1.actualPositionX;
       }
-      hero1.orientation = "hero-right";
+      hero1.setOrientation("hero-right");
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      if (heroX > 0  && hero1.nextStepValue != 1) {
+      if (heroX > 0 && hero1.nextStepValue != 1) {
         heroX -= DIMENSION;
         --hero1.actualPositionX;
       }
-      hero1.orientation = "hero-left";
+      hero1.setOrientation("hero-left");
     }
     repaint();
   }
@@ -115,7 +115,7 @@ public class Board extends JComponent implements KeyListener {
   }
 
   public void renderHero(Graphics graphics) {
-    PositionedImage hero = new PositionedImage("img/" + hero1.orientation + ".png", heroX, heroY);
+    PositionedImage hero = new PositionedImage("img/" + hero1.getOrientation() + ".png", heroX, heroY);
     hero.draw(graphics);
   }
 }
