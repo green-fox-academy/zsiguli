@@ -76,17 +76,19 @@ public class Board extends JComponent implements KeyListener {
     for (int i = 0; i < WIDTH_IN_SQUARES; ++i) {
       for (int j = 0; j < HEIGHT_IN_SQUARES; ++j) {
         if (MAP[i][j] == 0) {
-          PositionedImage image = new PositionedImage("img/floor.png", i * DIMENSION, j * DIMENSION);
-          image.draw(graphics);
+          PositionedImage floor = new PositionedImage("img/floor.png", i * DIMENSION, j * DIMENSION);
+          floor.draw(graphics);
         } else if (MAP[i][j] == 1){
-          PositionedImage image = new PositionedImage("img/wall.png", i * DIMENSION, j * DIMENSION);
-          image.draw(graphics);
+          PositionedImage wall = new PositionedImage("img/wall.png", i * DIMENSION, j * DIMENSION);
+          wall.draw(graphics);
         }
       }
     }
   }
 
   public void renderHero(Graphics graphics) {
-    graphics.fillRect(testBoxX, testBoxY, DIMENSION, DIMENSION);
+    PositionedImage hero = new PositionedImage("img/hero-down.png", 0, 0);
+    hero.draw(graphics);
+//    graphics.fillRect(testBoxX, testBoxY, DIMENSION, DIMENSION);
   }
 }
