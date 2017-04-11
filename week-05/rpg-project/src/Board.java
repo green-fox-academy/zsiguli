@@ -66,12 +66,12 @@ public class Board extends JComponent implements KeyListener {
       }
       heroOrientation = "hero-up";
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      if (heroY < HEIGHT_IN_SQUARES * DIMENSION) {
+      if (heroY < HEIGHT_IN_SQUARES - 1 * DIMENSION) {
         heroY += DIMENSION;
       }
       heroOrientation = "hero-down";
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      if (heroX < WIDTH_IN_SQUARES * DIMENSION) {
+      if (heroX < WIDTH_IN_SQUARES - 1 * DIMENSION) {
         heroX += DIMENSION;
       }
       heroOrientation = "hero-right";
