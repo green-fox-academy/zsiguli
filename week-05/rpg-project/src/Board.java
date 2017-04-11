@@ -22,10 +22,14 @@ public class Board extends JComponent implements KeyListener {
   }
 
   public static int[][] generateRandomMap() {
-    int[][] randomMap = new int[WIDTH_IN_SQUARES][HEIGHT_IN_SQUARES];
-    for (int i = 0; i < WIDTH_IN_SQUARES; ++i) {
-      for (int j = 0; j < HEIGHT_IN_SQUARES; ++j) {
-        randomMap[i][j] = (int) (.5 + (Math.random()));
+    int[][] randomMap = new int[WIDTH_IN_SQUARES + 1][HEIGHT_IN_SQUARES + 1];
+    for (int i = 0; i <= WIDTH_IN_SQUARES; ++i) {
+      for (int j = 0; j <= HEIGHT_IN_SQUARES; ++j) {
+        if (i == 0 && j == 0) {
+          randomMap[i][j] = 0;
+        } else {
+          randomMap[i][j] = (int) (.5 + (Math.random()));
+        }
       }
     }
     return randomMap;
@@ -66,12 +70,12 @@ public class Board extends JComponent implements KeyListener {
       }
       heroOrientation = "hero-up";
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      if (heroY < HEIGHT_IN_SQUARES - 1 * DIMENSION) {
+      if (heroY < (HEIGHT_IN_SQUARES * DIMENSION) - DIMENSION) {
         heroY += DIMENSION;
       }
       heroOrientation = "hero-down";
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      if (heroX < WIDTH_IN_SQUARES - 1 * DIMENSION) {
+      if (heroX < (WIDTH_IN_SQUARES * DIMENSION) - DIMENSION) {
         heroX += DIMENSION;
       }
       heroOrientation = "hero-right";
@@ -86,8 +90,8 @@ public class Board extends JComponent implements KeyListener {
 
 
   public void renderMap(Graphics graphics) {
-    for (int i = 0; i < WIDTH_IN_SQUARES; ++i) {
-      for (int j = 0; j < HEIGHT_IN_SQUARES; ++j) {
+    for (int i = 0; i <= WIDTH_IN_SQUARES; ++i) {
+      for (int j = 0; j <= HEIGHT_IN_SQUARES; ++j) {
         if (MAP[i][j] == 0) {
           PositionedImage floor = new PositionedImage("img/floor.png", i * DIMENSION, j * DIMENSION);
           floor.draw(graphics);
