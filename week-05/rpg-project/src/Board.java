@@ -85,8 +85,8 @@ public class Board extends JComponent implements KeyListener {
 
 
   public void renderMap(Graphics graphics) {
-    for (int i = 0; i < HEIGHT_IN_SQUARES; ++i) {
-      for (int j = 0; j < WIDTH_IN_SQUARES; ++j) {
+    for (int i = 0; i < WIDTH_IN_SQUARES; ++i) {
+      for (int j = 0; j < HEIGHT_IN_SQUARES; ++j) {
         if (MAP[j][i] == 0) {
           PositionedImage floor = new PositionedImage("img/floor.png", i * DIMENSION, j * DIMENSION);
           floor.draw(graphics);
