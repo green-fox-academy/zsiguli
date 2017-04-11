@@ -17,10 +17,7 @@ public class Board extends JComponent implements KeyListener {
           {0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0},
           {0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0}
   };
-  static String heroOrientation = "hero-down";
-  static int nextStepValue = 0;
-  static int heroActualPositionX = 0;
-  static int heroActualPositionY = 0;
+  Hero hero1 = new Hero();
 
   int heroX;
   int heroY;
@@ -59,45 +56,45 @@ public class Board extends JComponent implements KeyListener {
   public void keyPressed(KeyEvent e) {
     try {
       if (e.getKeyCode() == KeyEvent.VK_UP) {
-        nextStepValue = MAP[heroActualPositionY - 1][heroActualPositionX];
+        hero1.nextStepValue = MAP[hero1.heroActualPositionY - 1][hero1.heroActualPositionX];
       } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-        nextStepValue = MAP[heroActualPositionY + 1][heroActualPositionX];
+        hero1.nextStepValue = MAP[hero1.heroActualPositionY + 1][hero1.heroActualPositionX];
       } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-        nextStepValue = MAP[heroActualPositionY][heroActualPositionX + 1];
+        hero1.nextStepValue = MAP[hero1.heroActualPositionY][hero1.heroActualPositionX + 1];
       } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-        nextStepValue = MAP[heroActualPositionY][heroActualPositionX - 1];
+        hero1.nextStepValue = MAP[hero1.heroActualPositionY][hero1.heroActualPositionX - 1];
       }
     } catch (ArrayIndexOutOfBoundsException ex) {
-      nextStepValue = 1;
+      hero1.nextStepValue = 1;
     }
   }
 
   @Override
   public void keyReleased(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      if (heroY > 0 && nextStepValue != 1) {
+      if (heroY > 0 && hero1.nextStepValue != 1) {
         heroY -= DIMENSION;
-        --heroActualPositionY;
+        --hero1.heroActualPositionY;
       }
-      heroOrientation = "hero-up";
+      hero1.heroOrientation = "hero-up";
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      if (heroY < (HEIGHT_IN_SQUARES * DIMENSION) - DIMENSION && nextStepValue != 1) {
+      if (heroY < (HEIGHT_IN_SQUARES * DIMENSION) - DIMENSION && hero1.nextStepValue != 1) {
         heroY += DIMENSION;
-        ++heroActualPositionY;
+        ++hero1.heroActualPositionY;
       }
-      heroOrientation = "hero-down";
+      hero1.heroOrientation = "hero-down";
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      if (heroX < (WIDTH_IN_SQUARES * DIMENSION) - DIMENSION && nextStepValue != 1) {
+      if (heroX < (WIDTH_IN_SQUARES * DIMENSION) - DIMENSION && hero1.nextStepValue != 1) {
         heroX += DIMENSION;
-        ++heroActualPositionX;
+        ++hero1.heroActualPositionX;
       }
-      heroOrientation = "hero-right";
+      hero1.heroOrientation = "hero-right";
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      if (heroX > 0  && nextStepValue != 1) {
+      if (heroX > 0  && hero1.nextStepValue != 1) {
         heroX -= DIMENSION;
-        --heroActualPositionX;
+        --hero1.heroActualPositionX;
       }
-      heroOrientation = "hero-left";
+      hero1.heroOrientation = "hero-left";
     }
     repaint();
   }
@@ -118,7 +115,7 @@ public class Board extends JComponent implements KeyListener {
   }
 
   public void renderHero(Graphics graphics) {
-    PositionedImage hero = new PositionedImage("img/" + heroOrientation + ".png", heroX, heroY);
+    PositionedImage hero = new PositionedImage("img/" + hero1.heroOrientation + ".png", heroX, heroY);
     hero.draw(graphics);
   }
 }
