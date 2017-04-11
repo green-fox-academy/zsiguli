@@ -33,7 +33,7 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-    renderMap(graphics, MAP);
+    renderMap(graphics);
     renderHero(graphics);
   }
 
@@ -72,14 +72,14 @@ public class Board extends JComponent implements KeyListener {
   }
 
 
-  public void renderMap(Graphics graphics, int[][] map) {
+  public void renderMap(Graphics graphics) {
     for (int i = 0; i < WIDTH_IN_SQUARES; ++i) {
       for (int j = 0; j < HEIGHT_IN_SQUARES; ++j) {
-        if (map[i][j] == 0) {
+        if (MAP[i][j] == 0) {
           PositionedImage image = new PositionedImage("img/floor.png", i * DIMENSION, j * DIMENSION);
           image.draw(graphics);
-        } else {
-          PositionedImage image = new PositionedImage("img/wall.png", i, j);
+        } else if (MAP[i][j] == 1){
+          PositionedImage image = new PositionedImage("img/wall.png", i * DIMENSION, j * DIMENSION);
           image.draw(graphics);
         }
       }
