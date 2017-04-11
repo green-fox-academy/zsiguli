@@ -17,10 +17,14 @@ public class Board extends JComponent implements KeyListener {
           {0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0},
           {0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0}
   };
-  int initPositionX = getRandomPosition()[0] * DIMENSION;
-  int initPositionY = getRandomPosition()[1] * DIMENSION;
+
   Character hero1 = new Hero();
-  Character skeleton1 = new Skeleton(0, initPositionX, initPositionY );
+  int[] temp1 = getRandomPosition();
+  Character skeleton1 = new Skeleton(0, temp1[0] * DIMENSION, temp1[1] * DIMENSION);
+  int[] temp2 = getRandomPosition();
+  Character skeleton2 = new Skeleton(0, temp2[0] * DIMENSION, temp2[1] * DIMENSION);
+  int[] temp3 = getRandomPosition();
+  Character skeleton3 = new Skeleton(0, temp3[0] * DIMENSION, temp3[1] * DIMENSION);
 
   int heroX;
   int heroY;
@@ -37,7 +41,9 @@ public class Board extends JComponent implements KeyListener {
   public void paint(Graphics graphics) {
     super.paint(graphics);
     renderMap(graphics);
-    renderSkeleton(graphics);
+    renderSkeleton(graphics, (Skeleton) skeleton1);
+    renderSkeleton(graphics, (Skeleton) skeleton2);
+    renderSkeleton(graphics, (Skeleton) skeleton3);
     renderHero(graphics);
   }
 
@@ -58,49 +64,45 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void keyPressed(KeyEvent e) {
-    try {
-      if (e.getKeyCode() == KeyEvent.VK_UP) {
-        hero1.nextStepValue = MAP[hero1.actualPositionY - 1][hero1.actualPositionX];
-      } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-        hero1.nextStepValue = MAP[hero1.actualPositionY + 1][hero1.actualPositionX];
-      } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-        hero1.nextStepValue = MAP[hero1.actualPositionY][hero1.actualPositionX + 1];
-      } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-        hero1.nextStepValue = MAP[hero1.actualPositionY][hero1.actualPositionX - 1];
-      }
-    } catch (ArrayIndexOutOfBoundsException ex) {
-      hero1.nextStepValue = 1;
-    }
-  }
-
-  @Override
-  public void keyReleased(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      if (heroY > 0 && hero1.nextStepValue != 1) {
-        heroY -= DIMENSION;
-        --hero1.actualPositionY;
+      if (heroY > 0) {
+        if (MAP[hero1.actualPositionY - 1][hero1.actualPositionX] != 1) {
+          heroY -= DIMENSION;
+          --hero1.actualPositionY;
+        }
       }
       hero1.setOrientation("hero-up");
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      if (heroY < (HEIGHT_IN_SQUARES * DIMENSION) - DIMENSION && hero1.nextStepValue != 1) {
-        heroY += DIMENSION;
-        ++hero1.actualPositionY;
+      if (heroY < (HEIGHT_IN_SQUARES * DIMENSION) - DIMENSION) {
+        if (MAP[hero1.actualPositionY + 1][hero1.actualPositionX] != 1) {
+          heroY += DIMENSION;
+          ++hero1.actualPositionY;
+        }
       }
       hero1.setOrientation("hero-down");
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      if (heroX < (WIDTH_IN_SQUARES * DIMENSION) - DIMENSION && hero1.nextStepValue != 1) {
-        heroX += DIMENSION;
-        ++hero1.actualPositionX;
+      if (MAP[hero1.actualPositionY][hero1.actualPositionX + 1] != 1) {
+        if (heroX < (WIDTH_IN_SQUARES * DIMENSION) - DIMENSION) {
+          heroX += DIMENSION;
+          ++hero1.actualPositionX;
+        }
       }
       hero1.setOrientation("hero-right");
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      if (heroX > 0 && hero1.nextStepValue != 1) {
-        heroX -= DIMENSION;
-        --hero1.actualPositionX;
+      if (MAP[hero1.actualPositionY][hero1.actualPositionX - 1] != 1) {
+        if (heroX > 0) {
+          heroX -= DIMENSION;
+          --hero1.actualPositionX;
+        }
       }
       hero1.setOrientation("hero-left");
     }
     repaint();
+  }
+
+  @Override
+  public void keyReleased(KeyEvent e) {
+
   }
 
 
@@ -123,15 +125,17 @@ public class Board extends JComponent implements KeyListener {
     hero.draw(graphics);
   }
 
-  public void renderSkeleton(Graphics graphics) {
-    PositionedImage skeleton = new PositionedImage("img/skeleton.png", skeleton1.getActualPositionX(), skeleton1.getActualPositionY());
-    skeleton.draw(graphics);
+  public void renderSkeleton(Graphics graphics, Skeleton skeleton) {
+    PositionedImage skeletonImg = new PositionedImage("img/skeleton.png", skeleton.getActualPositionY(), skeleton.getActualPositionX());
+    skeletonImg.draw(graphics);
   }
 
   public int[] getRandomPosition() {
     int[] randomPosition = new int[2];
-    randomPosition[0] = (int) (.9 + (Math.random() * WIDTH_IN_SQUARES));
-    randomPosition[1] = (int) (.9 + (Math.random() * HEIGHT_IN_SQUARES));
+    do {
+      randomPosition[0] = (int) (Math.random() * HEIGHT_IN_SQUARES);
+      randomPosition[1] = (int) (Math.random() * WIDTH_IN_SQUARES);
+    } while (MAP[randomPosition[0]][randomPosition[1]] == 1);
     return randomPosition;
   }
 }
