@@ -17,7 +17,10 @@ public class Board extends JComponent implements KeyListener {
           {0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0},
           {0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0}
   };
+  int initPositionX = getRandomPosition()[0] * DIMENSION;
+  int initPositionY = getRandomPosition()[1] * DIMENSION;
   Character hero1 = new Hero();
+  Character skeleton1 = new Skeleton(0, initPositionX, initPositionY );
 
   int heroX;
   int heroY;
@@ -121,7 +124,14 @@ public class Board extends JComponent implements KeyListener {
   }
 
   public void renderSkeleton(Graphics graphics) {
-    PositionedImage skeleton = new PositionedImage("img/skeleton.png", 0, 0);
+    PositionedImage skeleton = new PositionedImage("img/skeleton.png", skeleton1.getActualPositionX(), skeleton1.getActualPositionY());
     skeleton.draw(graphics);
+  }
+
+  public int[] getRandomPosition() {
+    int[] randomPosition = new int[2];
+    randomPosition[0] = (int) (.9 + (Math.random() * WIDTH_IN_SQUARES));
+    randomPosition[1] = (int) (.9 + (Math.random() * HEIGHT_IN_SQUARES));
+    return randomPosition;
   }
 }

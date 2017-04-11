@@ -23,4 +23,12 @@ public class Character {
   public void setOrientation(String orientation) {
     this.orientation = orientation;
   }
+
+  public int getActualPositionX() {
+    return actualPositionX;
+  }
+
+  public int getActualPositionY() {
+    return actualPositionY;
+  }
 }
