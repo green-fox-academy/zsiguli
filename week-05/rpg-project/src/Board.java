@@ -38,8 +38,6 @@ public class Board extends JComponent implements KeyListener {
     super.paint(graphics);
     renderMap(graphics);
     renderHero(graphics);
-    System.out.println(heroActualPositionX);
-    System.out.println(heroActualPositionY);
   }
 
   public static void boardMain() {
