@@ -61,16 +61,24 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void keyReleased(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      heroY -= DIMENSION;
+      if (heroY > 0) {
+        heroY -= DIMENSION;
+      }
       heroOrientation = "hero-up";
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      heroY += DIMENSION;
+      if (heroY < HEIGHT_IN_SQUARES * DIMENSION) {
+        heroY += DIMENSION;
+      }
       heroOrientation = "hero-down";
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      heroX += DIMENSION;
+      if (heroX < WIDTH_IN_SQUARES * DIMENSION) {
+        heroX += DIMENSION;
+      }
       heroOrientation = "hero-right";
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      heroX -= DIMENSION;
+      if (heroX > 0) {
+        heroX -= DIMENSION;
+      }
       heroOrientation = "hero-left";
     }
     repaint();
@@ -83,7 +91,7 @@ public class Board extends JComponent implements KeyListener {
         if (MAP[i][j] == 0) {
           PositionedImage floor = new PositionedImage("img/floor.png", i * DIMENSION, j * DIMENSION);
           floor.draw(graphics);
-        } else if (MAP[i][j] == 1){
+        } else if (MAP[i][j] == 1) {
           PositionedImage wall = new PositionedImage("img/wall.png", i * DIMENSION, j * DIMENSION);
           wall.draw(graphics);
         }
@@ -92,7 +100,7 @@ public class Board extends JComponent implements KeyListener {
   }
 
   public void renderHero(Graphics graphics) {
-     PositionedImage hero = new PositionedImage("img/" + heroOrientation + ".png", heroX, heroY);
-      hero.draw(graphics);
+    PositionedImage hero = new PositionedImage("img/" + heroOrientation + ".png", heroX, heroY);
+    hero.draw(graphics);
   }
 }
