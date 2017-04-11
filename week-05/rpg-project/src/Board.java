@@ -27,12 +27,41 @@ public class Board extends JComponent implements KeyListener {
       for (int j = 0; j <= HEIGHT_IN_SQUARES; ++j) {
         if (i == 0 && j == 0) {
           randomMap[i][j] = 0;
-        } else {
+        } else if (i == 1 && j == 0) {
+          randomMap[i][j] = 0;
+        } else if (i == 0) {
           randomMap[i][j] = (int) (.5 + (Math.random()));
+        } else if (j == 0) {
+          randomMap[i][j] = (int) (.5 + (Math.random()));
+        } else if (isLastChance(randomMap, i, j)){
+          randomMap[i][j] = 0;
+        } else {
+          randomMap[i][j] = (int) (.8 + (Math.random()));
         }
       }
     }
     return randomMap;
+  }
+
+  public static boolean isLastChance(int[][] randomMap, int x, int y) {
+    if (randomMap[x - 1][y] == 0) {
+      try {
+        if (randomMap[x - 1][y - 1] == 0 && randomMap[x - 2][y] == 0) {
+          return false;
+        }
+      } catch (ArrayIndexOutOfBoundsException e) {
+        return true;
+      }
+    } else if (randomMap[x][y - 1] == 0){
+      try {
+        if (randomMap[x - 1][y - 1] == 0 && randomMap[x][y - 2] == 0) {
+          return false;
+        }
+      } catch (ArrayIndexOutOfBoundsException e) {
+        return true;
+      }
+    }
+    return true;
   }
 
   @Override
