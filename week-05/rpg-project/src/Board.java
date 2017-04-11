@@ -9,12 +9,12 @@ public class Board extends JComponent implements KeyListener {
   static final int DIMENSION = 72;
   static final int[][] MAP = generateRandomMap();
 
-  int testBoxX;
-  int testBoxY;
+  int heroX;
+  int heroY;
 
   public Board() {
-    testBoxX = 0;
-    testBoxY = 0;
+    heroX = 0;
+    heroY = 0;
 
     setPreferredSize(new Dimension(WIDTH_IN_SQUARES * DIMENSION, HEIGHT_IN_SQUARES * DIMENSION));
     setVisible(true);
@@ -60,13 +60,13 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void keyReleased(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      testBoxY -= DIMENSION;
+      heroY -= DIMENSION;
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      testBoxY += DIMENSION;
+      heroY += DIMENSION;
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      testBoxX += DIMENSION;
+      heroX += DIMENSION;
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      testBoxX -= DIMENSION;
+      heroX -= DIMENSION;
     }
     repaint();
   }
@@ -87,7 +87,7 @@ public class Board extends JComponent implements KeyListener {
   }
 
   public void renderHero(Graphics graphics) {
-    PositionedImage hero = new PositionedImage("img/hero-down.png", testBoxX, testBoxY);
+    PositionedImage hero = new PositionedImage("img/hero-down.png", heroX, heroY);
     hero.draw(graphics);
   }
 }
