@@ -22,9 +22,8 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
+    renderMap(graphics);
     graphics.fillRect(testBoxX, testBoxY, DIMENSION, DIMENSION);
-    PositionedImage image = new PositionedImage("img/floor.png", 0, 0);
-    image.draw(graphics);
   }
 
   public static void boardMain() {
@@ -61,9 +60,12 @@ public class Board extends JComponent implements KeyListener {
     repaint();
   }
 
-  public void generateMap() {
-    for (int i = 0; i < WIDTH; i += DIMENSION) {
-
+  public void renderMap(Graphics graphics) {
+    for (int i = 0; i < WIDTH * DIMENSION; i += DIMENSION) {
+      for (int j = 0; j < WIDTH * DIMENSION; j += DIMENSION) {
+        PositionedImage image = new PositionedImage("img/floor.png", i, j);
+        image.draw(graphics);
+      }
     }
   }
 }
