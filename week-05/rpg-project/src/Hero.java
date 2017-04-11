@@ -1,21 +1,21 @@
 public class Hero {
-  String heroOrientation;
+  String orientation;
   int nextStepValue;
-  int heroActualPositionX;
-  int heroActualPositionY;
+  int actualPositionX;
+  int actualPositionY;
 
   public Hero() {
-    this.heroOrientation = "hero-down";
+    this.orientation = "hero-down";
     this.nextStepValue = 0;
-    this.heroActualPositionX = 0;
-    this.heroActualPositionY = 0;
+    this.actualPositionX = 0;
+    this.actualPositionY = 0;
   }
 
-  public Hero(String heroOrientation, int nextStepValue, int heroActualPositionX, int heroActualPositionY) {
-    this.heroOrientation = heroOrientation;
+  public Hero(String orientation, int nextStepValue, int actualPositionX, int actualPositionY) {
+    this.orientation = orientation;
     this.nextStepValue = nextStepValue;
-    this.heroActualPositionX = heroActualPositionX;
-    this.heroActualPositionY = heroActualPositionY;
+    this.actualPositionX = actualPositionX;
+    this.actualPositionY = actualPositionY;
   }
 
 
