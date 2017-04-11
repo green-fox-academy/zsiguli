@@ -18,6 +18,9 @@ public class Board extends JComponent implements KeyListener {
           {0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0}
   };
   static String heroOrientation = "hero-down";
+  static int nextStepValue = 0;
+  static int heroActualPositionX = 0;
+  static int heroActualPositionY = 0;
 
   int heroX;
   int heroY;
@@ -35,6 +38,8 @@ public class Board extends JComponent implements KeyListener {
     super.paint(graphics);
     renderMap(graphics);
     renderHero(graphics);
+    System.out.println(heroActualPositionX);
+    System.out.println(heroActualPositionY);
   }
 
   public static void boardMain() {
@@ -54,29 +59,45 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void keyPressed(KeyEvent e) {
-
+    try {
+      if (e.getKeyCode() == KeyEvent.VK_UP) {
+        nextStepValue = MAP[heroActualPositionY - 1][heroActualPositionX];
+      } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+        nextStepValue = MAP[heroActualPositionY + 1][heroActualPositionX];
+      } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        nextStepValue = MAP[heroActualPositionY][heroActualPositionX + 1];
+      } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        nextStepValue = MAP[heroActualPositionY][heroActualPositionX - 1];
+      }
+    } catch (ArrayIndexOutOfBoundsException ex) {
+      nextStepValue = 1;
+    }
   }
 
   @Override
   public void keyReleased(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      if (heroY > 0) {
+      if (heroY > 0 && nextStepValue != 1) {
         heroY -= DIMENSION;
+        --heroActualPositionY;
       }
       heroOrientation = "hero-up";
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      if (heroY < (HEIGHT_IN_SQUARES * DIMENSION) - DIMENSION) {
+      if (heroY < (HEIGHT_IN_SQUARES * DIMENSION) - DIMENSION && nextStepValue != 1) {
         heroY += DIMENSION;
+        ++heroActualPositionY;
       }
       heroOrientation = "hero-down";
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      if (heroX < (WIDTH_IN_SQUARES * DIMENSION) - DIMENSION) {
+      if (heroX < (WIDTH_IN_SQUARES * DIMENSION) - DIMENSION && nextStepValue != 1) {
         heroX += DIMENSION;
+        ++heroActualPositionX;
       }
       heroOrientation = "hero-right";
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      if (heroX > 0) {
+      if (heroX > 0  && nextStepValue != 1) {
         heroX -= DIMENSION;
+        --heroActualPositionX;
       }
       heroOrientation = "hero-left";
     }
