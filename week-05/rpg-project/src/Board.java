@@ -34,6 +34,7 @@ public class Board extends JComponent implements KeyListener {
   public void paint(Graphics graphics) {
     super.paint(graphics);
     renderMap(graphics);
+    renderSkeleton(graphics);
     renderHero(graphics);
   }
 
@@ -117,5 +118,10 @@ public class Board extends JComponent implements KeyListener {
   public void renderHero(Graphics graphics) {
     PositionedImage hero = new PositionedImage("img/" + hero1.getOrientation() + ".png", heroX, heroY);
     hero.draw(graphics);
+  }
+
+  public void renderSkeleton(Graphics graphics) {
+    PositionedImage skeleton = new PositionedImage("img/skeleton.png", 0, 0);
+    skeleton.draw(graphics);
   }
 }
