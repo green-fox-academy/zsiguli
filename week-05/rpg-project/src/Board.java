@@ -8,6 +8,7 @@ public class Board extends JComponent implements KeyListener {
   static final int HEIGHT_IN_SQUARES = 8;
   static final int DIMENSION = 72;
   static final int[][] MAP = generateRandomMap();
+  static String heroOrientation = "hero-down";
 
   int heroX;
   int heroY;
@@ -61,12 +62,16 @@ public class Board extends JComponent implements KeyListener {
   public void keyReleased(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
       heroY -= DIMENSION;
+      heroOrientation = "hero-up";
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
       heroY += DIMENSION;
+      heroOrientation = "hero-down";
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
       heroX += DIMENSION;
+      heroOrientation = "hero-right";
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
       heroX -= DIMENSION;
+      heroOrientation = "hero-left";
     }
     repaint();
   }
@@ -87,7 +92,7 @@ public class Board extends JComponent implements KeyListener {
   }
 
   public void renderHero(Graphics graphics) {
-    PositionedImage hero = new PositionedImage("img/hero-down.png", heroX, heroY);
-    hero.draw(graphics);
+     PositionedImage hero = new PositionedImage("img/" + heroOrientation + ".png", heroX, heroY);
+      hero.draw(graphics);
   }
 }
