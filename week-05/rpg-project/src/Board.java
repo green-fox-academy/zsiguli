@@ -23,7 +23,7 @@ public class Board extends JComponent implements KeyListener {
   public void paint(Graphics graphics) {
     super.paint(graphics);
     renderMap(graphics);
-    graphics.fillRect(testBoxX, testBoxY, DIMENSION, DIMENSION);
+    renderHero(graphics);
   }
 
   public static void boardMain() {
@@ -67,5 +67,9 @@ public class Board extends JComponent implements KeyListener {
         image.draw(graphics);
       }
     }
+  }
+
+  public void renderHero(Graphics graphics) {
+    graphics.fillRect(testBoxX, testBoxY, DIMENSION, DIMENSION);
   }
 }
