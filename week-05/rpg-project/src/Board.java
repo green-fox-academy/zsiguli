@@ -7,6 +7,7 @@ public class Board extends JComponent implements KeyListener {
   static final int WIDTH_IN_SQUARES = 15;
   static final int HEIGHT_IN_SQUARES = 8;
   static final int DIMENSION = 72;
+  static final int[][] MAP = generateRandomMap();
 
   int testBoxX;
   int testBoxY;
@@ -19,10 +20,20 @@ public class Board extends JComponent implements KeyListener {
     setVisible(true);
   }
 
+  public static int[][] generateRandomMap() {
+    int[][] randomMap = new int[WIDTH_IN_SQUARES][HEIGHT_IN_SQUARES];
+    for (int i = 0; i < WIDTH_IN_SQUARES; ++i) {
+      for (int j = 0; j < HEIGHT_IN_SQUARES; ++j) {
+        randomMap[i][j] = (int) (.5 + (Math.random()));
+      }
+    }
+    return randomMap;
+  }
+
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-    renderMap(graphics);
+    renderMap(graphics, MAP);
     renderHero(graphics);
   }
 
@@ -60,8 +71,8 @@ public class Board extends JComponent implements KeyListener {
     repaint();
   }
 
-  public void renderMap(Graphics graphics) {
-    int[][] map = generateRandomMap();
+
+  public void renderMap(Graphics graphics, int[][] map) {
     for (int i = 0; i < WIDTH_IN_SQUARES; ++i) {
       for (int j = 0; j < HEIGHT_IN_SQUARES; ++j) {
         if (map[i][j] == 0) {
@@ -75,18 +86,7 @@ public class Board extends JComponent implements KeyListener {
     }
   }
 
-
   public void renderHero(Graphics graphics) {
     graphics.fillRect(testBoxX, testBoxY, DIMENSION, DIMENSION);
-  }
-
-  public int[][] generateRandomMap() {
-    int[][] randomMap = new int[WIDTH_IN_SQUARES][HEIGHT_IN_SQUARES];
-    for (int i = 0; i < WIDTH_IN_SQUARES; ++i) {
-      for (int j = 0; j < HEIGHT_IN_SQUARES; ++j) {
-        randomMap[i][j] = (int) (.5 + (Math.random()));
-      }
-    }
-    return randomMap;
   }
 }
