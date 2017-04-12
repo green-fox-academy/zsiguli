@@ -26,13 +26,8 @@ public class GameDraw extends JComponent implements KeyListener {
   int[] temp3 = getRandomPosition();
   Character skeleton3 = new Skeleton(0, temp3[0] * DIMENSION, temp3[1] * DIMENSION);
 
-  int heroX;
-  int heroY;
 
   public GameDraw() {
-    heroX = 0;
-    heroY = 0;
-
     setPreferredSize(new Dimension(WIDTH_IN_SQUARES * DIMENSION, HEIGHT_IN_SQUARES * DIMENSION));
     setVisible(true);
   }
@@ -47,7 +42,7 @@ public class GameDraw extends JComponent implements KeyListener {
     renderHero(graphics);
   }
 
-  public static void boardMain() {
+  public static void gameDrawMain() {
     JFrame frame = new JFrame("RPG Game");
     GameDraw gameDraw = new GameDraw();
     frame.add(gameDraw);
@@ -65,26 +60,27 @@ public class GameDraw extends JComponent implements KeyListener {
   @Override
   public void keyPressed(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      if (heroY > 0) {
+      if (hero1.actualPositionY > 0) {
         if (MAP[hero1.actualPositionY - 1][hero1.actualPositionX] != 1) {
-          heroY -= DIMENSION;
           --hero1.actualPositionY;
         }
       }
       hero1.setOrientation("hero-up");
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      if (heroY < (HEIGHT_IN_SQUARES * DIMENSION) - DIMENSION) {
-        if (MAP[hero1.actualPositionY + 1][hero1.actualPositionX] != 1) {
-          heroY += DIMENSION;
-          ++hero1.actualPositionY;
+      try {
+        if (hero1.actualPositionY < HEIGHT_IN_SQUARES) {
+          if (MAP[hero1.actualPositionY + 1][hero1.actualPositionX] != 1) {
+            ++hero1.actualPositionY;
+          }
         }
+      } catch (ArrayIndexOutOfBoundsException ex) {
+        System.out.println("hm is this really a problem?");
       }
       hero1.setOrientation("hero-down");
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
       try {
         if (MAP[hero1.actualPositionY][hero1.actualPositionX + 1] != 1) {
-          if (heroX < (WIDTH_IN_SQUARES * DIMENSION) - DIMENSION) {
-            heroX += DIMENSION;
+          if (hero1.actualPositionX < WIDTH_IN_SQUARES) {
             ++hero1.actualPositionX;
           }
         }
@@ -94,8 +90,7 @@ public class GameDraw extends JComponent implements KeyListener {
       hero1.setOrientation("hero-right");
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
       if (MAP[hero1.actualPositionY][hero1.actualPositionX - 1] != 1) {
-        if (heroX > 0) {
-          heroX -= DIMENSION;
+        if (hero1.actualPositionX > 0) {
           --hero1.actualPositionX;
         }
       }
@@ -125,7 +120,7 @@ public class GameDraw extends JComponent implements KeyListener {
   }
 
   public void renderHero(Graphics graphics) {
-    PositionedImage hero = new PositionedImage("img/" + hero1.getOrientation() + ".png", heroX, heroY);
+    PositionedImage hero = new PositionedImage("img/" + hero1.getOrientation() + ".png", hero1.getActualPositionX() * DIMENSION, hero1.getActualPositionY() * DIMENSION);
     hero.draw(graphics);
   }
 
