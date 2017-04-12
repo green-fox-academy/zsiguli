@@ -99,4 +99,5 @@ public class GameDraw extends JComponent implements KeyListener {
     } while (Map.map[randomPosition[0]][randomPosition[1]] == 1);
     return randomPosition;
   }
+
 }

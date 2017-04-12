@@ -33,7 +33,7 @@ public class Hero extends Character {
 
   public void moveDown() {
     try {
-      if (actualPositionY < GameDraw.HEIGHT_IN_SQUARES) {
+      if (actualPositionY < GameDraw.HEIGHT_IN_SQUARES - 1) {
         if (Map.map[actualPositionY + 1][actualPositionX] != 1) {
           ++actualPositionY;
         }
@@ -46,8 +46,8 @@ public class Hero extends Character {
 
   public void moveRight() {
     try {
-      if (Map.map[actualPositionY][actualPositionX + 1] != 1) {
-        if (actualPositionX < GameDraw.WIDTH_IN_SQUARES) {
+      if (actualPositionX < GameDraw.WIDTH_IN_SQUARES - 1) {
+        if (Map.map[actualPositionY][actualPositionX + 1] != 1) {
           ++actualPositionX;
         }
       }
@@ -58,8 +58,8 @@ public class Hero extends Character {
   }
 
   public void moveLeft() {
-    if (Map.map[actualPositionY][actualPositionX - 1] != 1) {
-      if (actualPositionX > 0) {
+    if (actualPositionX > 0) {
+      if (Map.map[actualPositionY][actualPositionX - 1] != 1) {
         --actualPositionX;
       }
     }
