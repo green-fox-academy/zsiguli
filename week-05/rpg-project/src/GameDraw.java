@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Board extends JComponent implements KeyListener {
+public class GameDraw extends JComponent implements KeyListener {
   static final int WIDTH_IN_SQUARES = 15;
   static final int HEIGHT_IN_SQUARES = 8;
   static final int DIMENSION = 72;
@@ -29,7 +29,7 @@ public class Board extends JComponent implements KeyListener {
   int heroX;
   int heroY;
 
-  public Board() {
+  public GameDraw() {
     heroX = 0;
     heroY = 0;
 
@@ -49,12 +49,12 @@ public class Board extends JComponent implements KeyListener {
 
   public static void boardMain() {
     JFrame frame = new JFrame("RPG Game");
-    Board board = new Board();
-    frame.add(board);
+    GameDraw gameDraw = new GameDraw();
+    frame.add(gameDraw);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setVisible(true);
     frame.pack();
-    frame.addKeyListener(board);
+    frame.addKeyListener(gameDraw);
   }
 
   @Override
@@ -81,11 +81,15 @@ public class Board extends JComponent implements KeyListener {
       }
       hero1.setOrientation("hero-down");
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      if (MAP[hero1.actualPositionY][hero1.actualPositionX + 1] != 1) {
-        if (heroX < (WIDTH_IN_SQUARES * DIMENSION) - DIMENSION) {
-          heroX += DIMENSION;
-          ++hero1.actualPositionX;
+      try {
+        if (MAP[hero1.actualPositionY][hero1.actualPositionX + 1] != 1) {
+          if (heroX < (WIDTH_IN_SQUARES * DIMENSION) - DIMENSION) {
+            heroX += DIMENSION;
+            ++hero1.actualPositionX;
+          }
         }
+      } catch (ArrayIndexOutOfBoundsException ex) {
+        System.out.println("here is an error I will fix it later");
       }
       hero1.setOrientation("hero-right");
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
