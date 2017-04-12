@@ -12,9 +12,9 @@ public class Hero extends Character {
 
   @Override
   public void moveUp() {
-    if (actualPositionY > 0) {
-      if (Map.map[actualPositionY - 1][actualPositionX] != 1) {
-        --actualPositionY;
+    if (actualPosition.y > 0) {
+      if (Map.map[actualPosition.y - 1][actualPosition.x] != 1) {
+        --actualPosition.y;
       }
     }
     setCostumeImage("hero-up");
@@ -22,9 +22,9 @@ public class Hero extends Character {
 
   public void moveDown() {
     try {
-      if (actualPositionY < GameDraw.HEIGHT_IN_SQUARES - 1) {
-        if (Map.map[actualPositionY + 1][actualPositionX] != 1) {
-          ++actualPositionY;
+      if (actualPosition.y < GameDraw.HEIGHT_IN_SQUARES - 1) {
+        if (Map.map[actualPosition.y + 1][actualPosition.x] != 1) {
+          ++actualPosition.y;
         }
       }
     } catch (ArrayIndexOutOfBoundsException ex) {
@@ -35,9 +35,9 @@ public class Hero extends Character {
 
   public void moveRight() {
     try {
-      if (actualPositionX < GameDraw.WIDTH_IN_SQUARES - 1) {
-        if (Map.map[actualPositionY][actualPositionX + 1] != 1) {
-          ++actualPositionX;
+      if (actualPosition.x < GameDraw.WIDTH_IN_SQUARES - 1) {
+        if (Map.map[actualPosition.y][actualPosition.x + 1] != 1) {
+          ++actualPosition.x;
         }
       }
     } catch (ArrayIndexOutOfBoundsException ex) {
@@ -47,9 +47,9 @@ public class Hero extends Character {
   }
 
   public void moveLeft() {
-    if (actualPositionX > 0) {
-      if (Map.map[actualPositionY][actualPositionX - 1] != 1) {
-        --actualPositionX;
+    if (actualPosition.x > 0) {
+      if (Map.map[actualPosition.y][actualPosition.x - 1] != 1) {
+        --actualPosition.x;
       }
     }
     setCostumeImage("hero-left");

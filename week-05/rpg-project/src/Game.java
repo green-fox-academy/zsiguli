@@ -1,9 +1,10 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Game {
 
   public static ArrayList<Character> characters;
-
+  public static final int skeletonNum = 3;
 
   public static void main(String[] args) {
     initCharacters();
@@ -11,23 +12,20 @@ public class Game {
   }
 
   public static void initCharacters() {
-    int[] temp1 = getRandomPosition();
-    int[] temp2 = getRandomPosition();
-    int[] temp3 = getRandomPosition();
 
     characters = new ArrayList<>();
     characters.add(new Hero());
-    characters.add(new Skeleton(temp1[1], temp1[0]));
-    characters.add(new Skeleton(temp2[1], temp2[0]));
-    characters.add(new Skeleton(temp3[1], temp3[0]));
+    for (int i = 0; i < skeletonNum; ++i) {
+      characters.add(new Skeleton(getRandomPosition()));
+    }
   }
 
-  public static int[] getRandomPosition() {
-    int[] randomPosition = new int[2];
+  public static Point getRandomPosition() {
+    Point randomPosition = new Point();
     do {
-      randomPosition[0] = (int) (Math.random() * GameDraw.HEIGHT_IN_SQUARES);
-      randomPosition[1] = (int) (Math.random() * GameDraw.WIDTH_IN_SQUARES);
-    } while (Map.map[randomPosition[0]][randomPosition[1]] == 1);
+      randomPosition.x = (int) (Math.random() * GameDraw.HEIGHT_IN_SQUARES);
+      randomPosition.y = (int) (Math.random() * GameDraw.WIDTH_IN_SQUARES);
+    } while (Map.map[randomPosition.x][randomPosition.y] == 1);
     return randomPosition;
   }
 }

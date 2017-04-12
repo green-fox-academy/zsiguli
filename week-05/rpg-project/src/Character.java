@@ -1,16 +1,17 @@
+import java.awt.*;
+
 public class Character {
   String costumeImage;
-  int actualPositionX;
-  int actualPositionY;
+  Point actualPosition = new Point();
 
   public Character() {
-    this.actualPositionX = 0;
-    this.actualPositionY = 0;
+    this.actualPosition.x = 0;
+    this.actualPosition.y = 0;
   }
 
-  public Character(int actualPositionX, int actualPositionY) {
-    this.actualPositionX = actualPositionX;
-    this.actualPositionY = actualPositionY;
+  public Character(Point actualPosition) {
+    this.actualPosition.x = actualPosition.y;
+    this.actualPosition.y = actualPosition.x;
   }
 
   public String getCostumeImage() {
@@ -22,11 +23,11 @@ public class Character {
   }
 
   public int getActualPositionX() {
-    return actualPositionX;
+    return actualPosition.x;
   }
 
   public int getActualPositionY() {
-    return actualPositionY;
+    return actualPosition.y;
   }
 
   public void moveUp() {
