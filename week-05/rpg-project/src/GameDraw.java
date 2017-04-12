@@ -26,10 +26,10 @@ public class GameDraw extends JComponent implements KeyListener {
   public void paint(Graphics graphics) {
     super.paint(graphics);
     renderMap(graphics);
-    renderSkeleton(graphics, (Skeleton) skeleton1);
-    renderSkeleton(graphics, (Skeleton) skeleton2);
-    renderSkeleton(graphics, (Skeleton) skeleton3);
-    renderHero(graphics);
+    renderSkeleton(graphics, skeleton1);
+    renderSkeleton(graphics, skeleton2);
+    renderSkeleton(graphics, skeleton3);
+    renderHero(graphics, hero1);
   }
 
   public static void gameDrawMain() {
@@ -83,13 +83,13 @@ public class GameDraw extends JComponent implements KeyListener {
     }
   }
 
-  public void renderHero(Graphics graphics) {
-    PositionedImage hero = new PositionedImage("img/" + hero1.getCostumeImage() + ".png", hero1.getActualPositionX() * DIMENSION, hero1.getActualPositionY() * DIMENSION);
-    hero.draw(graphics);
+  public void renderHero(Graphics graphics, Character hero) {
+    PositionedImage heroImg = new PositionedImage("img/" + hero.getCostumeImage() + ".png", hero.getActualPositionX() * DIMENSION, hero1.getActualPositionY() * DIMENSION);
+    heroImg.draw(graphics);
   }
 
-  public void renderSkeleton(Graphics graphics, Skeleton skeleton) {
-    PositionedImage skeletonImg = new PositionedImage("img/skeleton.png", skeleton.getActualPositionY() * DIMENSION, skeleton.getActualPositionX() * DIMENSION);
+  public void renderSkeleton(Graphics graphics, Character skeleton) {
+    PositionedImage skeletonImg = new PositionedImage("img/" + skeleton.getCostumeImage() + ".png", skeleton.getActualPositionY() * DIMENSION, skeleton.getActualPositionX() * DIMENSION);
     skeletonImg.draw(graphics);
   }
 
