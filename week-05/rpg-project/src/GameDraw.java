@@ -10,11 +10,11 @@ public class GameDraw extends JComponent implements KeyListener {
 
   Character hero1 = new Hero();
   int[] temp1 = getRandomPosition();
-  Character skeleton1 = new Skeleton(temp1[0], temp1[1]);
+  Character skeleton1 = new Skeleton(temp1[1], temp1[0]);
   int[] temp2 = getRandomPosition();
-  Character skeleton2 = new Skeleton(temp2[0], temp2[1]);
+  Character skeleton2 = new Skeleton(temp2[1], temp2[0]);
   int[] temp3 = getRandomPosition();
-  Character skeleton3 = new Skeleton(temp3[0], temp3[1]);
+  Character skeleton3 = new Skeleton(temp3[1], temp3[0]);
 
 
   public GameDraw() {
@@ -26,10 +26,10 @@ public class GameDraw extends JComponent implements KeyListener {
   public void paint(Graphics graphics) {
     super.paint(graphics);
     renderMap(graphics);
-    renderSkeleton(graphics, skeleton1);
-    renderSkeleton(graphics, skeleton2);
-    renderSkeleton(graphics, skeleton3);
-    renderHero(graphics, hero1);
+    renderCharacter(graphics, skeleton1);
+    renderCharacter(graphics, skeleton2);
+    renderCharacter(graphics, skeleton3);
+    renderCharacter(graphics, hero1);
   }
 
   public static void gameDrawMain() {
@@ -83,14 +83,9 @@ public class GameDraw extends JComponent implements KeyListener {
     }
   }
 
-  public void renderHero(Graphics graphics, Character hero) {
-    PositionedImage heroImg = new PositionedImage("img/" + hero.getCostumeImage() + ".png", hero.getActualPositionX() * DIMENSION, hero1.getActualPositionY() * DIMENSION);
-    heroImg.draw(graphics);
-  }
-
-  public void renderSkeleton(Graphics graphics, Character skeleton) {
-    PositionedImage skeletonImg = new PositionedImage("img/" + skeleton.getCostumeImage() + ".png", skeleton.getActualPositionY() * DIMENSION, skeleton.getActualPositionX() * DIMENSION);
-    skeletonImg.draw(graphics);
+  public void renderCharacter(Graphics graphics, Character character) {
+    PositionedImage characterImg = new PositionedImage("img/" + character.getCostumeImage() + ".png", character.getActualPositionX() * DIMENSION, character.getActualPositionY() * DIMENSION);
+    characterImg.draw(graphics);
   }
 
   public int[] getRandomPosition() {
