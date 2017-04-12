@@ -7,6 +7,7 @@ public class Character {
   int currentHp;
   int defendPoint;
   int strikePoint;
+  int level;
 
   public Character() {
     this.actualPosition.x = 0;

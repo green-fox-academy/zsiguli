@@ -7,6 +7,7 @@ public class Hero extends Character {
     this.currentHp = this.maximumHp;
     this.defendPoint = 2 * d6();
     this.strikePoint = 5 + d6();
+    this.level = 1;
   }
 
   @Override
