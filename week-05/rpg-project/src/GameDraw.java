@@ -84,7 +84,7 @@ public class GameDraw extends JComponent implements KeyListener {
   }
 
   public void renderHero(Graphics graphics) {
-    PositionedImage hero = new PositionedImage("img/" + hero1.getOrientation() + ".png", hero1.getActualPositionX() * DIMENSION, hero1.getActualPositionY() * DIMENSION);
+    PositionedImage hero = new PositionedImage("img/" + hero1.getCostumeImage() + ".png", hero1.getActualPositionX() * DIMENSION, hero1.getActualPositionY() * DIMENSION);
     hero.draw(graphics);
   }
 

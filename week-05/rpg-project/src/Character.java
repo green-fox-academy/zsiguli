@@ -1,28 +1,24 @@
 public class Character {
-  String orientation;
-//  int nextStepValue;
+  String costumeImage;
   int actualPositionX;
   int actualPositionY;
 
   public Character() {
-//    this.nextStepValue = 0;
     this.actualPositionX = 0;
     this.actualPositionY = 0;
   }
 
   public Character(int actualPositionX, int actualPositionY) {
-//    int nextStepValue,
-//    this.nextStepValue = nextStepValue;
     this.actualPositionX = actualPositionX;
     this.actualPositionY = actualPositionY;
   }
 
-  public String getOrientation() {
-    return orientation;
+  public String getCostumeImage() {
+    return costumeImage;
   }
 
-  public void setOrientation(String orientation) {
-    this.orientation = orientation;
+  public void setCostumeImage(String costumeImage) {
+    this.costumeImage = costumeImage;
   }
 
   public int getActualPositionX() {
