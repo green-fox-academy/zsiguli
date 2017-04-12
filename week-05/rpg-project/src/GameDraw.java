@@ -8,15 +8,21 @@ public class GameDraw extends JComponent implements KeyListener {
   static final int WIDTH_IN_SQUARES = 15;
   static final int HEIGHT_IN_SQUARES = 8;
   static final int DIMENSION = 72;
+  static final int WIDTH = WIDTH_IN_SQUARES * DIMENSION;
+  static final int HEIGHT = HEIGHT_IN_SQUARES * DIMENSION;
 
   public GameDraw() {
-    setPreferredSize(new Dimension(WIDTH_IN_SQUARES * DIMENSION, HEIGHT_IN_SQUARES * DIMENSION));
+    setPreferredSize(new Dimension(WIDTH, HEIGHT + 100));
     setVisible(true);
   }
 
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
+    graphics.setFont(new Font("TimesRoman", Font.ITALIC, 20));
+    Character hero = Game.characters.get(0);
+    graphics.drawString("Hero (Level 1) HP: " + hero.maximumHp + "/" + hero.currentHp + " | DP: " + hero.defendPoint +
+            " | SP: " + hero.strikePoint, WIDTH / 3, HEIGHT + 30);
     renderMap(graphics);
     renderCharacters(graphics, Game.characters);
   }
