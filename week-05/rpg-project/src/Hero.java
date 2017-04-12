@@ -3,11 +3,10 @@ public class Hero extends Character {
   public Hero() {
     super();
     this.costumeImage = "hero-down";
-  }
-
-  public Hero(String costumeImage) {
-    super();
-    this.costumeImage = costumeImage;
+    this.maximumHp = 20 + 3 * d6();
+    this.currentHp = this.maximumHp;
+    this.defendPoint = 2 * d6();
+    this.strikePoint = 5 + d6();
   }
 
   @Override

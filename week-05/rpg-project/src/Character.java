@@ -3,6 +3,10 @@ import java.awt.*;
 public class Character {
   String costumeImage;
   Point actualPosition = new Point();
+  int maximumHp;
+  int currentHp;
+  int defendPoint;
+  int strikePoint;
 
   public Character() {
     this.actualPosition.x = 0;
@@ -44,5 +48,9 @@ public class Character {
 
   public void moveLeft() {
 
+  }
+
+  public int d6() {
+    return 1 + (int) (Math.random() * 6);
   }
 }
