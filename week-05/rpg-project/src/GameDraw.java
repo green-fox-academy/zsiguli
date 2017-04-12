@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class GameDraw extends JComponent implements KeyListener {
   static final int WIDTH_IN_SQUARES = 15;
@@ -26,10 +28,16 @@ public class GameDraw extends JComponent implements KeyListener {
   public void paint(Graphics graphics) {
     super.paint(graphics);
     renderMap(graphics);
-    renderCharacter(graphics, skeleton1);
-    renderCharacter(graphics, skeleton2);
-    renderCharacter(graphics, skeleton3);
-    renderCharacter(graphics, hero1);
+    ArrayList<Character> characters = new ArrayList<>();
+    characters.add(hero1);
+    characters.add(skeleton1);
+    characters.add(skeleton2);
+    characters.add(skeleton3);
+    renderCharacters(graphics, characters);
+
+
+
+
   }
 
   public static void gameDrawMain() {
@@ -83,9 +91,11 @@ public class GameDraw extends JComponent implements KeyListener {
     }
   }
 
-  public void renderCharacter(Graphics graphics, Character character) {
-    PositionedImage characterImg = new PositionedImage("img/" + character.getCostumeImage() + ".png", character.getActualPositionX() * DIMENSION, character.getActualPositionY() * DIMENSION);
-    characterImg.draw(graphics);
+  public void renderCharacters(Graphics graphics, ArrayList<Character> characters) {
+    for (Character character : characters) {
+      PositionedImage characterImg = new PositionedImage("img/" + character.getCostumeImage() + ".png", character.getActualPositionX() * DIMENSION, character.getActualPositionY() * DIMENSION);
+      characterImg.draw(graphics);
+    }
   }
 
   public int[] getRandomPosition() {
