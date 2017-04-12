@@ -49,7 +49,9 @@ public class GameDraw extends JComponent implements KeyListener {
 
   @Override
   public void keyPressed(KeyEvent e) {
-    if (e.getKeyCode() == KeyEvent.VK_UP) {
+    if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+      System.exit(0);
+    } else if (e.getKeyCode() == KeyEvent.VK_UP) {
       hero1.moveUp();
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
       hero1.moveDown();
