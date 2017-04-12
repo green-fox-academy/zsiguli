@@ -31,4 +31,8 @@ public class Character {
   public int getActualPositionY() {
     return actualPositionY;
   }
+
+  public void moveUp() {
+
+  }
 }

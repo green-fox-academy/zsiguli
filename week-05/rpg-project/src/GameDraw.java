@@ -50,12 +50,7 @@ public class GameDraw extends JComponent implements KeyListener {
   @Override
   public void keyPressed(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      if (hero1.actualPositionY > 0) {
-        if (Map.map[hero1.actualPositionY - 1][hero1.actualPositionX] != 1) {
-          --hero1.actualPositionY;
-        }
-      }
-      hero1.setOrientation("hero-up");
+      hero1.moveUp();
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
       try {
         if (hero1.actualPositionY < HEIGHT_IN_SQUARES) {
