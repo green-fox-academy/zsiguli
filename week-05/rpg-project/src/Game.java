@@ -15,6 +15,7 @@ public class Game {
 
     characters = new ArrayList<>();
     characters.add(new Hero());
+    characters.add(new Boss(getRandomPosition()));
     for (int i = 0; i < skeletonNum; ++i) {
       characters.add(new Skeleton(getRandomPosition()));
     }
