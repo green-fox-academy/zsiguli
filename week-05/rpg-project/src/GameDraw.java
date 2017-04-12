@@ -10,11 +10,11 @@ public class GameDraw extends JComponent implements KeyListener {
 
   Character hero1 = new Hero();
   int[] temp1 = getRandomPosition();
-  Character skeleton1 = new Skeleton(0, temp1[0] * DIMENSION, temp1[1] * DIMENSION);
+  Character skeleton1 = new Skeleton(0, temp1[0], temp1[1]);
   int[] temp2 = getRandomPosition();
-  Character skeleton2 = new Skeleton(0, temp2[0] * DIMENSION, temp2[1] * DIMENSION);
+  Character skeleton2 = new Skeleton(0, temp2[0], temp2[1]);
   int[] temp3 = getRandomPosition();
-  Character skeleton3 = new Skeleton(0, temp3[0] * DIMENSION, temp3[1] * DIMENSION);
+  Character skeleton3 = new Skeleton(0, temp3[0], temp3[1]);
 
 
   public GameDraw() {
@@ -87,7 +87,7 @@ public class GameDraw extends JComponent implements KeyListener {
   }
 
   public void renderSkeleton(Graphics graphics, Skeleton skeleton) {
-    PositionedImage skeletonImg = new PositionedImage("img/skeleton.png", skeleton.getActualPositionY(), skeleton.getActualPositionX());
+    PositionedImage skeletonImg = new PositionedImage("img/skeleton.png", skeleton.getActualPositionY() * DIMENSION, skeleton.getActualPositionX() * DIMENSION);
     skeletonImg.draw(graphics);
   }
 
