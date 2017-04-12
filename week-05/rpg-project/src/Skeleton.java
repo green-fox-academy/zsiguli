@@ -3,7 +3,7 @@ public class Skeleton extends Character {
     super();
   }
 
-  public Skeleton(int nextStepValue, int actualPositionX, int actualPositionY) {
-    super(nextStepValue, actualPositionX, actualPositionY);
+  public Skeleton(int actualPositionX, int actualPositionY) {
+    super(actualPositionX, actualPositionY);
   }
 }

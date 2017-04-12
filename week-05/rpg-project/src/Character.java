@@ -1,17 +1,18 @@
 public class Character {
   String orientation;
-  int nextStepValue;
+//  int nextStepValue;
   int actualPositionX;
   int actualPositionY;
 
   public Character() {
-    this.nextStepValue = 0;
+//    this.nextStepValue = 0;
     this.actualPositionX = 0;
     this.actualPositionY = 0;
   }
 
-  public Character(int nextStepValue, int actualPositionX, int actualPositionY) {
-    this.nextStepValue = nextStepValue;
+  public Character(int actualPositionX, int actualPositionY) {
+//    int nextStepValue,
+//    this.nextStepValue = nextStepValue;
     this.actualPositionX = actualPositionX;
     this.actualPositionY = actualPositionY;
   }

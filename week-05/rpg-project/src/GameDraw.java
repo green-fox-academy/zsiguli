@@ -10,11 +10,11 @@ public class GameDraw extends JComponent implements KeyListener {
 
   Character hero1 = new Hero();
   int[] temp1 = getRandomPosition();
-  Character skeleton1 = new Skeleton(0, temp1[0], temp1[1]);
+  Character skeleton1 = new Skeleton(temp1[0], temp1[1]);
   int[] temp2 = getRandomPosition();
-  Character skeleton2 = new Skeleton(0, temp2[0], temp2[1]);
+  Character skeleton2 = new Skeleton(temp2[0], temp2[1]);
   int[] temp3 = getRandomPosition();
-  Character skeleton3 = new Skeleton(0, temp3[0], temp3[1]);
+  Character skeleton3 = new Skeleton(temp3[0], temp3[1]);
 
 
   public GameDraw() {
