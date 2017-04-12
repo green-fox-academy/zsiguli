@@ -12,11 +12,13 @@ public class Character {
   public Character() {
     this.actualPosition.x = 0;
     this.actualPosition.y = 0;
+    this.level = 1;
   }
 
   public Character(Point actualPosition) {
     this.actualPosition.x = actualPosition.y;
     this.actualPosition.y = actualPosition.x;
+    this.level = 1;
   }
 
   public String getCostumeImage() {

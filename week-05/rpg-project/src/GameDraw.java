@@ -85,7 +85,10 @@ public class GameDraw extends JComponent implements KeyListener {
   public void renderHud(Graphics graphics) {
     graphics.setFont(new Font("TimesRoman", Font.ITALIC, 20));
     Character hero = Game.characters.get(0);
-    graphics.drawString("Hero (Level " + hero.level + ") HP: " + hero.maximumHp + "/" + hero.currentHp + " | DP: " +
+    graphics.drawString("Hero: (Level " + hero.level + ") HP: " + hero.maximumHp + "/" + hero.currentHp + " | DP: " +
             hero.defendPoint + " | SP: " + hero.strikePoint, WIDTH / 3, HEIGHT + 30);
+    Character monster = Game.characters.get(2);
+    graphics.drawString("Monster: (Level " + monster.level + ") HP: " + monster.maximumHp + "/" + monster.currentHp +
+    " | DP: " + monster.defendPoint + " | SP: " + monster.strikePoint, WIDTH / 3, HEIGHT + 60);
   }
 }
