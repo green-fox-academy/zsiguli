@@ -52,34 +52,11 @@ public class GameDraw extends JComponent implements KeyListener {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
       hero1.moveUp();
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      try {
-        if (hero1.actualPositionY < HEIGHT_IN_SQUARES) {
-          if (Map.map[hero1.actualPositionY + 1][hero1.actualPositionX] != 1) {
-            ++hero1.actualPositionY;
-          }
-        }
-      } catch (ArrayIndexOutOfBoundsException ex) {
-        System.out.println("hm is this really a problem?");
-      }
-      hero1.setOrientation("hero-down");
+      hero1.moveDown();
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      try {
-        if (Map.map[hero1.actualPositionY][hero1.actualPositionX + 1] != 1) {
-          if (hero1.actualPositionX < WIDTH_IN_SQUARES) {
-            ++hero1.actualPositionX;
-          }
-        }
-      } catch (ArrayIndexOutOfBoundsException ex) {
-        System.out.println("here is an error I will fix it later");
-      }
-      hero1.setOrientation("hero-right");
+      hero1.moveRight();
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      if (Map.map[hero1.actualPositionY][hero1.actualPositionX - 1] != 1) {
-        if (hero1.actualPositionX > 0) {
-          --hero1.actualPositionX;
-        }
-      }
-      hero1.setOrientation("hero-left");
+      hero1.moveLeft();
     }
     repaint();
   }
