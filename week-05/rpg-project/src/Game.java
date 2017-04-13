@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Game {
 
   public static ArrayList<Character> characters;
+  public static int level = 1;
   public static final int skeletonNum = 3;
 
   public static void initCharacters() {
