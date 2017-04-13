@@ -52,8 +52,11 @@ public class GameDraw extends JComponent implements KeyListener {
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
       Game.characters.get(0).moveLeft();
     } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-      Game.attacker().strike(Game.whoIsThere(Game.attacker().actualPosition));
+      if (Game.isThereAnyone()) {
+        Game.attacker().strike(Game.whoIsThere(Game.attacker().actualPosition));
+      }
     }
+    Game.moveMonsters();
     repaint();
   }
 
@@ -91,7 +94,7 @@ public class GameDraw extends JComponent implements KeyListener {
             hero.defendPoint + " | SP: " + hero.strikePoint, WIDTH / 3, HEIGHT + 30);
     if (Game.isThereAnyone()) {
       Character monster = Game.whoIsThere(hero.actualPosition);
-      graphics.drawString("Monster: (Level " + monster.level + ") HP: " + monster.maximumHp + "/" + monster.currentHp +
+      graphics.drawString("Monster: (Level " + Game.level + ") HP: " + monster.maximumHp + "/" + monster.currentHp +
               " | DP: " + monster.defendPoint + " | SP: " + monster.strikePoint, WIDTH / 3, HEIGHT + 60);
     }
   }

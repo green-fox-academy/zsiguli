@@ -1,15 +1,22 @@
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class Game {
 
   public static ArrayList<Character> characters;
-  public static int level = 1;
+  public static ArrayList heroStats = new ArrayList();
+  public static int level = 0;
   public static final int skeletonNum = 3;
 
   public static void initCharacters() {
+    ++level;
     characters = new ArrayList<>();
-    characters.add(new Hero());
+    if (!heroStats.isEmpty()) {
+      characters.add(new Hero(heroStats));
+    } else {
+      characters.add(new Hero());
+    }
     characters.add(new Boss(getRandomPosition()));
     for (int i = 0; i < skeletonNum; ++i) {
       characters.add(new Skeleton(getRandomPosition()));
@@ -51,6 +58,25 @@ public class Game {
 
   public static Character attacker() {
     return Game.characters.get(0);
+  }
+
+  public static void moveMonsters() {
+    for (int i = 1; i < characters.size(); ++i) {
+      int num = (int) (Math.random() * 3);
+      switch (num) {
+        case 0:
+          characters.get(i).moveUp();
+          break;
+        case 1:
+          characters.get(i).moveDown();
+          break;
+        case 2:
+          characters.get(i).moveLeft();
+          break;
+        case 3:
+          characters.get(i).moveRight();
+      }
+    }
   }
 
 }

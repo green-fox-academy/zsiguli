@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Hero extends Character {
 
   public Hero() {
@@ -7,6 +9,16 @@ public class Hero extends Character {
     this.currentHp = this.maximumHp;
     this.defendPoint = 2 * d6();
     this.strikePoint = 5 + d6();
+  }
+
+  public Hero(ArrayList heroStats) {
+    super();
+    this.costumeImage = "hero-down";
+    this.level = (int) heroStats.get(0);
+    this.maximumHp = (int) heroStats.get(1);
+    this.currentHp = this.maximumHp;
+    this.defendPoint = (int) heroStats.get(2);
+    this.strikePoint = (int) heroStats.get(3);
   }
 
   @Override
@@ -52,6 +64,14 @@ public class Hero extends Character {
       }
     }
     setCostumeImage("hero-left");
+  }
+
+  @Override
+  public void levelUp() {
+    ++this.level;
+    this.maximumHp += d6();
+    this.strikePoint += d4();
+    this.defendPoint += d4();
   }
 }
 
