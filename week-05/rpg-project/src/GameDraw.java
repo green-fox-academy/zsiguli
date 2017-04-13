@@ -24,7 +24,7 @@ public class GameDraw extends JComponent implements KeyListener {
     renderHud(graphics);
   }
 
-  public static void gameDrawMain() {
+  public static void gameDraw() {
     JFrame frame = new JFrame("RPG Game");
     GameDraw gameDraw = new GameDraw();
     frame.add(gameDraw);

@@ -8,7 +8,7 @@ public class Game {
 
   public static void main(String[] args) {
     initCharacters();
-    GameDraw.gameDrawMain();
+    GameDraw.gameDraw();
   }
 
   public static void initCharacters() {
