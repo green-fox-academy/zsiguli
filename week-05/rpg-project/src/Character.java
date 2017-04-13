@@ -57,4 +57,18 @@ public class Character {
     return 1 + (int) (Math.random() * 6);
   }
 
+  public void strike(Character enemy) {
+    int ownStrikeValue = strikePoint * d6();
+    int enemyStrikeValue = enemy.strikePoint * d6();
+    if (2 * d6() + ownStrikeValue > enemy.defendPoint) {
+      if (ownStrikeValue - enemy.defendPoint > 0) {
+        enemy.currentHp -= level;
+      }
+    }
+    if (2 * d6() + enemyStrikeValue > defendPoint) {
+      if (enemyStrikeValue - defendPoint > 0) {
+        currentHp -= enemy.level;
+      }
+    }
+  }
 }

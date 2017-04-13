@@ -43,9 +43,14 @@ public class Game {
     for (int i = 1; i < characters.size(); ++i) {
       Point temp = characters.get(i).actualPosition;
       if (temp.x == position.x && temp.y == position.y) {
-      actualEnemy = characters.get(i);
+        actualEnemy = characters.get(i);
       }
     }
     return actualEnemy;
   }
+
+  public static Character attacker() {
+    return Game.characters.get(0);
+  }
+
 }

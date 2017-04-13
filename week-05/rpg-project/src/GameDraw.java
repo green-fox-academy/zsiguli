@@ -51,6 +51,8 @@ public class GameDraw extends JComponent implements KeyListener {
       Game.characters.get(0).moveRight();
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
       Game.characters.get(0).moveLeft();
+    } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+      Game.attacker().strike(Game.whoIsThere(Game.attacker().actualPosition));
     }
     repaint();
   }
