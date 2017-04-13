@@ -6,11 +6,6 @@ public class Game {
   public static ArrayList<Character> characters;
   public static final int skeletonNum = 3;
 
-  public static void main(String[] args) {
-    initCharacters();
-    GameDraw.gameDraw();
-  }
-
   public static void initCharacters() {
     characters = new ArrayList<>();
     characters.add(new Hero());
