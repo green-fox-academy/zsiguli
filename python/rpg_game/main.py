@@ -10,10 +10,10 @@ class Box(object):
         self.testBoxY = 0
 
     def draw(self, canvas):
-        canvas.create_rectangle(0, 0, dimension*(width_in_squares-1), dimension*(height_in_squares-1) , fill='white')
         canvas.create_rectangle(self.testBoxX, self.testBoxY, self.testBoxX+dimension, self.testBoxY+dimension, fill='lime green')
 
 root = Tk()
+root.wm_title("RPG Game")
 canvas = Canvas(root, width=dimension*width_in_squares, height=dimension*height_in_squares)
 
 box = Box()
