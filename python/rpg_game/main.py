@@ -1,24 +1,28 @@
 from tkinter import *
+import game_object
 
 dimension = 72
-width_in_squares = 5
-height_in_squares = 5
+width_in_squares = 10 
+height_in_squares = 8
 
-class Game_object(object):
-    def __init__(self, position_x, position_y, costume_image):
-        self.position_x = position_x
-        self.position_y = position_y
-        self.costume_image = "img/" + str(costume_image) + ".png"
+class Draw(object):
+    def __init__(self, game_objects):
+        self.game_objects = game_objects
 
-    def draw(self, canvas):
-        self.photo = PhotoImage(file=self.costume_image)
-        canvas.create_image(self.position_x, self.position_y, anchor = NW, image = self.photo)
+    def draw(self, game_object):
+        self.temp_image = PhotoImage(file=game_object.costume_image)
+        print(game_object.position_x)
+        print(game_object.position_y)
+        print(game_object.costume_image) 
+        print(temp_image)
+        canvas.create_image(game_object.position_x, game_object.position_y, anchor = NW, image = self.temp_image)
+
 
 root = Tk()
 root.wm_title("RPG Game")
 canvas = Canvas(root, width=dimension*width_in_squares, height=dimension*height_in_squares)
 
-game_object = Game_object(0, 0, "hero-down")
+game_object = game_object.Game_object(0, 0, "hero-down")
 
 def on_key_press(e):
     if e.keycode == 9:
@@ -32,10 +36,13 @@ def on_key_press(e):
     elif e.keycode == 114:
         game_object.position_x += dimension
 
-    game_object.draw(canvas)
+    draw(self, game_object)
 
 canvas.bind("<KeyPress>", on_key_press)
 canvas.pack()
 canvas.focus_set()
-game_object.draw(canvas)
+
+#photo = PhotoImage(file=game_object.costume_image)
+#canvas.create_image(game_object.position_x, game_object.position_y , anchor = NW, image = photo)
+draw(game_object)
 root.mainloop()
