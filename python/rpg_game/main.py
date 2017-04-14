@@ -42,4 +42,9 @@ canvas.focus_set()
 # Draw the box in the initial position
 box.draw(canvas)
 
+photo = PhotoImage(file="img/hero-down.png")
+canvas.create_image(0, 0, anchor = NW, image = photo)
+
+
+
 root.mainloop()
