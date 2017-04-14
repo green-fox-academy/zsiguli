@@ -20,7 +20,7 @@ box = Box()
 
 def on_key_press(e):
     if e.keycode == 9:
-        print(exit)
+        sys.exit() 
     elif e.keycode == 111:
         box.testBoxY -= dimension 
     elif e.keycode == 116:
