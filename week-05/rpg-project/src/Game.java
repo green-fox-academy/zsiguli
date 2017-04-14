@@ -62,7 +62,7 @@ public class Game {
 
   public static void moveMonsters() {
     for (int i = 1; i < characters.size(); ++i) {
-      int num = (int) (Math.random() * 3);
+      int num = (int) (Math.random() * 4);
       if (characters.get(i).currentHp < characters.get(i).maximumHp / 2) {
       } else {
         switch (num) {
