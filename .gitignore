@@ -6,3 +6,4 @@ out
 *.txt
 LocalTest.java
 local_test.py
+*.swp
