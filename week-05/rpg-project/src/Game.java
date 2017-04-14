@@ -63,18 +63,21 @@ public class Game {
   public static void moveMonsters() {
     for (int i = 1; i < characters.size(); ++i) {
       int num = (int) (Math.random() * 3);
-      switch (num) {
-        case 0:
-          characters.get(i).moveUp();
-          break;
-        case 1:
-          characters.get(i).moveDown();
-          break;
-        case 2:
-          characters.get(i).moveLeft();
-          break;
-        case 3:
-          characters.get(i).moveRight();
+      if (characters.get(i).currentHp < characters.get(i).maximumHp / 2) {
+      } else {
+        switch (num) {
+          case 0:
+            characters.get(i).moveUp();
+            break;
+          case 1:
+            characters.get(i).moveDown();
+            break;
+          case 2:
+            characters.get(i).moveLeft();
+            break;
+          case 3:
+            characters.get(i).moveRight();
+        }
       }
     }
   }
