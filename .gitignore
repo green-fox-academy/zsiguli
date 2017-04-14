@@ -5,3 +5,4 @@ out
 *.xml
 *.txt
 LocalTest.java
+local_test.py
