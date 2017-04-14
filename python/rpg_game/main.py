@@ -1,30 +1,35 @@
 from tkinter import *
 
+dimension = 72
+width_in_squares = 18
+height_in_squares = 10
+
 class Box(object):
     def __init__(self):
-        self.testBoxX = 300
-        self.testBoxY = 300
+        self.testBoxX = 0 
+        self.testBoxY = 0
 
     def draw(self, canvas):
-        canvas.create_rectangle(0, 0, 600, 600, fill='white')
-        canvas.create_rectangle(self.testBoxX, self.testBoxY, self.testBoxX+100, self.testBoxY+100, fill='lime green')
+        canvas.create_rectangle(0, 0, dimension*(width_in_squares-1), dimension*(height_in_squares-1) , fill='white')
+        canvas.create_rectangle(self.testBoxX, self.testBoxY, self.testBoxX+dimension, self.testBoxY+dimension, fill='lime green')
 
-# Create the tk environment as usual
 root = Tk()
-canvas = Canvas(root, width=600, height=600)
+canvas = Canvas(root, width=dimension*width_in_squares, height=dimension*height_in_squares)
 
-# Creating a box that can draw itself in a certain position
 box = Box()
 
-# Create a function that can be called when a key pressing happens
 def on_key_press(e):
-    # When the keycode is 111 (up arrow) we move the position of our box higher
-    if e.keycode == 111:
-        box.testBoxY = box.testBoxY - 100
+    if e.keycode == 9:
+        print(exit)
+    elif e.keycode == 111:
+        box.testBoxY -= dimension 
     elif e.keycode == 116:
-        box.testBoxY = box.testBoxY + 100
-    # and lower if the key that was pressed the down arrow
-    # draw the box again in the new position
+        box.testBoxY += dimension
+    elif e.keycode == 113:
+        box.testBoxX -= dimension
+    elif e.keycode == 114:
+        box.testBoxX += dimension
+
     box.draw(canvas)
 
 # Tell the canvas that we prepared a function that can deal with the key press events
