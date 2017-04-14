@@ -1,50 +1,41 @@
 from tkinter import *
 
 dimension = 72
-width_in_squares = 18
-height_in_squares = 10
+width_in_squares = 5
+height_in_squares = 5
 
-class Box(object):
-    def __init__(self):
-        self.testBoxX = 0 
-        self.testBoxY = 0
+class Game_object(object):
+    def __init__(self, position_x, position_y, costume_image):
+        self.position_x = position_x
+        self.position_y = position_y
+        self.costume_image = "img/" + str(costume_image) + ".png"
 
     def draw(self, canvas):
-        canvas.create_rectangle(self.testBoxX, self.testBoxY, self.testBoxX+dimension, self.testBoxY+dimension, fill='lime green')
+        self.photo = PhotoImage(file=self.costume_image)
+        canvas.create_image(self.position_x, self.position_y, anchor = NW, image = self.photo)
 
 root = Tk()
 root.wm_title("RPG Game")
 canvas = Canvas(root, width=dimension*width_in_squares, height=dimension*height_in_squares)
 
-box = Box()
+game_object = Game_object(0, 0, "hero-down")
 
 def on_key_press(e):
     if e.keycode == 9:
         sys.exit() 
     elif e.keycode == 111:
-        box.testBoxY -= dimension 
+        game_object.position_y -= dimension
     elif e.keycode == 116:
-        box.testBoxY += dimension
+        game_object.position_y += dimension
     elif e.keycode == 113:
-        box.testBoxX -= dimension
+        game_object.position_x -= dimension
     elif e.keycode == 114:
-        box.testBoxX += dimension
+        game_object.position_x += dimension
 
-    box.draw(canvas)
+    game_object.draw(canvas)
 
-# Tell the canvas that we prepared a function that can deal with the key press events
 canvas.bind("<KeyPress>", on_key_press)
 canvas.pack()
-
-# Select the canvas to be in focused so it actually recieves the key hittings
 canvas.focus_set()
-
-# Draw the box in the initial position
-box.draw(canvas)
-
-photo = PhotoImage(file="img/hero-down.png")
-canvas.create_image(0, 0, anchor = NW, image = photo)
-
-
-
+game_object.draw(canvas)
 root.mainloop()
