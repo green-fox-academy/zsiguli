@@ -11,12 +11,23 @@ class Game_object(object):
         self.costume_image = "img/" + str(costume_image) + ".png"
 
     def draw(self, canvas):
-            self.photo = PhotoImage(file=self.costume_image)
-            canvas.create_image(self.position_x, self.position_y, anchor = NW, image = self.photo)
+        print(self.costume_image)
+        self.photo = PhotoImage(file=self.costume_image)
+        canvas.create_image(self.position_x, self.position_y, anchor = NW, image = self.photo)
+
+class Map():
+    def __init__(self, map_=[]):
+        self.map_ = map_
+
+    def init_map(self):
+        self.map_ = [[0,1,1,0,1,0],[0,1,0,1,0,1],[0,1,0,0,1],[0,0,1,0,1],[1,1,0,1,0]]
+
 
 root = Tk()
 root.wm_title("RPG Game")
 canvas = Canvas(root, width=dimension*width_in_squares, height=dimension*height_in_squares)
+map_ = Map()
+map_.init_map()
 
 game_objects = [Game_object(0, 0, "hero-down"), Game_object(50, 50, "hero-up")]
 
@@ -28,7 +39,7 @@ def on_key_press(e):
         hero.costum_image = "hero-down"
         hero.position_y -= dimension
     elif e.keycode == 116:
-        game_objects[0].costum_image = "hero-up"
+        hero.costum_image = "hero-up"
         hero.position_y += dimension
     elif e.keycode == 113:
         hero.position_x -= dimension
