@@ -22,16 +22,48 @@ class Character(Game_object):
     def __init__(self, position_x, position_y, costume_image):
         super().__init__(position_x, position_y, costume_image)
 
+    def move_up(self):
+        pass
+
+    def move_down(self):
+        pass
+
+    def move_left(self):
+        pass
+
+    def move_right(self):
+        pass
+
 class Hero(Character):
     def __init__(self, position_x, position_y, cotume_image):
         super().__init__(position_x, position_y, cotume_image)
+
+    def move_up(self):
+        self.costume_image = "hero-up"
+        if self.position_y > 0:
+            self.position_y -= 1
+
+    def move_down(self):
+        self.costume_image = "hero-down"
+        if self.position_y < len(game_map.map_)-1:
+            self.position_y += 1
+
+    def move_left(self):
+        self.costume_image = "hero-left"
+        if self.position_x > 0:
+            self.position_x -= 1
+
+    def move_right(self):
+        self.costume_image = "hero-right"
+        if self.position_x < len(game_map.map_[0])-1:
+            self.position_x += 1 
 
 class Map():
     def __init__(self, map_=[]):
         self.map_ = map_
 
     def init_map(self):
-        self.map_ = [[0,1,1,0,1],[0,1,0,1,0],[0,1,0,0,1],[0,0,1,0,1],[1,1,0,1,0]]
+        self.map_ = [[0,1,1,0,1],[0,1,0,0,0],[0,1,1,1,0],[0,0,0,0,0],[1,1,0,1,1]]
 
     def render_tiles(self):
         for x in range(len(self.map_)):
@@ -58,23 +90,20 @@ def on_key_press(e):
     elif e.keycode == 111:
         for game_object in game_objects:
             if game_object.is_character():
-                game_object.costume_image = "hero-up"
-                game_object.position_y -= 1
+                game_object.move_up()
     elif e.keycode == 116:
         for game_object in game_objects:
             if game_object.is_character():
-                game_object.costume_image = "hero-down"
-                game_object.position_y += 1
+                game_object.move_down()
     elif e.keycode == 113:
         for game_object in game_objects:
             if game_object.is_character():
-                game_object.costume_image = "hero-left"
-                game_object.position_x -= 1
+                game_object.move_left()
     elif e.keycode == 114:
         for game_object in game_objects:
             if game_object.is_character():
-                game_object.costume_image = "hero-right"
-                game_object.position_x += 1 
+                game_object.move_right() 
+
     for game_object in game_objects:
         game_object.draw(canvas)
 
