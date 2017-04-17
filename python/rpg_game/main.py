@@ -96,11 +96,21 @@ class Game():
         self.objects.append(Hero())        
 
     def render_boss(self):
-        self.objects.append(Boss(3, 3))         
+        while True:
+              x = randint(0,4)
+              y = randint(0,4)
+              if self.map_[y][x] == 0 and (x != 0 and y != 0):
+                  self.objects.append(Boss(x,y))
+                  break
 
     def render_skeletons(self, number_of_skeletons=3):
         for num in range(number_of_skeletons):
-            self.objects.append(Skeleton(randint(0,4), randint(0,4)))        
+            while True:
+              x = randint(0,4)
+              y = randint(0,4)
+              if self.map_[y][x] == 0 and (x != 0 and y != 0):
+                  self.objects.append(Skeleton(x,y))
+                  break  
 
 root = Tk()
 root.wm_title("RPG Game")
