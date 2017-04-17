@@ -22,6 +22,10 @@ class Character(Game_object):
     def __init__(self, position_x, position_y, costume_image):
         super().__init__(position_x, position_y, costume_image)
 
+class Hero(Character):
+    def __init__(self, position_x, position_y, cotume_image):
+        super().__init__(position_x, position_y, cotume_image)
+
 class Map():
     def __init__(self, map_=[]):
         self.map_ = map_
@@ -46,7 +50,7 @@ game_objects = []
 game_map = Map()
 game_map.init_map()
 game_map.render_tiles()
-game_objects.append(Character(0, 0, "hero-down"))
+game_objects.append(Hero(0, 0, "hero-down"))
 
 def on_key_press(e):
     if e.keycode == 9:
