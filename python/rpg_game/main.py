@@ -13,7 +13,7 @@ class Game_object(object):
     def draw(self, canvas):
         print(self.costume_image)
         self.photo = PhotoImage(file=self.costume_image)
-        canvas.create_image(self.position_x, self.position_y, anchor = NW, image = self.photo)
+        canvas.create_image(self.position_x*dimension, self.position_y*dimension, anchor = NW, image = self.photo)
 
 class Character(Game_object):
     def __init__(self, position_x, position_y, costume_image):
@@ -30,9 +30,9 @@ class Map():
         for x in range(len(self.map_)):
            for y in range(len(self.map_[x])):
               if self.map_[y][x] == 0:
-                  game_objects.append(Game_object(x*dimension, y*dimension, "floor"))
+                  game_objects.append(Game_object(x, y, "floor"))
               else:
-                  game_objects.append(Game_object(x*dimension, y*dimension, "wall"))
+                  game_objects.append(Game_object(x, y, "wall"))
 
 
 root = Tk()
@@ -50,14 +50,14 @@ def on_key_press(e):
         sys.exit() 
     elif e.keycode == 111:
         hero.costum_image = "hero-down"
-        hero.position_y -= dimension
+        hero.position_y -= 1
     elif e.keycode == 116:
         hero.costum_image = "hero-up"
-        hero.position_y += dimension
+        hero.position_y += 1
     elif e.keycode == 113:
-        hero.position_x -= dimension
+        hero.position_x -= 1
     elif e.keycode == 114:
-        hero.position_x += dimension
+        hero.position_x += 1 
 
     for game_object in game_objects:
         game_object.draw(canvas)
