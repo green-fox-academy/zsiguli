@@ -70,7 +70,7 @@ class Boss(Character):
         super().__init__(position_x, position_y, costume_image)
 
 class Skeleton(Character):
-    def __init__(self, position_x=randint(0,4), position_y=randint(0,4), costume_image="skeleton"):
+    def __init__(self, position_x, position_y, costume_image="skeleton"):
         super().__init__(position_x, position_y, costume_image)
 
 class Game():
@@ -100,8 +100,7 @@ class Game():
 
     def render_skeletons(self, number_of_skeletons=3):
         for num in range(number_of_skeletons):
-            print(num)
-            self.objects.append(Skeleton())        
+            self.objects.append(Skeleton(randint(0,4), randint(0,4)))        
 
 root = Tk()
 root.wm_title("RPG Game")
