@@ -1,4 +1,5 @@
 from tkinter import *
+from random import randint
 
 dimension = 72
 width_in_squares = 5
@@ -13,7 +14,7 @@ class Game_object(object):
     def draw(self, canvas):
         self.photo = PhotoImage(file="img/" + self.costume_image + ".png")
         canvas.create_image(self.position_x*dimension, self.position_y*dimension, anchor = NW, image = self.photo)
-
+            
     def is_character(self):
         return isinstance(self, Character)
 
@@ -37,8 +38,8 @@ class Character(Game_object):
         return game.map_[y][x] == 0
 
 class Hero(Character):
-    def __init__(self, position_x, position_y, cotume_image):
-        super().__init__(position_x, position_y, cotume_image)
+    def __init__(self, position_x=0, position_y=0, costume_image="hero-down"):
+        super().__init__(position_x, position_y, costume_image)
 
     def move_up(self):
         self.costume_image = "hero-up"
@@ -64,6 +65,10 @@ class Hero(Character):
             if self.is_floor(self.position_x+1, self.position_y):
                 self.position_x += 1 
 
+class Boss(Character):
+    def __init__(self, position_x, position_y, costume_image="boss"):
+        super().__init__(position_x, position_y, costume_image)
+
 class Game():
     def __init__(self, map_=[[0,1,1,0,1],[0,1,0,0,0],[0,1,1,1,0],[0,0,0,0,0],[1,1,0,1,1]], objects=[]):
         self.map_ = map_
@@ -84,24 +89,20 @@ class Game():
                   game.objects.append(Game_object(x, y, "wall"))
    
     def render_hero(self):
-        self.objects.append(Hero(0, 0, "hero-down"))        
+        self.objects.append(Hero())        
 
     def render_boss(self):
-        pass
+        self.objects.append(Boss(3, 3))         
 
     def render_skeletons(self, number_of_skeletons=3):
-        pass
-
+        pass        
 
 root = Tk()
 root.wm_title("RPG Game")
+
 canvas = Canvas(root, width=dimension*width_in_squares, height=dimension*height_in_squares)
 
 game = Game()
-
-#game_objects = []
-#game_map = Map()
-
 game.init()
 
 def on_key_press(e):
