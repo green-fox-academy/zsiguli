@@ -8,11 +8,11 @@ class Game_object(object):
     def __init__(self, position_x, position_y, costume_image):
         self.position_x = position_x
         self.position_y = position_y
-        self.costume_image = "img/" + str(costume_image) + ".png"
+        self.costume_image = costume_image
 
     def draw(self, canvas):
         print(self.costume_image)
-        self.photo = PhotoImage(file=self.costume_image)
+        self.photo = PhotoImage(file="img/" + self.costume_image + ".png")
         canvas.create_image(self.position_x*dimension, self.position_y*dimension, anchor = NW, image = self.photo)
     
     def is_character(self):
@@ -54,22 +54,22 @@ def on_key_press(e):
     elif e.keycode == 111:
         for game_object in game_objects:
             if game_object.is_character():
-                game_object.costum_image = "img/hero-up.png"
+                game_object.costum_image = "hero-up"
                 game_object.position_y -= 1
     elif e.keycode == 116:
         for game_object in game_objects:
             if game_object.is_character():
-                game_object.costume_image = "img/hero-down.png"
+                game_object.costume_image = "hero-down"
                 game_object.position_y += 1
     elif e.keycode == 113:
         for game_object in game_objects:
             if game_object.is_character():
-                game_object.cotume_image = "img/hero-left.png"
+                game_object.cotume_image = "hero-left"
                 game_object.position_x -= 1
     elif e.keycode == 114:
         for game_object in game_objects:
             if game_object.is_character():
-                game_object.cotume_image = "img/hero-right.png"
+                game_object.cotume_image = "hero-right"
                 game_object.position_x += 1 
     for game_object in game_objects:
         game_object.draw(canvas)
