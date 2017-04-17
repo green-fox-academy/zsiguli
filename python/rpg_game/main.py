@@ -34,7 +34,7 @@ class Character(Game_object):
         pass
 
     def is_floor(self, x, y):
-        return game_map.map_[y][x] == 0
+        return game.map_[y][x] == 0
 
 class Hero(Character):
     def __init__(self, position_x, position_y, cotume_image):
@@ -48,7 +48,7 @@ class Hero(Character):
 
     def move_down(self):
         self.costume_image = "hero-down"
-        if self.position_y < len(game_map.map_)-1:
+        if self.position_y < len(game.map_)-1:
             if self.is_floor(self.position_x, self.position_y+1):
                 self.position_y += 1
 
@@ -60,62 +60,62 @@ class Hero(Character):
 
     def move_right(self):
         self.costume_image = "hero-right"
-        if self.position_x < len(game_map.map_[0])-1:
+        if self.position_x < len(game.map_[0])-1:
             if self.is_floor(self.position_x+1, self.position_y):
                 self.position_x += 1 
 
-class Map():
-    def __init__(self, map_=[]):
+class Game():
+    def __init__(self, map_=[[0,1,1,0,1],[0,1,0,0,0],[0,1,1,1,0],[0,0,0,0,0],[1,1,0,1,1]], objects=[]):
         self.map_ = map_
-
-    def init_map(self):
-        self.map_ = [[0,1,1,0,1],[0,1,0,0,0],[0,1,1,1,0],[0,0,0,0,0],[1,1,0,1,1]]
+        self.objects = objects
 
     def render_tiles(self):
         for x in range(len(self.map_)):
            for y in range(len(self.map_[x])):
               if self.map_[y][x] == 0:
-                  game_objects.append(Game_object(x, y, "floor"))
+                  game.objects.append(Game_object(x, y, "floor"))
               else:
-                  game_objects.append(Game_object(x, y, "wall"))
+                  game.objects.append(Game_object(x, y, "wall"))
 
 
 root = Tk()
 root.wm_title("RPG Game")
 canvas = Canvas(root, width=dimension*width_in_squares, height=dimension*height_in_squares)
 
-game_objects = []
-game_map = Map()
-game_map.init_map()
-game_map.render_tiles()
-game_objects.append(Hero(0, 0, "hero-down"))
+game = Game()
+
+#game_objects = []
+#game_map = Map()
+
+game.render_tiles()
+game.objects.append(Hero(0, 0, "hero-down"))
 
 def on_key_press(e):
     if e.keycode == 9:
         sys.exit() 
     elif e.keycode == 111:
-        for game_object in game_objects:
+        for game_object in game.objects:
             if game_object.is_character():
                 game_object.move_up()
     elif e.keycode == 116:
-        for game_object in game_objects:
+        for game_object in game.objects:
             if game_object.is_character():
                 game_object.move_down()
     elif e.keycode == 113:
-        for game_object in game_objects:
+        for game_object in game.objects:
             if game_object.is_character():
                 game_object.move_left()
     elif e.keycode == 114:
-        for game_object in game_objects:
+        for game_object in game.objects:
             if game_object.is_character():
                 game_object.move_right() 
 
-    for game_object in game_objects:
+    for game_object in game.objects:
         game_object.draw(canvas)
 
 canvas.bind("<KeyPress>", on_key_press)
 canvas.pack()
 canvas.focus_set()
-for game_object in game_objects:
+for game_object in game.objects:
     game_object.draw(canvas)
 root.mainloop()
