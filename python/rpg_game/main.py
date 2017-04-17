@@ -58,7 +58,7 @@ def on_key_press(e):
     elif e.keycode == 111:
         for game_object in game_objects:
             if game_object.is_character():
-                game_object.costum_image = "hero-up"
+                game_object.costume_image = "hero-up"
                 game_object.position_y -= 1
     elif e.keycode == 116:
         for game_object in game_objects:
@@ -68,12 +68,12 @@ def on_key_press(e):
     elif e.keycode == 113:
         for game_object in game_objects:
             if game_object.is_character():
-                game_object.cotume_image = "hero-left"
+                game_object.costume_image = "hero-left"
                 game_object.position_x -= 1
     elif e.keycode == 114:
         for game_object in game_objects:
             if game_object.is_character():
-                game_object.cotume_image = "hero-right"
+                game_object.costume_image = "hero-right"
                 game_object.position_x += 1 
     for game_object in game_objects:
         game_object.draw(canvas)
