@@ -69,6 +69,12 @@ class Game():
         self.map_ = map_
         self.objects = objects
 
+    def init(self):
+        self.render_tiles()
+        self.render_hero()
+        self.render_boss()
+        self.render_skeletons()
+       
     def render_tiles(self):
         for x in range(len(self.map_)):
            for y in range(len(self.map_[x])):
@@ -76,6 +82,15 @@ class Game():
                   game.objects.append(Game_object(x, y, "floor"))
               else:
                   game.objects.append(Game_object(x, y, "wall"))
+   
+    def render_hero(self):
+        self.objects.append(Hero(0, 0, "hero-down"))        
+
+    def render_boss(self):
+        pass
+
+    def render_skeletons(self, number_of_skeletons=3):
+        pass
 
 
 root = Tk()
@@ -87,8 +102,7 @@ game = Game()
 #game_objects = []
 #game_map = Map()
 
-game.render_tiles()
-game.objects.append(Hero(0, 0, "hero-down"))
+game.init()
 
 def on_key_press(e):
     if e.keycode == 9:
