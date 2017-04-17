@@ -20,19 +20,28 @@ class Map():
         self.map_ = map_
 
     def init_map(self):
-        self.map_ = [[0,1,1,0,1,0],[0,1,0,1,0,1],[0,1,0,0,1],[0,0,1,0,1],[1,1,0,1,0]]
+        self.map_ = [[0,1,1,0,1],[0,1,0,1,0],[0,1,0,0,1],[0,0,1,0,1],[1,1,0,1,0]]
+
+    def render_tiles(self):
+        for x in range(len(self.map_)):
+           for y in range(len(self.map_[x])):
+              if self.map_[y][x] == 0:
+                  game_objects.append(Game_object(x*dimension, y*dimension, "floor"))
+              else:
+                  game_objects.append(Game_object(x*dimension, y*dimension, "wall"))
 
 
 root = Tk()
 root.wm_title("RPG Game")
 canvas = Canvas(root, width=dimension*width_in_squares, height=dimension*height_in_squares)
-map_ = Map()
-map_.init_map()
 
-game_objects = [Game_object(0, 0, "hero-down"), Game_object(50, 50, "hero-up")]
+game_objects = []
+game_map = Map()
+game_map.init_map()
+game_map.render_tiles()
+game_objects.append(Game_object(0, 0, "hero-down"))
 
 def on_key_press(e):
-    hero = game_objects[0]
     if e.keycode == 9:
         sys.exit() 
     elif e.keycode == 111:
