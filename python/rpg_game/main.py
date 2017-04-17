@@ -15,6 +15,10 @@ class Game_object(object):
         self.photo = PhotoImage(file=self.costume_image)
         canvas.create_image(self.position_x, self.position_y, anchor = NW, image = self.photo)
 
+class Character(Game_object):
+    def __init__(self, position_x, position_y, costume_image):
+        super().__init__(position_x, position_y, costume_image)
+
 class Map():
     def __init__(self, map_=[]):
         self.map_ = map_
@@ -39,7 +43,7 @@ game_objects = []
 game_map = Map()
 game_map.init_map()
 game_map.render_tiles()
-game_objects.append(Game_object(0, 0, "hero-down"))
+game_objects.append(Character(0, 0, "hero-down"))
 
 def on_key_press(e):
     if e.keycode == 9:
