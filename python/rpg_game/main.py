@@ -69,6 +69,10 @@ class Boss(Character):
     def __init__(self, position_x, position_y, costume_image="boss"):
         super().__init__(position_x, position_y, costume_image)
 
+class Skeleton(Character):
+    def __init__(self, position_x=randint(0,4), position_y=randint(0,4), costume_image="skeleton"):
+        super().__init__(position_x, position_y, costume_image)
+
 class Game():
     def __init__(self, map_=[[0,1,1,0,1],[0,1,0,0,0],[0,1,1,1,0],[0,0,0,0,0],[1,1,0,1,1]], objects=[]):
         self.map_ = map_
@@ -95,7 +99,9 @@ class Game():
         self.objects.append(Boss(3, 3))         
 
     def render_skeletons(self, number_of_skeletons=3):
-        pass        
+        for num in range(number_of_skeletons):
+            print(num)
+            self.objects.append(Skeleton())        
 
 root = Tk()
 root.wm_title("RPG Game")
