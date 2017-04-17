@@ -11,10 +11,9 @@ class Game_object(object):
         self.costume_image = costume_image
 
     def draw(self, canvas):
-        print(self.costume_image)
         self.photo = PhotoImage(file="img/" + self.costume_image + ".png")
         canvas.create_image(self.position_x*dimension, self.position_y*dimension, anchor = NW, image = self.photo)
-    
+
     def is_character(self):
         return isinstance(self, Character)
 
@@ -34,6 +33,9 @@ class Character(Game_object):
     def move_right(self):
         pass
 
+    def is_floor(self, x, y):
+        return game_map.map_[y][x] == 0
+
 class Hero(Character):
     def __init__(self, position_x, position_y, cotume_image):
         super().__init__(position_x, position_y, cotume_image)
@@ -41,22 +43,26 @@ class Hero(Character):
     def move_up(self):
         self.costume_image = "hero-up"
         if self.position_y > 0:
-            self.position_y -= 1
+            if self.is_floor(self.position_x, self.position_y-1):
+                self.position_y -= 1
 
     def move_down(self):
         self.costume_image = "hero-down"
         if self.position_y < len(game_map.map_)-1:
-            self.position_y += 1
+            if self.is_floor(self.position_x, self.position_y+1):
+                self.position_y += 1
 
     def move_left(self):
         self.costume_image = "hero-left"
         if self.position_x > 0:
-            self.position_x -= 1
+            if self.is_floor(self.position_x-1, self.position_y):
+                self.position_x -= 1
 
     def move_right(self):
         self.costume_image = "hero-right"
         if self.position_x < len(game_map.map_[0])-1:
-            self.position_x += 1 
+            if self.is_floor(self.position_x+1, self.position_y):
+                self.position_x += 1 
 
 class Map():
     def __init__(self, map_=[]):
