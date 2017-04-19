@@ -1,11 +1,11 @@
 public class Car {
 
   private Enum type;
-
   private Enum color;
+
   public Car() {
-    type = Type.MERCEDES;
-    color = Color.BLACK;
+    type = Type.values()[(int) (Math.random() * 4)];
+    color = Color.values()[(int) (Math.random() * 4)];
   }
 
   public Enum getType() {
@@ -15,6 +15,4 @@ public class Car {
   public Enum getColor() {
     return color;
   }
-
-
 }
