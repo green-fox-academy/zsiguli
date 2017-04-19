@@ -7,20 +7,7 @@ public class ParkingLot {
   public static void main(String[] args) {
     List<Car> randomlyCreatedCars = createRandomCars(256);
     printCarTypesAndOccurrences(randomlyCreatedCars);
-    Map<Color, Integer> colorOccurrences = new HashMap<>();
-    for (Car car : randomlyCreatedCars) {
-      if (colorOccurrences.get(car.getColor()) == null) {
-        colorOccurrences.put(car.getColor(), 1);
-      } else {
-        int thing = colorOccurrences.get(car.getColor());
-        colorOccurrences.put(car.getColor(), ++thing);
-      }
-    }
-
-
-    for (int i = 0; i < colorOccurrences.size(); ++i) {
-      System.out.println(Color.values()[i] + ": " + colorOccurrences.get(Color.values()[i]));
-    }
+    printCarColorsAndOccurences(randomlyCreatedCars);
   }
 
   public static List<Car> createRandomCars(long numberOfCarsToCreate) {
@@ -31,7 +18,7 @@ public class ParkingLot {
     return randomlyCreatedCars;
   }
 
-  public static void getCarTypesAndOccurrences(List<Car> cars) {
+  public static void printCarTypesAndOccurrences(List<Car> cars) {
     Map<Type, Integer> typeOccurrences = new HashMap<>();
     for (Car car : cars) {
       if (typeOccurrences.get(car.getType()) == null) {
@@ -43,6 +30,21 @@ public class ParkingLot {
     }
     for (int i = 0; i < typeOccurrences.size(); ++i) {
       System.out.println(Type.values()[i] + ": " + typeOccurrences.get(Type.values()[i]));
+    }
+  }
+
+  public static void printCarColorsAndOccurences(List<Car> cars) {
+    Map<Color, Integer> colorOccurrences = new HashMap<>();
+    for (Car car : cars) {
+      if (colorOccurrences.get(car.getColor()) == null) {
+        colorOccurrences.put(car.getColor(), 1);
+      } else {
+        int thing = colorOccurrences.get(car.getColor());
+        colorOccurrences.put(car.getColor(), ++thing);
+      }
+    }
+    for (int i = 0; i < colorOccurrences.size(); ++i) {
+      System.out.println(Color.values()[i] + ": " + colorOccurrences.get(Color.values()[i]));
     }
   }
 }
