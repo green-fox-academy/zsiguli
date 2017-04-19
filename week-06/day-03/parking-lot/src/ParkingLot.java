@@ -8,9 +8,8 @@ public class ParkingLot {
     List<Car> randomlyCreatedCars = createRandomCars(256);
     Map<Type, Integer> carTypeOccurrences = getCarTypeOccurrences(randomlyCreatedCars);
     Map<Color, Integer> carColorOccurrences = getCarColorOccurrences(randomlyCreatedCars);
-    printCarTypeOccurrences(carTypeOccurrences);
-    System.out.println();
-    printCarColorOccurrences(carColorOccurrences);
+    printOccurrences(carTypeOccurrences);
+    printOccurrences(carColorOccurrences);
   }
 
   public static List<Car> createRandomCars(long numberOfCarsToCreate) {
@@ -47,15 +46,11 @@ public class ParkingLot {
     return colorOccurrences;
   }
 
-  public static void printCarTypeOccurrences(Map<Type, Integer> typeOccurrences) {
+  public static <T> void printOccurrences(Map<T, Integer> typeOccurrences) {
     for (int i = 0; i < typeOccurrences.size(); ++i) {
-      System.out.println(Type.values()[i] + ": " + typeOccurrences.get(Type.values()[i]));
+      Object actual = typeOccurrences.keySet().toArray()[i];
+      System.out.println(actual + ": " + typeOccurrences.get(actual));
     }
-  }
-
-  public static void printCarColorOccurrences(Map<Color, Integer> colorOccurrences) {
-    for (int i = 0; i < colorOccurrences.size(); ++i) {
-      System.out.println(Color.values()[i] + ": " + colorOccurrences.get(Color.values()[i]));
-    }
+    System.out.println();
   }
 }
