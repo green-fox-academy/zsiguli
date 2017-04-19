@@ -8,11 +8,11 @@ public class Car {
     color = Color.values()[(int) (Math.random() * Color.values().length)];
   }
 
-  public Enum getType() {
+  public Type getType() {
     return type;
   }
 
-  public Enum getColor() {
+  public Color getColor() {
     return color;
   }
 }
