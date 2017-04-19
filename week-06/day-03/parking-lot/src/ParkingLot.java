@@ -10,6 +10,23 @@ public class ParkingLot {
     Map<Color, Integer> carColorOccurrences = getCarColorOccurrences(randomlyCreatedCars);
     printOccurrences(carTypeOccurrences);
     printOccurrences(carColorOccurrences);
+
+    int[][] allTheCars = new int[Type.values().length][Color.values().length];
+    for (Car car : randomlyCreatedCars) {
+      allTheCars[car.getType().getValue()][car.getColor().getValue()] += 1;
+    }
+    String mostPopularOne = new String();
+    int maxOccurrence = 0;
+    for (int i = 0; i < allTheCars.length; ++i) {
+      for (int j = 0; j < allTheCars[i].length; ++j) {
+        int temp = allTheCars[i][j];
+        if (temp > maxOccurrence) {
+          mostPopularOne = Color.values()[j] + " " + Type.values()[i];
+          maxOccurrence = temp;
+        }
+      }
+    }
+    System.out.println(mostPopularOne);
   }
 
   public static List<Car> createRandomCars(long numberOfCarsToCreate) {
