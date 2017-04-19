@@ -6,4 +6,8 @@ public enum Type {
   private Type(int value) {
     this.value = value;
   }
+
+  public int getValue() {
+    return value;
+  }
 }

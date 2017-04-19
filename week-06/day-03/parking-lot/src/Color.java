@@ -6,4 +6,8 @@ public enum Color {
   private Color(int value) {
     this.value = value;
   }
+
+  public int getValue() {
+    return value;
+  }
 }
