@@ -6,35 +6,29 @@ import java.util.Map;
 public class ParkingLot {
   public static void main(String[] args) {
     List<Car> randomlyCreatedCars = createRandomCars(256);
-    Map<Enum, Integer> typeAndColorOccurrences = new HashMap<>();
+    Map<Type, Integer> typeOccurrences = new HashMap<>();
+    Map<Color, Integer> colorOccurrences = new HashMap<>();
     for (Car car : randomlyCreatedCars) {
-      if (typeAndColorOccurrences.get(car.getType()) == null) {
-        typeAndColorOccurrences.put(car.getType(), 1);
+      if (typeOccurrences.get(car.getType()) == null) {
+        typeOccurrences.put(car.getType(), 1);
       } else {
-        int thing = typeAndColorOccurrences.get(car.getType());
-        typeAndColorOccurrences.put(car.getType(), ++thing);
+        int thing = typeOccurrences.get(car.getType());
+        typeOccurrences.put(car.getType(), ++thing);
       }
-      if (typeAndColorOccurrences.get(car.getColor()) == null) {
-        typeAndColorOccurrences.put(car.getColor(), 1);
+      if (colorOccurrences.get(car.getColor()) == null) {
+        colorOccurrences.put(car.getColor(), 1);
       } else {
-        int thing = typeAndColorOccurrences.get(car.getColor());
-        typeAndColorOccurrences.put(car.getColor(), ++thing);
+        int thing = colorOccurrences.get(car.getColor());
+        colorOccurrences.put(car.getColor(), ++thing);
       }
     }
-    try {
-      for (int i = 0; i < typeAndColorOccurrences.size(); ++i) {
-        System.out.println(Type.values()[i] + ": " + typeAndColorOccurrences.get(Type.values()[i]));
-      }
-    } catch (ArrayIndexOutOfBoundsException ex) {
 
+    for (int i = 0; i < typeOccurrences.size(); ++i) {
+      System.out.println(Type.values()[i] + ": " + typeOccurrences.get(Type.values()[i]));
     }
 
-    try {
-      for (int i = 0; i < typeAndColorOccurrences.size(); ++i) {
-        System.out.println(Color.values()[i] + ": " + typeAndColorOccurrences.get(Color.values()[i]));
-      }
-    } catch (ArrayIndexOutOfBoundsException ex) {
-
+    for (int i = 0; i < colorOccurrences.size(); ++i) {
+      System.out.println(Color.values()[i] + ": " + colorOccurrences.get(Color.values()[i]));
     }
   }
 
