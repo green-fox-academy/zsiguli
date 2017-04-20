@@ -3,9 +3,14 @@
 class Map {
 
  constructor() {
-    this.fields = [[0,1,1,0,1],[0,1,1,0,1],[0,1,1,0,1],[0,1,1,0,1],[0,1,1,0,1]]
+    this.fields = Map.randomFields()
     this.floor = "<div class='floor'></div>"
     this.wall = "<div class='wall'></div>"
+  }
+
+  static randomFields() {
+    var fields = [[0,1,1,0,1],[0,1,1,0,1],[0,1,1,0,1],[0,1,1,0,1],[0,1,1,0,1]]
+    return fields
   }
 
   fillFloor() {
@@ -19,6 +24,7 @@ class Map {
       document.querySelector('main').innerHTML += temp
     }
   }
+
 }
 
 const widthInSquares = 5
