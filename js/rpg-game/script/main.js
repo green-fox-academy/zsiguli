@@ -11,7 +11,10 @@ function fillFloor() {
   for (var i = 0; i < heightInSquares; i++) {
     temp = "<section>"
     for (var j = 0; j < widthInSquares; j++) {
-      if (Math.random() * 2 < 1) {
+      var random = .3 + Math.random()
+      if ((i === 0 && j === 0) || (i === 0 && j === 1) || (i === 1 && j === 0)) {
+        temp += floor
+      } else if (random < 1) {
         temp += floor
       } else {
         temp += wall
