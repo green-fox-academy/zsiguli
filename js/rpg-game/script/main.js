@@ -99,19 +99,20 @@ document.onkeydown = checkKey;
 
 function checkKey(e) {
 
-    // e = e || window.event;
-
     if (e.keyCode == '40') {
       ++hero.positionX
+      document.querySelector('.hero').style.top = hero.positionX * dimension + "px"
     }
     else if (e.keyCode == '38') {
       --hero.positionX
+      document.querySelector('.hero').style.top = hero.positionX * dimension + "px"
     }
     else if (e.keyCode == '39') {
       ++hero.positionY
+      document.querySelector('.hero').style.left = hero.positionY * dimension + "px"
     }
     else if (e.keyCode == '37') {
       --hero.positionY
+      document.querySelector('.hero').style.left = hero.positionY * dimension + "px"
     }
-    map.renderHero(hero)
 }
