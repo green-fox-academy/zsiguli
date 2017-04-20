@@ -20,11 +20,11 @@ div {
 }
 
 .floor {
-  background-color: green;
+  background-color: #39ff14;
 }
 
 .wall {
-  background-color: red;
+  background-color: #e9241d;
 }
 
 .hero {
