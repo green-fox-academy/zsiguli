@@ -71,6 +71,12 @@ class Map {
       document.querySelector('main').innerHTML += temp
     }
   }
+
+  renderHero(hero) {
+    document.querySelector('main').innerHTML += "<img class='hero' src='img/hero-down.png'>"
+    document.querySelector('.hero').style.top = hero.positionX * dimension + 8 + "px"
+    document.querySelector('.hero').style.left = hero.positionY * dimension + 8 + "px"
+  }
 }
 
 class Hero {
@@ -85,4 +91,6 @@ const heightInSquares = 8
 const dimension = 72
 
 var map = new Map()
+var hero = new Hero()
 map.fillFloor()
+map.renderHero(hero)
