@@ -91,10 +91,10 @@ class Map {
 
   fillFloor() {
     var temp
-    for (var i = 0; i < heightInSquares; ++i) {
+    for (var y = 0; y < heightInSquares; ++y) {
       temp = "<section>"
-      for (var j = 0; j < widthInSquares; ++j) {
-        this.fields[i][j] === 1 ? temp += this.floor : temp += this.wall
+      for (var x = 0; x < widthInSquares; ++x) {
+        this.fields[y][x] === 1 ? temp += this.floor : temp += this.wall
       }
       temp += "</section>"
       document.querySelector('main').innerHTML += temp
