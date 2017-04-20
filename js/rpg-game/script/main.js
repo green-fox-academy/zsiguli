@@ -74,8 +74,8 @@ class Map {
 
   renderHero(hero) {
     document.querySelector('main').innerHTML += "<img class='hero' src='img/hero-down.png'>"
-    document.querySelector('.hero').style.top = hero.positionX * dimension + 8 + "px"
-    document.querySelector('.hero').style.left = hero.positionY * dimension + 8 + "px"
+    document.querySelector('.hero').style.top = hero.positionX * dimension + "px"
+    document.querySelector('.hero').style.left = hero.positionY * dimension + "px"
   }
 }
 
