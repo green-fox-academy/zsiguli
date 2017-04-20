@@ -1,8 +1,15 @@
 img {
   margin: 0;
   padding: 0;
+  display: block;
 }
 
-.hidden {
-  visibility: hidden;
+section {
+  display: flex;
+}
+
+div {
+  border: 1px solid black;
+  width: 72px;
+  height: 72px;
 }

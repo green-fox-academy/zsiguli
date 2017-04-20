@@ -1,15 +1,18 @@
 'use strict'
 
-const widthInSquares = 10
-const heightInSquars = 6
+const widthInSquares = 18
+const heightInSquares = 8
 const dimension = 72
 
 function fillFloor() {
-  for (var i = 0; i < widthInSquares; i++) {
-    for (var j = 0; j < heightInSquars; j++) {
-      document.querySelector('main').innerHTML += "<img src='img/floor.png' alt='floor'> "
+  var temp
+  for (var i = 0; i < heightInSquares; i++) {
+    temp = "<section>"
+    for (var j = 0; j < widthInSquares; j++) {
+      temp += "<div></div>"
     }
+    temp += "</section>"
+    document.querySelector('main').innerHTML += temp
   }
 }
-
 fillFloor()
