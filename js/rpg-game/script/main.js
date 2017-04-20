@@ -12,24 +12,24 @@ class Map {
     if (fields === undefined) {
       fields = []
     }
-      for (var i = 0; i < heightInSquares; ++i) {
-        if (fields[i] === undefined) {
-          fields[i] = []
-        }
-        for (var j = 0; j < widthInSquares; ++j) {
-          var random = 1.9 + Math.random()
-          if (fields[i][j] === 1) {
-          } else {
-            fields[i][j] = Math.floor(random)
-          }
+    for (var i = 0; i < heightInSquares; ++i) {
+      if (fields[i] === undefined) {
+        fields[i] = []
+      }
+      for (var j = 0; j < widthInSquares; ++j) {
+        var random = 1.9 + Math.random()
+        if (fields[i][j] === 1) {
+        } else {
+          fields[i][j] = Math.floor(random)
         }
       }
-      if (Map.isOk(fields)) {
-        return fields
-      } else {
-        Map.generateFields(fields)
-      }
+    }
+    if (Map.isOk(fields)) {
       return fields
+    } else {
+      Map.generateFields(fields)
+    }
+    return fields
   }
 
   static isOk(fields) {
@@ -71,7 +71,6 @@ class Map {
       document.querySelector('main').innerHTML += temp
     }
   }
-
 }
 
 const widthInSquares = 18
