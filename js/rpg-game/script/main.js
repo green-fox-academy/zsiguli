@@ -73,7 +73,7 @@ class Map {
   }
 
   renderHero(hero) {
-    document.querySelector('main').innerHTML += "<img class='hero' src='img/hero-down.png'>"
+    document.querySelector('main').innerHTML += "<img class='hero' src='img/" + hero.costume + ".png'>"
     document.querySelector('.hero').style.top = hero.positionX * dimension + "px"
     document.querySelector('.hero').style.left = hero.positionY * dimension + "px"
   }
@@ -83,6 +83,7 @@ class Hero {
   constructor() {
     this.positionX = 0
     this.positionY = 0
+    this.costume = "hero-down"
   }
 }
 
