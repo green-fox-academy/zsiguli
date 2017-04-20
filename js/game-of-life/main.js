@@ -3,7 +3,7 @@
 class Life {
 
   constructor() {
-    this.fields = [[1,2,1,2,1,2,1,2],[1,2,1,2,1,2,1,2],[1,2,1,2,1,2,1,2],[1,2,1,2,1,2,1,2]]
+    this.aliveTabel = [[1,2,1,2,1,2,1,2],[1,1,1,2,1,2,1,2],[1,2,1,2,1,2,1,2],[1,2,1,2,1,2,1,2]]
     this.floor = "<div class='floor'></div>"
     this.wall = "<div class='wall'></div>"
   }
@@ -13,7 +13,7 @@ class Life {
     for (var y = 0; y < heightInSquares; ++y) {
       temp = "<section>"
       for (var x = 0; x < widthInSquares; ++x) {
-        this.fields[y][x] === 1 ? temp += this.floor : temp += this.wall
+        this.aliveTabel[y][x] === 1 ? temp += this.floor : temp += this.wall
       }
       temp += "</section>"
       document.querySelector('main').innerHTML += temp
