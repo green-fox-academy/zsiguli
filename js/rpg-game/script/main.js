@@ -17,7 +17,7 @@ class Map {
           fields[i] = []
         }
         for (var j = 0; j < widthInSquares; ++j) {
-          var random = 1.1 + Math.random()
+          var random = 1.9 + Math.random()
           if (fields[i][j] === 1) {
           } else {
             fields[i][j] = Math.floor(random)
