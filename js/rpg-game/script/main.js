@@ -94,3 +94,24 @@ var map = new Map()
 var hero = new Hero()
 map.fillFloor()
 map.renderHero(hero)
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    // e = e || window.event;
+
+    if (e.keyCode == '40') {
+      ++hero.positionX
+    }
+    else if (e.keyCode == '38') {
+      --hero.positionX
+    }
+    else if (e.keyCode == '39') {
+      ++hero.positionY
+    }
+    else if (e.keyCode == '37') {
+      --hero.positionY
+    }
+    map.renderHero(hero)
+}
