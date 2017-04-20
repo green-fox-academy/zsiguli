@@ -73,6 +73,13 @@ class Map {
   }
 }
 
+class Hero {
+  constructor() {
+    this.positionX = 0
+    this.positionY = 0
+  }
+}
+
 const widthInSquares = 18
 const heightInSquares = 8
 const dimension = 72
