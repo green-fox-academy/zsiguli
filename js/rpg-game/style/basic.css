@@ -21,3 +21,7 @@ div {
 .wall {
   background-color: red;
 }
+
+.hero {
+  position: absolute;
+}
