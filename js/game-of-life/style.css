@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  display: flex;
+}
+
+div {
+  border: 1px solid black;
+  width: 70px;
+  height: 70px;
+}
+
+.floor {
+  background-color: #39ff14;
+}
+
+.wall {
+  background-color: #e9241d;
+}
