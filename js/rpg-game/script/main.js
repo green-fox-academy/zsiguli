@@ -1,27 +1,29 @@
 'use strict'
 
-const widthInSquares = 18
-const heightInSquares = 8
-const dimension = 72
-const floor = "<div class='floor'></div>"
-const wall = "<div class='wall'></div>"
+class Map {
 
-function fillFloor() {
-  var temp
-  for (var i = 0; i < heightInSquares; i++) {
-    temp = "<section>"
-    for (var j = 0; j < widthInSquares; j++) {
-      var random = .3 + Math.random()
-      if ((i === 0 && j === 0) || (i === 0 && j === 1) || (i === 1 && j === 0)) {
-        temp += floor
-      } else if (random < 1) {
-        temp += floor
-      } else {
-        temp += wall
+ constructor() {
+    this.fields = [[0,1,1,0,1],[0,1,1,0,1],[0,1,1,0,1],[0,1,1,0,1],[0,1,1,0,1]]
+    this.floor = "<div class='floor'></div>"
+    this.wall = "<div class='wall'></div>"
+  }
+
+  fillFloor() {
+    var temp
+    for (var i = 0; i < heightInSquares; i++) {
+      temp = "<section>"
+      for (var j = 0; j < widthInSquares; j++) {
+        this.fields[i][j] === 0 ? temp += this.floor : temp += this.wall
       }
+      temp += "</section>"
+      document.querySelector('main').innerHTML += temp
     }
-    temp += "</section>"
-    document.querySelector('main').innerHTML += temp
   }
 }
-fillFloor()
+
+const widthInSquares = 5
+const heightInSquares = 5
+const dimension = 72
+
+var map = new Map()
+map.fillFloor()
