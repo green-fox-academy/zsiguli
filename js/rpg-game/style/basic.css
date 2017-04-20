@@ -13,3 +13,11 @@ div {
   width: 72px;
   height: 72px;
 }
+
+.floor {
+  background-color: green;
+}
+
+.wall {
+  background-color: red;
+}

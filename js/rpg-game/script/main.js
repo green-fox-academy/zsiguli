@@ -3,13 +3,19 @@
 const widthInSquares = 18
 const heightInSquares = 8
 const dimension = 72
+const floor = "<div class='floor'></div>"
+const wall = "<div class='wall'></div>"
 
 function fillFloor() {
   var temp
   for (var i = 0; i < heightInSquares; i++) {
     temp = "<section>"
     for (var j = 0; j < widthInSquares; j++) {
-      temp += "<div></div>"
+      if (Math.random() * 2 < 1) {
+        temp += floor
+      } else {
+        temp += wall
+      }
     }
     temp += "</section>"
     document.querySelector('main').innerHTML += temp
