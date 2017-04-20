@@ -95,24 +95,26 @@ var hero = new Hero()
 map.fillFloor()
 map.renderHero(hero)
 
+var heroOnTheMap = document.querySelector('.hero')
+
 document.onkeydown = checkKey;
 
 function checkKey(e) {
 
     if (e.keyCode == '40') {
       ++hero.positionX
-      document.querySelector('.hero').style.top = hero.positionX * dimension + "px"
+      heroOnTheMap.style.top = hero.positionX * dimension + "px"
     }
     else if (e.keyCode == '38') {
       --hero.positionX
-      document.querySelector('.hero').style.top = hero.positionX * dimension + "px"
+      heroOnTheMap.style.top = hero.positionX * dimension + "px"
     }
     else if (e.keyCode == '39') {
       ++hero.positionY
-      document.querySelector('.hero').style.left = hero.positionY * dimension + "px"
+      heroOnTheMap.style.left = hero.positionY * dimension + "px"
     }
     else if (e.keyCode == '37') {
       --hero.positionY
-      document.querySelector('.hero').style.left = hero.positionY * dimension + "px"
+      heroOnTheMap.style.left = hero.positionY * dimension + "px"
     }
 }
