@@ -73,7 +73,7 @@ class Map {
   }
 
   renderHero(hero) {
-    document.querySelector('main').innerHTML += "<img class='hero' src='img/" + hero.costume + ".png'>"
+    document.querySelector('main').innerHTML += "<div class='hero'><img src='img/" + hero.costume + ".png'></div>"
     document.querySelector('.hero').style.top = hero.positionX * dimension + "px"
     document.querySelector('.hero').style.left = hero.positionY * dimension + "px"
   }
@@ -103,19 +103,24 @@ document.onkeydown = checkKey;
 function checkKey(e) {
 
     if (e.keyCode == '40') {
+      hero.costume = "hero-down"
       ++hero.positionX
       heroOnTheMap.style.top = hero.positionX * dimension + "px"
     }
     else if (e.keyCode == '38') {
+      hero.costume = "hero-up"
       --hero.positionX
       heroOnTheMap.style.top = hero.positionX * dimension + "px"
     }
     else if (e.keyCode == '39') {
+      hero.costume = "hero-right"
       ++hero.positionY
       heroOnTheMap.style.left = hero.positionY * dimension + "px"
     }
     else if (e.keyCode == '37') {
+      hero.costume = "hero-left"
       --hero.positionY
       heroOnTheMap.style.left = hero.positionY * dimension + "px"
     }
+    document.querySelector('.hero').innerHTML = "<img class='hero' src='img/" + hero.costume + ".png'>"
 }
