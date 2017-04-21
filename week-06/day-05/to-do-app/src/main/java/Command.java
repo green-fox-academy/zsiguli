@@ -1,3 +1,5 @@
+import java.util.List;
+
 public abstract class Command {
   private String flag;
   private String usage;
@@ -7,7 +9,7 @@ public abstract class Command {
     this.usage = usage;
   }
 
-  public void execute() {};
+  public void execute(List<Task> taskList) {}
 
   public String getFlag() {
     return flag;

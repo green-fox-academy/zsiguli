@@ -4,6 +4,8 @@ public class ToDoApp {
 
     if (args.length == 0) {
       toDoList.printUsage();
+    } else if (args[0] == "-l") {
+      toDoList.run(args);
     }
   }
 }
