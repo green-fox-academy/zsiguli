@@ -1,8 +1,9 @@
+import java.io.File;
 import java.util.List;
 
 public class ToDoApp {
   public static void main(String[] args) {
-    List<String> listFromFile = ToDoList.getListFromFile();
+    List<String> listFromFile = FileIO.getListFromFile();
     ToDoList thingsToDo = new ToDoList(listFromFile);
 
     if (args.length == 0) {
@@ -26,6 +27,6 @@ public class ToDoApp {
           break;
       }
     }
-    ToDoList.writeListToFile(thingsToDo.getList());
+    FileIO.writeListToFile(thingsToDo.getList());
   }
 }
