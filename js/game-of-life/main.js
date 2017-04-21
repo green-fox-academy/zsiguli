@@ -3,7 +3,7 @@
 class Life {
 
   constructor() {
-    this.aliveTabel = [[1,1,2,2,2],[1,1,2,2,2],[2,2,2,2,2],[2,2,2,2,1],[2,2,2,1,1],]
+    this.aliveTabel = [[2,1,2,2,2],[2,1,2,2,2],[2,1,2,2,2],[2,2,2,2,1],[2,2,2,1,1],]
     this.floor = "<div class='floor'></div>"
     this.wall = "<div class='wall'></div>"
   }
@@ -53,7 +53,15 @@ class Life {
 const widthInSquares = 5
 const heightInSquares = 5
 var life = new Life()
-console.log('log: ' + life.aliveTabel);
+
+document.onkeydown = checkKey;
+
 life.showState()
 life.live()
-life.showState()
+
+function checkKey(e) {
+  if (e.keyCode == '32') {
+    life.showState()
+    life.live()
+  }
+}
