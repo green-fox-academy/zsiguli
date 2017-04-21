@@ -7,3 +7,9 @@ out
 LocalTest.java
 local_test.py
 *.swp
+*.gradle
+*.bat
+gradlew
+*.jar
+*.lock
+*.properties
