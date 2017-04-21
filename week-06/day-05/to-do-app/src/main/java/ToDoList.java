@@ -3,44 +3,23 @@ import java.util.List;
 
 public class ToDoList {
 
-  private List<String> thingsToDo;
+  private List<Command> commands;
 
   public ToDoList() {
-    thingsToDo = new ArrayList<>();
+    commands = new ArrayList<>();
+    commands.add(new ListCommand());
+    commands.add(new AddCommand());
+    commands.add(new RemoveCommand());
+    commands.add(new CompleteCommand());
   }
 
-  public ToDoList(String thingToDo) {
-    thingsToDo = new ArrayList<>();
-    thingsToDo.add("[ ] " + thingToDo);
-  }
-
-  public ToDoList(List<String> thingsToDo) {
-    this.thingsToDo = thingsToDo;
-  }
-
-  public List<String> getList() {
-    return thingsToDo;
-  }
-
-  public void addTask(String newTask) {
-    thingsToDo.add("[ ] " + newTask);
-  }
-
-  public void checkTask(int numberOfTask) {
-    int position = numberOfTask - 1;
-    String checkedTask = thingsToDo.get(numberOfTask - 1).replace("[ ]", "[x]");
-    thingsToDo.set(position, checkedTask);
-  }
-
-  public void removeTask(int numberOfTask) {
-    thingsToDo.remove(numberOfTask - 1);
-  }
-
-  public void printTasks() {
-    String thingsToDo = new String();
-    for (int i = 0; i < this.thingsToDo.size(); ++i) {
-      thingsToDo += (i+1) + " - " + this.thingsToDo.get(i) + "\n";
+  public void printUsage() {
+    String usage = "Java Todo application\n" +
+            "=====================\n" +
+            "Command line arguments:\n";
+    for (Command command : commands) {
+      usage += command.getUsage() + "\n";
     }
-    System.out.println(thingsToDo);
+    System.out.println(usage);
   }
 }
