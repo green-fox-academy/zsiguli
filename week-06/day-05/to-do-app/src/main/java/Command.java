@@ -6,4 +6,14 @@ public abstract class Command {
     this.flag = flag;
     this.usage = usage;
   }
+
+  public void execute() {};
+
+  public String getFlag() {
+    return flag;
+  }
+
+  public String getUsage() {
+    return " -" + flag + " " + usage;
+  }
 }
