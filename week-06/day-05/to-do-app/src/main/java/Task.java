@@ -6,4 +6,12 @@ public class Task {
     this.done = false;
     this.description = description;
   }
+
+  public boolean isDone() {
+    return done;
+  }
+
+  public String getDescription() {
+    return description;
+  }
 }
