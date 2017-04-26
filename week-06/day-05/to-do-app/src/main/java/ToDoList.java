@@ -35,7 +35,7 @@ public class ToDoList {
         System.out.println("flag: " + command.getFlag());
         if (('-' + command.getFlag()).equals(args[0])) {
           System.out.println("hey");
-          command.execute(tasks);
+          command.execute(tasks, args[1]);
         }
       }
     }

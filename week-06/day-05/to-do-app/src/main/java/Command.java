@@ -9,7 +9,7 @@ public abstract class Command {
     this.usage = usage;
   }
 
-  public void execute(List<Task> taskList) {}
+  public void execute(List<Task> taskList, String arg) {}
 
   public String getFlag() {
     return flag;

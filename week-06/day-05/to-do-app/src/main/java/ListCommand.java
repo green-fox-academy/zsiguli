@@ -6,7 +6,7 @@ public class ListCommand extends Command {
   }
 
   @Override
-  public void execute(List<Task> tasksList) {
+  public void execute(List<Task> tasksList, String arg) {
     String tasks = new String();
     for (Task task : tasksList) {
       if (task.isDone()) {
