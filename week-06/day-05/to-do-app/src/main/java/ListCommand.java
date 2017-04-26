@@ -14,7 +14,7 @@ public class ListCommand extends Command {
       } else {
         tasks += "[ ] ";
       }
-      tasks += task.getDescription();
+      tasks += task.getDescription() + "\n";
     }
     System.out.println(tasks);
   }

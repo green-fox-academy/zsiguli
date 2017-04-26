@@ -40,7 +40,6 @@ public class ToDoList {
       printUsage();
     } else {
       for (Command command : commands) {
-        System.out.println("flag: " + command.getFlag());
         if (('-' + command.getFlag()).equals(args[0])) {
           command.execute(tasks, args[1]);
         }
