@@ -12,7 +12,7 @@ public class ListCommand extends Command {
       if (task.isDone()) {
         tasks += "[x] ";
       } else {
-        tasks += "[ ]";
+        tasks += "[ ] ";
       }
       tasks += task.getDescription();
     }
