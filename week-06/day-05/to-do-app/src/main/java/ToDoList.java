@@ -14,7 +14,15 @@ public class ToDoList {
     commands.add(new CompleteCommand());
 
     tasks = new ArrayList<>();
-    tasks.add(new Task("do something"));
+    List<String> rawData = FileIO.getTasksFromFile();
+    for (String task : rawData) {
+      String[] taskParts = task.split(";");
+      if (taskParts[1].equals("0")) {
+        tasks.add(new Task(taskParts[0]));
+      } else {
+        tasks.add(new Task(taskParts[0], true));
+      }
+    }
   }
 
   public void printUsage() {
@@ -34,10 +42,10 @@ public class ToDoList {
       for (Command command : commands) {
         System.out.println("flag: " + command.getFlag());
         if (('-' + command.getFlag()).equals(args[0])) {
-          System.out.println("hey");
           command.execute(tasks, args[1]);
         }
       }
+      FileIO.writeTasksToFile(tasks);
     }
   }
 }

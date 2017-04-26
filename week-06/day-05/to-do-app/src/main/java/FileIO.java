@@ -19,7 +19,15 @@ public class FileIO {
     return listFromFile;
   }
 
-  public static void writeTasksToFile(List<String> listToWrite) {
+  public static void writeTasksToFile(List<Task> tasksToWrite) {
+    List<String> listToWrite = new ArrayList<>();
+    for (Task task : tasksToWrite) {
+      if (task.isDone()) {
+        listToWrite.add(task.getDescription() + ";1");
+      } else {
+        listToWrite.add(task.getDescription() + ";0");
+      }
+    }
     try {
       Files.write(STORE_PATH, listToWrite);
     } catch (IOException e) {

@@ -8,7 +8,5 @@ public class AddCommand extends Command {
   @Override
   public void execute(List<Task> taskList, String arg) {
     taskList.add(new Task(arg));
-    System.out.println(taskList.size());
-    System.out.println(taskList.get(1).getDescription());
   }
 }
