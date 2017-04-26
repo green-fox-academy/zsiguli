@@ -27,14 +27,6 @@ public class ToDoList {
     System.out.println(usage);
   }
 
-  public List<Task> getTasks() {
-    return tasks;
-  }
-
-  public List<Command> getCommands() {
-    return commands;
-  }
-
   public void run(String[] args) {
     if (args.length == 0) {
       printUsage();
