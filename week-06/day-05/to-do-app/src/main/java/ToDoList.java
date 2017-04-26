@@ -36,11 +36,15 @@ public class ToDoList {
   }
 
   public void run(String[] args) {
-    for (Command command : commands) {
-      System.out.println("flag: " + command.getFlag());
-      if (('-' + command.getFlag()).equals(args[0])) {
-        System.out.println("hey");
-        command.execute(tasks);
+    if (args.length == 0) {
+      printUsage();
+    } else {
+      for (Command command : commands) {
+        System.out.println("flag: " + command.getFlag());
+        if (('-' + command.getFlag()).equals(args[0])) {
+          System.out.println("hey");
+          command.execute(tasks);
+        }
       }
     }
   }
