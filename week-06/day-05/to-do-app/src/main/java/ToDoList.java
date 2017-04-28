@@ -41,7 +41,12 @@ public class ToDoList {
     } else {
       for (Command command : commands) {
         if (('-' + command.getFlag()).equals(args[0])) {
-          command.execute(tasks, args[1]);
+          try {
+            command.execute(tasks, args[1]);
+          } catch (Exception ex) {
+            ErrorHandler errorHandler = new ErrorHandler(args, ex);
+            System.out.println(errorHandler);
+          }
         }
       }
       FileIO.writeTasksToFile(tasks);
