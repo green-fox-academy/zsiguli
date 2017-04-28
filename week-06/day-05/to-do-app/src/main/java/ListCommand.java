@@ -8,13 +8,14 @@ public class ListCommand extends Command {
   @Override
   public void execute(List<Task> tasksList, String arg) {
     String tasks = new String();
-    for (Task task : tasksList) {
-      if (task.isDone()) {
+    for (int i = 0; i < tasksList.size(); ++i) {
+      tasks += i + 1 + " - ";
+      if (tasksList.get(i).isDone()) {
         tasks += "[x] ";
       } else {
         tasks += "[ ] ";
       }
-      tasks += task.getDescription() + "\n";
+      tasks += tasksList.get(i).getDescription() + "\n";
     }
     System.out.println(tasks);
   }
