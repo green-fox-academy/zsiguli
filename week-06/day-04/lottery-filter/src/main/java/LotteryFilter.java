@@ -19,7 +19,7 @@ public class LotteryFilter {
     if (options.has("y")) {
       CSVReader reader = null;
       try {
-        reader = new CSVReader(new FileReader("data/otos.csv"), ';');
+        reader = new CSVReader(new FileReader(options.has("f") ? "data/" + options.valueOf("f") : "data/otos.csv"), ';');
       } catch (FileNotFoundException e) {
         e.printStackTrace();
       }
@@ -27,7 +27,7 @@ public class LotteryFilter {
       List<String[]> filteredData = new ArrayList<>();
       CSVWriter writer = null;
       try {
-        writer = new CSVWriter(new FileWriter("data/output.csv"), ';', CSVWriter.NO_QUOTE_CHARACTER);
+        writer = new CSVWriter(new FileWriter(options.has("o") ? "data/" + options.valueOf("o") : "data/output.csv"), ';', CSVWriter.NO_QUOTE_CHARACTER);
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -46,14 +46,6 @@ public class LotteryFilter {
       } catch (IOException e) {
         e.printStackTrace();
       }
-    }
-
-    if (options.has("f")) {
-      System.out.println(options.valueOf("f"));
-    }
-
-    if (options.has("o")) {
-      System.out.println(options.valueOf("o"));
     }
   }
 }
