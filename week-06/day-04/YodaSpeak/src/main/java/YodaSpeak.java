@@ -12,6 +12,8 @@ public class YodaSpeak {
     URL url = new URL(URLLink);
     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     connection.setRequestMethod("GET");
+    connection.setRequestProperty("X-Mashape-Key", "r5OPgqayasmshVaxz6BXSWhRzbAnp148ckTjsnQnh2EBX7UADm");
+
     BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream()));
     StringBuffer sb = new StringBuffer();
     String line;
