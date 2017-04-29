@@ -17,7 +17,6 @@ public class LotteryFilter {
     OptionSet options = parser.parse(args);
 
     if (options.has("y")) {
-      System.out.println(options.valueOf("y"));
       CSVReader reader = null;
       try {
         reader = new CSVReader(new FileReader("data/otos.csv"), ';');
@@ -28,7 +27,7 @@ public class LotteryFilter {
       List<String[]> filteredData = new ArrayList<>();
       CSVWriter writer = null;
       try {
-        writer = new CSVWriter(new FileWriter("data/output.csv"), ';');
+        writer = new CSVWriter(new FileWriter("data/output.csv"), ';', CSVWriter.NO_QUOTE_CHARACTER);
       } catch (IOException e) {
         e.printStackTrace();
       }
