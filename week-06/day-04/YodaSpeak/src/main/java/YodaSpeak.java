@@ -1,3 +1,6 @@
+import javax.net.ssl.HttpsURLConnection;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Scanner;
 
@@ -7,6 +10,16 @@ public class YodaSpeak {
     String inputSentence = scanner.nextLine().replace(" ", "+");
     String URLLink = "https://yoda.p.mashape.com/yoda?sentence=" + inputSentence;
     URL url = new URL(URLLink);
-    System.out.println(URLLink);
+    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+    connection.setRequestMethod("GET");
+    BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+    StringBuffer sb = new StringBuffer();
+    String line;
+
+    while ((line = input.readLine()) != null) {
+      sb.append(line);
+    }
+    input.close();
+    System.out.println(sb);
   }
 }
