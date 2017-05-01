@@ -11,41 +11,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LotteryFilter {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     OptionParser parser = new OptionParser("y:f:o:");
-
     OptionSet options = parser.parse(args);
 
+    CSVReader reader;
+    CSVWriter writer;
+    String[] nextLine;
+    List<String[]> filteredData = new ArrayList<>();
+
     if (options.has("y")) {
-      CSVReader reader = null;
-      try {
-        reader = new CSVReader(new FileReader(options.has("f") ? "data/" + options.valueOf("f") : "data/otos.csv"), ';');
-      } catch (FileNotFoundException e) {
-        e.printStackTrace();
-      }
-      String [] nextLine;
-      List<String[]> filteredData = new ArrayList<>();
-      CSVWriter writer = null;
-      try {
-        writer = new CSVWriter(new FileWriter(options.has("o") ? "data/" + options.valueOf("o") : "data/output.csv"), ';', CSVWriter.NO_QUOTE_CHARACTER);
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-      try {
-        while ((nextLine = reader.readNext()) != null) {
-          if (nextLine[0].equals(options.valueOf("y"))) {
-              filteredData.add(nextLine);
-          }
+      reader = new CSVReader(new FileReader(options.has("f") ? "data/" + options.valueOf("f") : "data/otos.csv"), ';');
+      writer = new CSVWriter(new FileWriter(options.has("o") ? "data/" + options.valueOf("o") : "data/output.csv"), ';', CSVWriter.NO_QUOTE_CHARACTER);
+      while ((nextLine = reader.readNext()) != null) {
+        if (nextLine[0].equals(options.valueOf("y"))) {
+          filteredData.add(nextLine);
         }
-      } catch (IOException e) {
-        e.printStackTrace();
       }
       writer.writeAll(filteredData);
-      try {
-        writer.close();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
+      writer.close();
     }
   }
 }
