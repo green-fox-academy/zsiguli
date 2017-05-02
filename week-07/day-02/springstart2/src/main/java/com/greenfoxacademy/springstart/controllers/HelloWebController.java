@@ -17,15 +17,16 @@ public class HelloWebController {
   final static int[] fontSizes = {10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60};
 
   @RequestMapping("/web/greeting")
-  static public String greeting(Model model, @RequestParam("name") String name) {
-    int randomHello = (int) (Math.random() * hellos.length);
-    int randomColor = (int) (Math.random() * colors.length);
-    int randomFontSize = (int) (Math.random() * fontSizes.length);
-    model.addAttribute("hello", hellos[randomHello]);
-    model.addAttribute("name", name);
-    model.addAttribute("loadCounter", HelloRESTController.numberOfRequests.incrementAndGet());
-    model.addAttribute("color", colors[randomColor]);
-    model.addAttribute("fontSize", fontSizes[randomFontSize]);
+  static public String greeting(Model model) {
+//          , @RequestParam("name") String name) {
+//    int randomHello = (int) (Math.random() * hellos.length);
+//    int randomColor = (int) (Math.random() * colors.length);
+//    int randomFontSize = (int) (Math.random() * fontSizes.length);
+//    model.addAttribute("hello", hellos[randomHello]);
+//    model.addAttribute("name", name);
+//    model.addAttribute("loadCounter", HelloRESTController.numberOfRequests.incrementAndGet());
+    model.addAttribute("colors", colors);
+//    model.addAttribute("fontSize", fontSizes[randomFontSize]);
     return "greeting";
   }
 }
