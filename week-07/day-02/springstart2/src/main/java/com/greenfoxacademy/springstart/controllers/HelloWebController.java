@@ -18,15 +18,7 @@ public class HelloWebController {
 
   @RequestMapping("/web/greeting")
   static public String greeting(Model model) {
-//          , @RequestParam("name") String name) {
-//    int randomHello = (int) (Math.random() * hellos.length);
-//    int randomColor = (int) (Math.random() * colors.length);
-//    int randomFontSize = (int) (Math.random() * fontSizes.length);
-//    model.addAttribute("hello", hellos[randomHello]);
-//    model.addAttribute("name", name);
-//    model.addAttribute("loadCounter", HelloRESTController.numberOfRequests.incrementAndGet());
     model.addAttribute("colors", colors);
-//    model.addAttribute("fontSize", fontSizes[randomFontSize]);
     return "greeting";
   }
 }
