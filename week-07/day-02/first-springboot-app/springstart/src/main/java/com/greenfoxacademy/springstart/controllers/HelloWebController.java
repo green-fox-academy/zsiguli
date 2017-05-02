@@ -17,6 +17,7 @@ public class HelloWebController {
     model.addAttribute("hello", hellos[random]);
     model.addAttribute("name", name);
     model.addAttribute("loadCounter", HelloRESTController.numberOfRequests.incrementAndGet());
+    model.addAttribute("color", "red");
     return "greeting";
   }
 }
