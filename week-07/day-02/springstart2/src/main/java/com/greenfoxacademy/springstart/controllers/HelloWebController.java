@@ -18,7 +18,7 @@ public class HelloWebController {
 
   @RequestMapping("/web/greeting")
   static public String greeting(Model model) {
-    model.addAttribute("colors", colors);
+    model.addAttribute("hellos", hellos);
     return "greeting";
   }
 }
