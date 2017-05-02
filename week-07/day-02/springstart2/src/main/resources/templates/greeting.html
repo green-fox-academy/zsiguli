@@ -6,6 +6,10 @@
     <link th:href="@{/basic.css}" rel="stylesheet"/>
 </head>
 <body>
-<p th:each="hello : ${hellos}" th:inline="text">[[${hello}]]</p>
+<p th:each="hello : ${hellos}" th:inline="text">
+    <span th:style="'color: ' + ${color}">
+    [[${hello}]]
+    </span>
+</p>
 </body>
 </html>

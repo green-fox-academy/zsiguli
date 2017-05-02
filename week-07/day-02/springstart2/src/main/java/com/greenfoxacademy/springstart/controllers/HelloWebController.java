@@ -18,7 +18,9 @@ public class HelloWebController {
 
   @RequestMapping("/web/greeting")
   static public String greeting(Model model) {
+    int randomColor = (int) (Math.random() * colors.length);
     model.addAttribute("hellos", hellos);
+    model.addAttribute("color", colors[randomColor]);
     return "greeting";
   }
 }
