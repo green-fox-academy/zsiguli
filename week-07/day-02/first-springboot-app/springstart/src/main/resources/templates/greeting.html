@@ -6,7 +6,7 @@
 </head>
 <body>
 <p th:inline="text">
-    <span th:style="'color:' + ${color}">[[${hello}]]</span> , [[${name}]]! This site was loaded [[${loadCounter}]] times since last server start.
+    <span th:style="'color:' + ${color} + ';font-size:' + ${fontSize} + 'px;'">[[${hello}]]</span> , [[${name}]]! This site was loaded [[${loadCounter}]] times since last server start.
 </p>
 </body>
 </html>
