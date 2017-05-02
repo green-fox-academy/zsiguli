@@ -6,6 +6,9 @@
     <link rel="stylesheet" th:href="@{/style/basic.css}" />
 </head>
 <body>
-<p th:text="${hello} + ', ' + ${name} + '! ' + 'This site was loaded ' + ${loadCounter} + ' times since last server start.'"/>
+<!--<p th:inline="${hello} + ', ' + ${name} + '! ' + 'This site was loaded ' + ${loadCounter} + ' times since last server start.'"/>-->
+<p th:inline="text">
+    <span>[[${hello}]]</span> , [[${name}]]! This site was loaded [[${loadCounter}]] times since last server start.
+</p>
 </body>
 </html>
