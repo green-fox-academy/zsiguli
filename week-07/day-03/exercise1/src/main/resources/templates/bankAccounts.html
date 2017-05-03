@@ -6,10 +6,15 @@
     <link rel="stylesheet" th:href="@{/basic.css}"/>
 </head>
 <body>
-<ul th:each="account : ${accounts}">
-<li th:inline="text">
-[[${accountStat.count}]]. [[${account.name}]] [[${account.balance}]] [[${account.animalType}]]
-</li>
+<ul th:each="account : ${accounts}" th:switch="${account.goodGuy}">
+    <li th:case="false" th:inline="text">
+         <span class="bad-guy">
+             [[${accountStat.count}]]. [[${account.name}]] [[${account.balance}]] [[${account.animalType}]] is a bad guy
+         </span>
+    </li>
+    <li th:case="true" th:inline="text">
+        [[${accountStat.count}]]. <span th:if="${account.king} == true"> [[${account.name}]] </span> [[${account.balance}]] [[${account.animalType}]] is a good guy
+    </li>
 </ul>
 <form action="#" th:action="@{/exercise11}" th:object="${newAccount}" method="post">
     <p>Name: <input type="text" th:field="*{name}"/></p>
