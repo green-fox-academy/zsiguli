@@ -114,12 +114,13 @@ public class WebAppController {
   @GetMapping("/exercise11")
   public String bankAccounts(Model model) {
     model.addAttribute("accounts", accounts);
+    model.addAttribute("newAccount", new BankAccount());
     return "bankAccounts";
   }
 
   @PostMapping("/exercise11")
   public String bankAccountSubmit(@ModelAttribute BankAccount bankAccount) {
-//    accounts.add(bankAccount);
+    accounts.add(bankAccount);
     return "redirect:/exercise11";
   }
 }

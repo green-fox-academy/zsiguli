@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Simba's account</title>
     <link rel="stylesheet" th:href="@{/basic.css}"/>
 </head>
@@ -11,7 +11,7 @@
 [[${accountStat.count}]]. [[${account.name}]] [[${account.balance}]] [[${account.animalType}]]
 </li>
 </ul>
-<form action="#" th:action="@{/execise11}" th:object="${bankAccount}" method="post">
+<form action="#" th:action="@{/exercise11}" th:object="${newAccount}" method="post">
     <p>Name: <input type="text" th:field="*{name}"/></p>
     <p>Balance: <input type="text" th:field="*{balance}" /></p>
     <p>Animal Type: <input type="text" th:field="*{animalType}" /></p>
