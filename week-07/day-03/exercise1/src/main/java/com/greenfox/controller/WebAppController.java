@@ -12,6 +12,8 @@ import java.util.List;
 @Controller
 public class WebAppController {
 
+  static List<BankAccount> accounts = new ArrayList<>();
+
   @RequestMapping(value = "/exercise1")
   public static String simbasAccount(Model model) {
     BankAccount simba = new BankAccount("Simba", 2000, "lion", true, true);
@@ -107,5 +109,17 @@ public class WebAppController {
   @PostMapping("/greeting")
   public String greetingSubmit(@ModelAttribute Greeting greeting) {
     return "result";
+  }
+
+  @GetMapping("/exercise11")
+  public String bankAccounts(Model model) {
+    model.addAttribute("accounts", accounts);
+    return "bankAccounts";
+  }
+
+  @PostMapping("/exercise11")
+  public String bankAccountSubmit(@ModelAttribute BankAccount bankAccount) {
+//    accounts.add(bankAccount);
+    return "redirect:/exercise11";
   }
 }

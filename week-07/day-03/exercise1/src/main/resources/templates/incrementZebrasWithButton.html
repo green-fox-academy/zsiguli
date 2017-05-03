@@ -6,11 +6,21 @@
     <link rel="stylesheet" th:href="@{/basic.css}"/>
 </head>
   <body>
-    <ul th:each="account : ${accounts}">
-      <li th:inline="text">
-         [[${accountStat.count}]]. [[${account.name}]] [[${account.balance}]] [[${account.animalType}]]
-         <button>increment balance with 10</button>
-      </li>
-    </ul>
+    <!--<ul th:each="account : ${accounts}">-->
+      <!--<li th:inline="text">-->
+         <!--[[${accountStat.count}]]. [[${account.name}]] [[${account.balance}]] [[${account.animalType}]]-->
+      <!--</li>-->
+    <!--</ul>-->
+    <form action="#" th:action="@{/execise10}" th:object="${bankAccount}" method="post">
+        <p>Id: <input type="text" th:field="*{id}" /></p>
+        <p>Message: <input type="text" th:field="*{content}" /></p>
+
+        <!--<p>Name: <input type="text" th:field="*{name}" /></p>-->
+        <!--<p>Balance: <input type="text" th:field="*{balance}" /></p>-->
+        <!--<p>Animal Type: <input type="text" th:field="*{animalType}" /></p>-->
+        <!--<p>King: <input type="text" th:field="*{king}" /></p>-->
+        <!--<p>Good Guy: <input type="text" th:field="*{goodGuy}" /></p>-->
+        <!--<p><input type="submit" value="Add new bank account" /></p>-->
+    </form>
   </body>
 </html>
