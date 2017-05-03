@@ -4,8 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
+@Getter
 public class BankAccount {
   String name;
-  int balance;
+  long balance;
   String animalType;
 }
