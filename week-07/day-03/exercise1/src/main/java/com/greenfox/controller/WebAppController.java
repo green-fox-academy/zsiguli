@@ -15,4 +15,11 @@ public class WebAppController {
     return "simbasAccount";
   }
 
+  @RequestMapping(value = "/exercise2")
+  public static String balanceWithTwoDecimals(Model model) {
+    BankAccount simba = new BankAccount("Simba", 2000, "lion");
+    model.addAttribute("simba", simba);
+    return "simbasAccountWithTwoDecimals";
+  }
+
 }
