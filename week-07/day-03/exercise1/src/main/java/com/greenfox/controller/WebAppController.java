@@ -29,4 +29,11 @@ public class WebAppController {
     return "accountWithZebra";
   }
 
+  @RequestMapping(value = "/exercise4")
+  public static String twoDifferentTextType(Model model) {
+    String content = "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>";
+    model.addAttribute("content", content);
+    return "twoDifferentTextType";
+  }
+
 }
