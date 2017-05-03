@@ -13,7 +13,7 @@
          </span>
     </li>
     <li th:case="true" th:inline="text">
-        [[${accountStat.count}]]. <span th:if="${account.king} == true"> [[${account.name}]] </span> [[${account.balance}]] [[${account.animalType}]] is a good guy
+        [[${accountStat.count}]]. <span th:if="${account.king}"> [[${account.name}]] </span> [[${account.balance}]] [[${account.animalType}]] is a good guy
     </li>
 </ul>
 <form action="#" th:action="@{/exercise11}" th:object="${newAccount}" method="post">
