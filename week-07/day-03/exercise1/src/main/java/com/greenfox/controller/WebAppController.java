@@ -11,9 +11,7 @@ public class WebAppController {
   @RequestMapping(value = "/exercise1")
   public static String simbasAccount(Model model) {
     BankAccount simba = new BankAccount("Simba", 2000, "lion");
-    model.addAttribute("name", simba.getName());
-    model.addAttribute("balance", simba.getBalance());
-    model.addAttribute("animalType", simba.getAnimalType());
+    model.addAttribute("simba", simba);
     return "simbasAccount";
   }
 

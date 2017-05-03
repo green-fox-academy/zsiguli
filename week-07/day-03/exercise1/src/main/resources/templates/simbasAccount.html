@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Simba's account</title>
 </head>
 <body>
-    <p th:text="${name} + ${balance} + ${animalType}" />
+    <p th:text="'this is the name: ' + ${simba.name} + ' this is the balance: '
+     + ${simba.balance} + ' this is the animal type: ' + ${simba.animalType}"/>
 </body>
 </html>
