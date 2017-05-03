@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Simba's account</title>
+    <link rel="stylesheet" th:href="@{/basic.css}"/>
+</head>
+  <body>
+    <ul th:each="account : ${accounts}">
+      <li th:inline="text">
+         [[${accountStat.count}]]. [[${account.name}]] [[${account.balance}]] [[${account.animalType}]]
+         <button>increment balance with 10</button>
+      </li>
+    </ul>
+  </body>
+</html>
