@@ -61,4 +61,15 @@ public class WebAppController {
     return "manyBankAccountsWithNumbers";
   }
 
+  @RequestMapping(value = "/exercise7")
+  public static String manyBankAccountsWithNumbersAndKing(Model model) {
+    List<BankAccount> accounts = new ArrayList<>();
+    accounts.add(new BankAccount("Simba", 2000, "lion"));
+    accounts.add(new BankAccount("Pumba", 10000, "warthog"));
+    accounts.add(new BankAccount("Rafiki", 100, "monkey"));
+    accounts.add(new BankAccount("Zazu", 2000, "bird"));
+    model.addAttribute("accounts", accounts);
+    return "manyBankAccountsWithNumbersAndKing";
+  }
+
 }
