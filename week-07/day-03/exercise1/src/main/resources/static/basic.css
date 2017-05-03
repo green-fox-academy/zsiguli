@@ -5,3 +5,7 @@ span {
 li {
     list-style-type: none;
 }
+
+.bad-guy {
+    color: red;
+}

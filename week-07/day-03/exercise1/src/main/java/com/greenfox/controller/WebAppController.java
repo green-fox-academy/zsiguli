@@ -73,4 +73,16 @@ public class WebAppController {
     return "manyBankAccountsWithNumbersAndKing";
   }
 
+  @RequestMapping(value = "/exercise8")
+  public static String showBadGuys(Model model) {
+    List<BankAccount> accounts = new ArrayList<>();
+    accounts.add(new BankAccount("Simba", 2000, "lion", true, true));
+    accounts.add(new BankAccount("Pumba", 10000, "warthog", false, true));
+    accounts.add(new BankAccount("Rafiki", 100, "monkey", false, true));
+    accounts.add(new BankAccount("Zazu", 2000, "bird", false, true));
+    accounts.add(new BankAccount("Zordon", 2000, "lion", false, false));
+    model.addAttribute("accounts", accounts);
+    return "showBadGuys";
+  }
+
 }
