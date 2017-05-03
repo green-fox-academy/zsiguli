@@ -13,21 +13,21 @@ public class WebAppController {
 
   @RequestMapping(value = "/exercise1")
   public static String simbasAccount(Model model) {
-    BankAccount simba = new BankAccount("Simba", 2000, "lion");
+    BankAccount simba = new BankAccount("Simba", 2000, "lion", true, true);
     model.addAttribute("simba", simba);
     return "simbasAccount";
   }
 
   @RequestMapping(value = "/exercise2")
   public static String balanceWithTwoDecimals(Model model) {
-    BankAccount simba = new BankAccount("Simba", 2000, "lion");
+    BankAccount simba = new BankAccount("Simba", 2000, "lion", true, true);
     model.addAttribute("simba", simba);
     return "simbasAccountWithTwoDecimals";
   }
 
   @RequestMapping(value = "/exercise3")
   public static String balanceWithZebra(Model model) {
-    BankAccount simba = new BankAccount("Simba", 2000, "lion");
+    BankAccount simba = new BankAccount("Simba", 2000, "lion", true, true);
     model.addAttribute("simba", simba);
     return "accountWithZebra";
   }
@@ -42,10 +42,10 @@ public class WebAppController {
   @RequestMapping(value = "/exercise5")
   public static String manyBankAccounts(Model model) {
     List<BankAccount> accounts = new ArrayList<>();
-    accounts.add(new BankAccount("Simba", 2000, "lion"));
-    accounts.add(new BankAccount("Pumba", 10000, "warthog"));
-    accounts.add(new BankAccount("Rafiki", 100, "monkey"));
-    accounts.add(new BankAccount("Zazu", 2000, "bird"));
+    accounts.add(new BankAccount("Simba", 2000, "lion", true, true));
+    accounts.add(new BankAccount("Pumba", 10000, "warthog", false, true));
+    accounts.add(new BankAccount("Rafiki", 100, "monkey", false, true));
+    accounts.add(new BankAccount("Zazu", 2000, "bird", false, true));
     model.addAttribute("accounts", accounts);
     return "manyBankAccounts";
   }
@@ -53,10 +53,10 @@ public class WebAppController {
   @RequestMapping(value = "/exercise6")
   public static String manyBankAccountsWithNumbers(Model model) {
     List<BankAccount> accounts = new ArrayList<>();
-    accounts.add(new BankAccount("Simba", 2000, "lion"));
-    accounts.add(new BankAccount("Pumba", 10000, "warthog"));
-    accounts.add(new BankAccount("Rafiki", 100, "monkey"));
-    accounts.add(new BankAccount("Zazu", 2000, "bird"));
+    accounts.add(new BankAccount("Simba", 2000, "lion", true, true));
+    accounts.add(new BankAccount("Pumba", 10000, "warthog", false, true));
+    accounts.add(new BankAccount("Rafiki", 100, "monkey", false, true));
+    accounts.add(new BankAccount("Zazu", 2000, "bird", false, true));
     model.addAttribute("accounts", accounts);
     return "manyBankAccountsWithNumbers";
   }
@@ -64,10 +64,10 @@ public class WebAppController {
   @RequestMapping(value = "/exercise7")
   public static String manyBankAccountsWithNumbersAndKing(Model model) {
     List<BankAccount> accounts = new ArrayList<>();
-    accounts.add(new BankAccount("Simba", 2000, "lion"));
-    accounts.add(new BankAccount("Pumba", 10000, "warthog"));
-    accounts.add(new BankAccount("Rafiki", 100, "monkey"));
-    accounts.add(new BankAccount("Zazu", 2000, "bird"));
+    accounts.add(new BankAccount("Simba", 2000, "lion", true, true));
+    accounts.add(new BankAccount("Pumba", 10000, "warthog", false, true));
+    accounts.add(new BankAccount("Rafiki", 100, "monkey", false, true));
+    accounts.add(new BankAccount("Zazu", 2000, "bird", false, true));
     model.addAttribute("accounts", accounts);
     return "manyBankAccountsWithNumbersAndKing";
   }
