@@ -1,9 +1,10 @@
 package com.greenfox.controller;
 
 import com.greenfox.modell.BankAccount;
+import com.greenfox.modell.Greeting;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,15 +98,14 @@ public class WebAppController {
     return "showBadGuysWithSwitch";
   }
 
-  @RequestMapping(value = "/exercise10")
-  public static String incrementZebrasWithButton(Model model) {
-    List<BankAccount> accounts = new ArrayList<>();
-    accounts.add(new BankAccount("Simba", 2000, "lion", true, true));
-    accounts.add(new BankAccount("Pumba", 10000, "warthog", false, true));
-    accounts.add(new BankAccount("Rafiki", 100, "monkey", false, true));
-    accounts.add(new BankAccount("Zazu", 2000, "bird", false, true));
-    accounts.add(new BankAccount("Zordon", 2000, "lion", false, false));
-    model.addAttribute("accounts", accounts);
-    return "incrementZebrasWithButton";
+  @GetMapping("/greeting")
+  public String greetingForm(Model model) {
+    model.addAttribute("greeting", new Greeting());
+    return "greeting";
+  }
+
+  @PostMapping("/greeting")
+  public String greetingSubmit(@ModelAttribute Greeting greeting) {
+    return "result";
   }
 }
