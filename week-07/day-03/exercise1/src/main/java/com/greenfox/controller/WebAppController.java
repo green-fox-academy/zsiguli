@@ -50,4 +50,15 @@ public class WebAppController {
     return "manyBankAccounts";
   }
 
+  @RequestMapping(value = "/exercise6")
+  public static String manyBankAccountsWithNumbers(Model model) {
+    List<BankAccount> accounts = new ArrayList<>();
+    accounts.add(new BankAccount("Simba", 2000, "lion"));
+    accounts.add(new BankAccount("Pumba", 10000, "warthog"));
+    accounts.add(new BankAccount("Rafiki", 100, "monkey"));
+    accounts.add(new BankAccount("Zazu", 2000, "bird"));
+    model.addAttribute("accounts", accounts);
+    return "manyBankAccountsWithNumbers";
+  }
+
 }

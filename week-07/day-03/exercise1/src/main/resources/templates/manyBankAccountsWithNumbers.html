@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Simba's account</title>
+</head>
+  <body>
+    <p th:each="account : ${accounts}" th:text="|${accountStat.count}. ${account.name} ${account.balance} ${account.animalType}|"/>
+  </body>
+</html>
