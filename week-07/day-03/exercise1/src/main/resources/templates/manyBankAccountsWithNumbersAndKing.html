@@ -6,11 +6,11 @@
     <link rel="stylesheet" th:href="@{/basic.css}"/>
 </head>
   <body>
-    <p th:each="account : ${accounts}"
-       th:if="${account.name} == 'Simba'"
-       th:inline="text">
-        [[${accountStat.count}]]. <span>[[${account.name}]]</span> [[${account.balance}]] [[${account.animalType}]]
-
-    </p>
+    <ul th:each="account : ${accounts}" th:switch="${account.king}">
+      <li th:case="true" th:inline="text">
+          [[${accountStat.count}]]. <span>[[${account.name}]]</span> [[${account.balance}]] [[${account.animalType}]]
+      </li>
+      <li th:case="false" th:text="|${accountStat.count}. ${account.name} ${account.balance} ${account.animalType}|"/>
+    </ul>
   </body>
 </html>

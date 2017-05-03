@@ -68,6 +68,7 @@ public class WebAppController {
     accounts.add(new BankAccount("Pumba", 10000, "warthog", false, true));
     accounts.add(new BankAccount("Rafiki", 100, "monkey", false, true));
     accounts.add(new BankAccount("Zazu", 2000, "bird", false, true));
+    accounts.add(new BankAccount("Zordon", 2000, "lion", false, false));
     model.addAttribute("accounts", accounts);
     return "manyBankAccountsWithNumbersAndKing";
   }
