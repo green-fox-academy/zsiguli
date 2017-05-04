@@ -1,5 +1,6 @@
 package com.greenfox;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,10 +13,14 @@ import java.util.List;
 public class ColoringBeansApplication implements CommandLineRunner{
 
   @Autowired
+  public ColoringBeansApplication(RedColor redColor, BlueColor blueColor, GreenColor greenColor) {
+    this.redColor = redColor;
+    this.blueColor = blueColor;
+    this.greenColor = greenColor;
+  }
+
   RedColor redColor;
-  @Autowired
   BlueColor blueColor;
-  @Autowired
   GreenColor greenColor;
 
 	public static void main(String[] args) {
