@@ -1,5 +1,8 @@
 package com.greenfox.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class HelloWorld {
   private String message;
 
