@@ -8,12 +8,13 @@ import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class MessageConfiguration {
+
+  @Primary
   @Bean
   public TwitterService twitterService() {
     return new TwitterService();
   }
 
-  @Primary
   @Bean
   public EmailService emailService() {
     return new EmailService();
