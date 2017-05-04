@@ -1,3 +1,5 @@
 package com.greenfox;
 
-public interface MyColor {}
+public interface MyColor {
+  void printColor ();
+}
