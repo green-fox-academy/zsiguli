@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-public class ColoringBeansApplication implements CommandLineRunner{
+public class ColoringBeansApplication implements CommandLineRunner {
 
   @Autowired
   public ColoringBeansApplication(RedColor redColor, BlueColor blueColor, GreenColor greenColor) {
@@ -23,9 +23,9 @@ public class ColoringBeansApplication implements CommandLineRunner{
   BlueColor blueColor;
   GreenColor greenColor;
 
-	public static void main(String[] args) {
-		SpringApplication.run(ColoringBeansApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(ColoringBeansApplication.class, args);
+  }
 
   @Override
   public void run(String... args) throws Exception {
