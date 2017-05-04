@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Programmer Fox Club</title>
-    <link rel="stylesheet" href="css/basic.css">
+    <link rel="stylesheet" th:href="@{/css/basic.css}"/>
 </head>
 <body>
 <a href="#">Information</a>
-<img src="img/greenfox.png" alt="fox"/>
+<img th:src="@{/img/greenfox.png}" alt="fox"/>
 <p>This is Mrs. Fox. Currently living on cheese and beer. She knows 2 tricks.</p>
 <h1>Known tricks</h1>
 <ul>
