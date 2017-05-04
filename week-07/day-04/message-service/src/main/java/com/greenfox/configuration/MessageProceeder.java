@@ -9,6 +9,6 @@ public class MessageProceeder {
   MessageService messageService;
 
   public void processMessage(String text, String address) {
-    messageService.sendingMessage();
+    messageService.sendingMessage(text, address);
   }
 }

@@ -1,5 +1,5 @@
 package com.greenfox.service;
 
 public interface MessageService {
-  void sendingMessage ();
+  void sendingMessage (String text, String address);
 }
