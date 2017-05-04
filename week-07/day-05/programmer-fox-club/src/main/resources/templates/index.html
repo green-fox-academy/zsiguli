@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Programmer Fox Club</title>
@@ -8,11 +8,11 @@
 <body>
 <a href="#">Information</a>
 <img src="/img/greenfox.png" alt="fox"/>
-<p>This is Mrs. Fox. Currently living on cheese and beer. She knows 2 tricks.</p>
+<p th:text="'This is Mrs. ' + ${fox.name} + '. Currently living on '
++ ${fox.food} + ' and ' + ${fox.drink} + ' . She knows ' + ${fox.knownTricks} + ' tricks.'"/>
 <h1>Known tricks</h1>
 <ul>
-    <li>eat chocolate</li>
-    <li>fight</li>
+    <li th:each="trick : ${fox.knownTricks}" th:text="${trick}"/>
 </ul>
 </body>
 </html>
