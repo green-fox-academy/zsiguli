@@ -2,3 +2,7 @@ a {
     display: list-item;
     list-style: circle inside;
 }
+
+.current {
+    color: blue;
+}

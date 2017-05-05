@@ -24,6 +24,7 @@ public class MainController {
   public String nutritionStore(Model model) {
     model.addAttribute("foods", Food.values());
     model.addAttribute("drinks", Drink.values());
+    model.addAttribute("fox", fox);
     return "nutritionStore";
   }
 }
