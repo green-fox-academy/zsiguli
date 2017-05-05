@@ -33,4 +33,9 @@ public class MainController {
     model.addAttribute("fox", fox);
     return "operation";
   }
+
+  @GetMapping(value = "/trickCenter")
+  public String tricks() {
+    return "trickCenter";
+  }
 }
