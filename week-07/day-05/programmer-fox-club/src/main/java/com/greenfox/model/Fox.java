@@ -13,6 +13,7 @@ public class Fox {
   private List<Trick> knownTricks;
   private String food;
   private String drink;
+  private boolean mr;
 
   public Fox() {
     knownTricks = new ArrayList<>();

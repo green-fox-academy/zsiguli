@@ -8,7 +8,7 @@
 <body>
 <a href="#">Information</a>
 <img src="/img/greenfox.png" alt="fox"/>
-<p th:text="'This is Mrs. ' + ${fox.name} + '. Currently living on '
+<p th:text="'This is ' + (${fox.mr} ? 'Mr. ' : 'Mrs. ') + ${fox.name} + '. Currently living on '
 + ${fox.food} + ' and ' + ${fox.drink} + ' . She knows ' + ${fox.knownTricks.size()} + ' tricks.'"/>
 <h1>Known tricks</h1>
 <ul>
