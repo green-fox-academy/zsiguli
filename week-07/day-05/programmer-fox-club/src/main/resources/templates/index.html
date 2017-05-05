@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="/css/basic.css"/>
 </head>
 <body>
-<a href="#">Information</a>
+<a href="/">Information</a>
+<a href="/nutritionStore">Nutrition Store</a>
 <img src="/img/greenfox.png" alt="fox"/>
 <p th:text="'This is ' + (${fox.she} ? 'Mrs. ' : 'Mr. ') + ${fox.name} + '. Currently living on '
-+ ${fox.food} + ' and ' + ${fox.drink} + ' . ' + (${fox.she} ? 'She ' : 'He ') + 'knows ' + ${fox.knownTricks.size()} + ' tricks.'"/>
++ ${fox.food.displayName} + ' and ' + ${fox.drink.displayName} + ' . ' + (${fox.she} ? 'She ' : 'He ') + 'knows ' + ${fox.knownTricks.size()} + ' tricks.'"/>
 <h1>Known tricks</h1>
 <ul>
     <li th:each="trick : ${fox.knownTricks}" th:text="${trick.description} + ' ' + ${trick.difficulty}"/>

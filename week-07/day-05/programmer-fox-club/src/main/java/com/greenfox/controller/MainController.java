@@ -1,5 +1,7 @@
 package com.greenfox.controller;
 
+import com.greenfox.model.Drink;
+import com.greenfox.model.Food;
 import com.greenfox.model.Fox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,5 +18,12 @@ public class MainController {
   public String homePage(Model model) {
     model.addAttribute("fox", fox);
     return "index";
+  }
+
+  @GetMapping(value = "/nutritionStore")
+  public String nutritionStore(Model model) {
+    model.addAttribute("foods", Food.values());
+    model.addAttribute("drinks", Drink.values());
+    return "nutritionStore";
   }
 }

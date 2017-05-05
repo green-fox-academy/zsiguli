@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Programmer Fox Club</title>
+    <link rel="stylesheet" href="/css/basic.css"/>
+</head>
+<body>
+<a href="/">Information</a>
+<a href="/nutritionStore">Nutrition Store</a>
+<h1>Foods</h1>
+<ul>
+    <li th:each="food : ${foods}" th:text="${food.displayName}"/>
+</ul>
+<h1>Drinks</h1>
+<ul>
+    <li th:each="drink : ${drinks}" th:text="${drink.displayName}"/>
+</ul>
+</body>
+</html>
