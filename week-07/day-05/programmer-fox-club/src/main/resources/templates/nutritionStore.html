@@ -10,11 +10,19 @@
 <a href="/nutritionStore">Nutrition Store</a>
 <h1>Foods</h1>
 <ul>
-    <li th:each="food : ${foods}" th:class="(${fox.food} == ${food} ? current : '')" th:text="${food.displayName}"/>
+    <li th:each="food : ${foods}" th:inline="text">
+        <form th:action="@{/changeFood?food=} + ${food}" method="post">
+            <input th:class="(${fox.food} == ${food} ? current : '')" type="submit" th:value="${food.displayName}"/>
+        </form>
+    </li>
 </ul>
 <h1>Drinks</h1>
 <ul>
-    <li th:each="drink : ${drinks}" th:class="(${fox.drink} == ${drink} ? current : '')" th:text="${drink.displayName}"/>
+    <li th:each="drink : ${drinks}" th:inline="text">
+        <form th:action="@{/changeDrink?drink=} + ${drink}" method="post">
+            <input th:class="(${fox.drink} == ${drink} ? current : '')" type="submit" th:value="${drink.displayName}"/>
+        </form>
+    </li>
 </ul>
 </body>
 </html>

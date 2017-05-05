@@ -3,6 +3,26 @@ a {
     list-style: circle inside;
 }
 
+h1 {
+    margin-left: 30px;
+}
+
+input {
+    width: 100px;
+    height: 30px;
+
+}
+
+ul {
+    list-style-type: none;
+    margin-left: -14px;
+}
+
+li {
+    margin: 5px;
+}
+
 .current {
     color: blue;
+    border-color: red;
 }

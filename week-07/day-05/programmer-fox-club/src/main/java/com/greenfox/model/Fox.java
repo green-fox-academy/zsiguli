@@ -1,6 +1,7 @@
 package com.greenfox.model;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Component
 @Getter
+@Setter
 public class Fox {
   private String name;
   private List<Trick> knownTricks;
