@@ -9,10 +9,10 @@
 <a href="#">Information</a>
 <img src="/img/greenfox.png" alt="fox"/>
 <p th:text="'This is Mrs. ' + ${fox.name} + '. Currently living on '
-+ ${fox.food} + ' and ' + ${fox.drink} + ' . She knows ' + ${fox.knownTricks} + ' tricks.'"/>
++ ${fox.food} + ' and ' + ${fox.drink} + ' . She knows ' + ${fox.knownTricks.size()} + ' tricks.'"/>
 <h1>Known tricks</h1>
 <ul>
-    <li th:each="trick : ${fox.knownTricks}" th:text="${trick}"/>
+    <li th:each="trick : ${fox.knownTricks}" th:text="${trick.description} + ' ' + ${trick.difficulty}"/>
 </ul>
 </body>
 </html>
