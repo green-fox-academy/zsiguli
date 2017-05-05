@@ -1,10 +1,6 @@
 a {
-    display: list-item;
     list-style: circle inside;
-}
-
-h1 {
-    margin-left: 30px;
+    display: list-item;
 }
 
 input {
@@ -15,14 +11,13 @@ input {
 
 ul {
     list-style-type: none;
-    margin-left: -14px;
 }
 
 li {
     margin: 5px;
 }
 
-.current {
+li .current {
     color: blue;
     border-color: red;
 }

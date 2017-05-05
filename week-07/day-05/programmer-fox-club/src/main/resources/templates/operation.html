@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Programmer Fox Club</title>
+    <link rel="stylesheet" href="/css/basic.css"/>
+</head>
+<body>
+<a href="/">Information</a>
+<a href="/nutritionStore">Nutrition Store</a>
+<a href="/operation">Operation</a>
+<h1>She</h1>
+<ul>
+    <li th:inline="text">
+        <form th:action="@{/operation?she=true}" method="post">
+            <input th:class="(${fox.she} ? current : '')" type="submit" value="Yes"/>
+        </form>
+    </li>
+    <li th:inline="text">
+        <form th:action="@{/operation?she=false}" method="post">
+            <input th:class="(${fox.she} ? '' : current)" type="submit" value="No"/>
+        </form>
+    </li>
+</ul>
+</body>
+</html>

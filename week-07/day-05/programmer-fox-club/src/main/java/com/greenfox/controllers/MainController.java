@@ -1,4 +1,4 @@
-package com.greenfox.controller;
+package com.greenfox.controllers;
 
 import com.greenfox.model.Drink;
 import com.greenfox.model.Food;
@@ -26,5 +26,11 @@ public class MainController {
     model.addAttribute("drinks", Drink.values());
     model.addAttribute("fox", fox);
     return "nutritionStore";
+  }
+
+  @GetMapping(value = "/operation")
+  public String operation(Model model) {
+    model.addAttribute("fox", fox);
+    return "operation";
   }
 }
