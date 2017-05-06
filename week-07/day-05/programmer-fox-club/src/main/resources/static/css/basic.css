@@ -1,3 +1,8 @@
+body {
+    margin-left: 300px;
+    margin-top: 100px;
+}
+
 a {
     list-style: circle inside;
     display: list-item;
@@ -6,7 +11,6 @@ a {
 input {
     width: 100px;
     height: 30px;
-
 }
 
 ul {

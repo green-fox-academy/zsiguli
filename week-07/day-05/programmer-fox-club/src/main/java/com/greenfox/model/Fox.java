@@ -25,6 +25,6 @@ public class Fox {
     knownTricks.add(new Trick("final trick", 5));
     food = Food.PIZZA;
     drink = Drink.TEE;
-    she = true;
+    she = false;
   }
 }
