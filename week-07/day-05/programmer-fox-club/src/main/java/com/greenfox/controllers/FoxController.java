@@ -3,6 +3,7 @@ package com.greenfox.controllers;
 import com.greenfox.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -55,6 +56,12 @@ public class FoxController {
     if ("admin".equals(username) && "admin".equals(password)) {
       fox.setAuthenticated(true);
     }
+    return "redirect:/";
+  }
+
+  @GetMapping(value = "/logout")
+  public String logout() {
+    fox.setAuthenticated(false);
     return "redirect:/";
   }
 }
