@@ -39,6 +39,7 @@ public class MainController {
 
   @GetMapping(value = "/trickCenter")
   public String tricks(Model model) {
+    model.addAttribute("fox", fox);
     model.addAttribute("tricks", availableTricks.getTricks());
     return "trickCenter";
   }

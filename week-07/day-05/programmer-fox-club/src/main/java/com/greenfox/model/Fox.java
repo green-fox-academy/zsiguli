@@ -16,6 +16,7 @@ public class Fox {
   private Food food;
   private Drink drink;
   private boolean she;
+  private boolean authenticated;
 
   public Fox() {
     name = "Charles";
@@ -23,6 +24,7 @@ public class Fox {
     food = Food.PIZZA;
     drink = Drink.TEE;
     she = false;
+    authenticated = false;
   }
 
   public void learnNewTrick(Trick trick) {

@@ -42,10 +42,19 @@ public class FoxController {
   }
 
   @PostMapping(value = "/addTrick")
-  public String addTrick(@RequestParam(value = "description") String description,
-                           @RequestParam(value = "difficulty") int difficulty) {
+  public String addTrick(@RequestParam("description") String description,
+                         @RequestParam("difficulty") int difficulty) {
     Trick actual = new Trick(description, difficulty);
     availableTricks.addNewTrick(actual);
     return "redirect:/trickCenter";
+  }
+
+  @PostMapping(value = "/authenticate")
+  public String authenticate(@RequestParam("username") String username,
+                             @RequestParam("password") String password) {
+    if ("admin".equals(username) && "admin".equals(password)) {
+      fox.setAuthenticated(true);
+    }
+    return "redirect:/";
   }
 }

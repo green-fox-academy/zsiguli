@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/basic.css"/>
 </head>
 <body>
-<main layout:fragment="main">
+<main layout:fragment="main" th:if="${fox.authenticated}">
     <h1>She</h1>
     <ul>
         <li th:inline="text">
@@ -24,5 +24,12 @@
         </li>
     </ul>
 </main>
+<div layout:fragment="login" th:unless="${fox.authenticated}">
+    <form th:action="@{/authenticate}" method="post">
+        <input type="text" placeholder="username" name="username"/>
+        <input type="text" placeholder="password" name="password"/>
+        <input type="submit"/>
+    </form>
+</div>
 </body>
 </html>

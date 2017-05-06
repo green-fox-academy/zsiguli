@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/basic.css"/>
 </head>
 <body>
-<main layout:fragment="main">
+<main layout:fragment="main" th:if="${fox.authenticated}">
     <h1>Available Tricks</h1>
     <ul class="available-tricks">
         <li th:if="${tricks.isEmpty()}">
@@ -22,11 +22,18 @@
             </form>
         </li>
     </ul>
-        <form th:action="@{/addTrick}" method="post">
-            <input type="text" placeholder="description" name="description"/>
-            <input type="text" placeholder="difficulty" name="difficulty"/>
-            <input type="submit"/>
-        </form>
+    <form th:action="@{/addTrick}" method="post">
+        <input type="text" placeholder="description" name="description"/>
+        <input type="text" placeholder="difficulty" name="difficulty"/>
+        <input type="submit"/>
+    </form>
 </main>
+<div layout:fragment="login" th:unless="${fox.authenticated}">
+    <form th:action="@{/authenticate}" method="post">
+        <input type="text" placeholder="username" name="username"/>
+        <input type="text" placeholder="password" name="password"/>
+        <input type="submit"/>
+    </form>
+</div>
 </body>
 </html>
