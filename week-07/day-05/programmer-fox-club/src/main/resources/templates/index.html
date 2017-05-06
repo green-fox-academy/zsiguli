@@ -14,11 +14,15 @@
     <p th:text="'This is ' + (${fox.she} ? 'Mrs. ' : 'Mr. ') + ${fox.name} + '. Currently living on '
 + ${fox.food.displayName} + ' and ' + ${fox.drink.displayName} + ' . ' + (${fox.she} ? 'She ' : 'He ') + 'knows ' + ${fox.knownTricks.size()} + ' tricks.'"/>
     <h1>Known tricks</h1>
-    <ul>
+    <ul class="known-tricks">
         <li th:if="${fox.knownTricks.isEmpty()}">
             Your fox does not know anything. Go learn something!
         </li>
-        <li th:each="trick : ${fox.knownTricks}" th:text="${trick.description} + ' ' + ${trick.difficulty}"/>
+        <li th:each="trick : ${fox.knownTricks}" th:inline="text">
+            <form>
+                <input type="submit" th:value="${trick.description} + ' (' + ${trick.difficulty} + ')'"/>
+            </form>
+        </li>
     </ul>
 </main>
 </body>

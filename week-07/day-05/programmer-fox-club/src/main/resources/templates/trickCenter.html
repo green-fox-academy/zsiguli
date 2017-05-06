@@ -12,13 +12,21 @@
 <main layout:fragment="main">
     <h1>Available Tricks</h1>
     <ul class="available-tricks">
+        <li th:if="${tricks.isEmpty()}">
+            There are no available tricks. Add some new trick!
+        </li>
         <li th:each="trick : ${tricks}" th:inline="text">
             <form th:action="@{/learnTrick?description=} + ${trick.description} +
             '&amp;difficulty=' + ${trick.difficulty}" method="post">
-                <input type="submit" th:value="${trick.description} + ' ' + ${trick.difficulty}"/>
+                <input type="submit" th:value="${trick.description} + ' (' + ${trick.difficulty} + ')'"/>
             </form>
         </li>
     </ul>
+        <form th:action="@{/addTrick}" method="post">
+            <input type="text" placeholder="description" name="description"/>
+            <input type="text" placeholder="difficulty" name="difficulty"/>
+            <input type="submit"/>
+        </form>
 </main>
 </body>
 </html>

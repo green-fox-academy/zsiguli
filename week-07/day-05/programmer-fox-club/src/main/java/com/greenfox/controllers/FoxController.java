@@ -40,4 +40,12 @@ public class FoxController {
     availableTricks.removeTrick(actual);
     return "redirect:/trickCenter";
   }
+
+  @PostMapping(value = "/addTrick")
+  public String addTrick(@RequestParam(value = "description") String description,
+                           @RequestParam(value = "difficulty") int difficulty) {
+    Trick actual = new Trick(description, difficulty);
+    availableTricks.addNewTrick(actual);
+    return "redirect:/trickCenter";
+  }
 }

@@ -14,7 +14,8 @@ input {
     height: 30px;
 }
 
-.available-tricks input {
+.available-tricks input,
+.known-tricks input {
     width: auto;
 }
 
