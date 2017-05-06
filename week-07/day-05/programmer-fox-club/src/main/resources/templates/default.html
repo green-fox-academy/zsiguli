@@ -1,15 +1,19 @@
 <!doctype html>
-<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Programmer Fox Club</title>
     <link rel="stylesheet" href="/css/basic.css"/>
 </head>
 <body>
-<a href="/">Information</a>
-<a class="current" href="/nutritionStore">Nutrition Store</a>
-<a href="/operation">Operation</a>
-<a href="/trickCenter">Trick Center</a>
+<ul class="menu">
+    <li><a href="/">Information</a></li>
+    <li><a href="/nutritionStore">Nutrition Store</a></li>
+    <li><a href="/operation">Operation</a></li>
+    <li><a href="/trickCenter">Trick Center</a></li>
+</ul>
 
 <main layout:fragment="main"/>
 

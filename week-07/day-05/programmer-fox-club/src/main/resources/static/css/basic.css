@@ -1,11 +1,12 @@
-body {
-    margin-left: 300px;
-    margin-top: 100px;
+main {
+    border: solid red 1px;
 }
 
 a {
-    list-style: circle inside;
-    display: list-item;
+    text-decoration: none;
+    color: blue;
+    text-transform: uppercase;
+    font-size: 1.2em;
 }
 
 input {
@@ -15,6 +16,21 @@ input {
 
 ul {
     list-style-type: none;
+}
+
+ul.menu {
+    display: flex;
+}
+
+.menu li {
+    border: solid green 1px;
+    border-radius: 10px;
+    padding: 10px;
+    background: lightgrey;
+}
+
+.menu li:hover {
+    background: grey;
 }
 
 li {
