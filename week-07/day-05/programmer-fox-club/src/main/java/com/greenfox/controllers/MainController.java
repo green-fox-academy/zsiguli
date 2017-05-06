@@ -3,6 +3,7 @@ package com.greenfox.controllers;
 import com.greenfox.model.Drink;
 import com.greenfox.model.Food;
 import com.greenfox.model.Fox;
+import com.greenfox.model.TrickList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,8 @@ public class MainController {
 
   @Autowired
   Fox fox;
+  @Autowired
+  TrickList availableTricks;
 
   @GetMapping(value = "/")
   public String homePage(Model model) {
@@ -35,7 +38,8 @@ public class MainController {
   }
 
   @GetMapping(value = "/trickCenter")
-  public String tricks() {
+  public String tricks(Model model) {
+    model.addAttribute("tricks", availableTricks.getTricks());
     return "trickCenter";
   }
 }
