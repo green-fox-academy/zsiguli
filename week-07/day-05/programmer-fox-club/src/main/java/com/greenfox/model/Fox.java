@@ -20,11 +20,12 @@ public class Fox {
   public Fox() {
     name = "Charles";
     knownTricks = new ArrayList<>();
-    knownTricks.add(new Trick("this", 9));
-    knownTricks.add(new Trick("that", 3));
-    knownTricks.add(new Trick("final trick", 5));
     food = Food.PIZZA;
     drink = Drink.TEE;
     she = false;
+  }
+
+  public void learnNewTrick(Trick trick) {
+    knownTricks.add(trick);
   }
 }

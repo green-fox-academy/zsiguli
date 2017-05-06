@@ -15,6 +15,9 @@
 + ${fox.food.displayName} + ' and ' + ${fox.drink.displayName} + ' . ' + (${fox.she} ? 'She ' : 'He ') + 'knows ' + ${fox.knownTricks.size()} + ' tricks.'"/>
     <h1>Known tricks</h1>
     <ul>
+        <li th:if="${fox.knownTricks.isEmpty()}">
+            Your fox does not know anything. Go learn something!
+        </li>
         <li th:each="trick : ${fox.knownTricks}" th:text="${trick.description} + ' ' + ${trick.difficulty}"/>
     </ul>
 </main>

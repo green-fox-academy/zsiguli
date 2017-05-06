@@ -14,11 +14,12 @@ input {
     height: 30px;
 }
 
-ul {
-    list-style-type: none;
+.available-tricks input {
+    width: auto;
 }
 
-ul.menu {
+ul {
+    list-style-type: none;
     display: flex;
 }
 
