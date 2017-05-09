@@ -25,6 +25,6 @@ public class TodoController {
                         @RequestParam(value = "description") String description) {
     todoRepository.save(new Todo(description));
     model.addAttribute("todos", todoRepository.findAll());
-    return "todoslist";
+    return "redirect:/";
   }
 }
