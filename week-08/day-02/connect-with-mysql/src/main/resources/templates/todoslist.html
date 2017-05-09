@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Notes</title>
+</head>
+<body>
+<h2>Notes</h2>
+<table>
+    <tr>
+        <td>asdf</td>
+        <td>asdf</td>
+    </tr>
+</table>
+<ul >
+    <li th:each="todo : ${todos}" th:text="${todo}"/>
+</ul>
+<form th:action="@{/addTodo}" method="post">
+    <input type="text" name="description"  />
+    <input type="submit" />
+</form>
+</body>
+</html>
