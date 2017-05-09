@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Notes</title>
 </head>
 <body>
 <h2>Notes</h2>
 <table>
     <tr>
-        <td>asdf</td>
-        <td>asdf</td>
+        <td>Id</td>
+        <td>Action</td>
+        <td>Done</td>
+        <td>Urgent</td>
+    </tr>
+    <tr th:each="todo : ${todos}" th:inline="text">
+        <td>[[${todo.id}]]</td>
+        <td>[[${todo.description}]]</td>
+        <td>[[${todo.isDone()}]]</td>
+        <td>[[${todo.isUrgent()}]]</td>
+        <td></td>
     </tr>
 </table>
-<ul >
-    <li th:each="todo : ${todos}" th:text="${todo}"/>
-</ul>
 <form th:action="@{/addTodo}" method="post">
-    <input type="text" name="description"  />
+    <input type="text" name="description"/>
     <input type="submit" value="add new todo"/>
 </form>
 </body>
