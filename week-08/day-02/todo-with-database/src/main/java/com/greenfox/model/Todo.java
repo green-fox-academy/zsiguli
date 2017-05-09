@@ -1,4 +1,4 @@
-package com.greenfox;
+package com.greenfox.model;
 
 public class Todo {
   int id;
