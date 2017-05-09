@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hack</title>
+</head>
+<body>
+<main layout:fragment="main" th:if="${fox.authenticated}">
+    <h1 class="warning">Cracking is not a nice thing! Keep this in mind before press any button!</h1>
+    <h2>Available Targets</h2>
+    <ul class="available-tricks">
+        <li th:if="${fox.targetList.isEmpty()}">
+            There are no available targets, hack again!
+        </li>
+        <li th:each="target : ${fox.targetList}" th:inline="text">
+            <form th:action="@{http://369b1546.ngrok.io?name=} + ${target}" method="get">
+                <input type="submit" th:value="${target}"/>
+            </form>
+        </li>
+    </ul>
+    <form th:action="@{/hack}" method="post">
+        <input type="submit" th:value="Hack"/>
+    </form>
+</main>
+<div layout:fragment="login" th:unless="${fox.authenticated}">
+    <form th:action="@{/authenticate}" method="post">
+        <input type="text" placeholder="username" name="username"/>
+        <input type="text" placeholder="password" name="password"/>
+        <input type="submit"/>
+    </form>
+</div>
+</body>
+</html>

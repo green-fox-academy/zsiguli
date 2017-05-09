@@ -43,3 +43,7 @@ li .current {
     color: blue;
     border-color: red;
 }
+
+.warning {
+    color: red;
+}
