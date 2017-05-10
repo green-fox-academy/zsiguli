@@ -2,6 +2,7 @@ package com.greenfox.controller;
 
 import com.greenfox.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 
@@ -70,19 +71,47 @@ public class RESTController {
   }
 
   @Autowired
+  DoUntilError doUntilError;
+
+  @ExceptionHandler(HttpMessageNotReadableException.class)
+  public DoUntilError error() {
+    return doUntilError;
+  }
+
+  @Autowired
   DoUntil doUntil;
 
   @PostMapping("/dountil/{what}")
-  public DoUntil doUntil(@PathVariable String what) {
-    int result = 9;
+  public DoUntil doUntil(@PathVariable String what, @RequestBody Until until) {
+    if (until.getUntil() == 0) {
+
+    }
+    int result;
     if (what.equals("sum")) {
-      System.out.println("sum");
+      result = sum(until.getUntil());
     } else if (what.equals("factor")) {
-      System.out.println("factor");
+      result = factorio(until.getUntil());
     } else {
       System.out.println("error");
+      result = 0;
     }
     doUntil.setResult(result);
     return doUntil;
+  }
+
+  private int sum(int num) {
+    if (num < 1) {
+      return num;
+    } else {
+      return num + sum(num - 1);
+    }
+  }
+
+  private int factorio(int num) {
+    if (num < 2) {
+      return num;
+    } else {
+      return num * factorio(num - 1);
+    }
   }
 }
