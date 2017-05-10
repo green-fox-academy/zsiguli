@@ -1,20 +1,19 @@
 package com.greenfox.controller;
 
+import com.greenfox.model.AppendA;
 import com.greenfox.model.DoubleService;
 import com.greenfox.model.ErrorMessage;
 import com.greenfox.model.Greeting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RESTController {
 
   @Autowired
   private ErrorMessage errorMessage;
+
   @ExceptionHandler(MissingServletRequestParameterException.class)
   public ErrorMessage exceptionHandling(MissingServletRequestParameterException ex) {
     errorMessage.setError(createErrorMessage(ex.getParameterName()));
@@ -62,5 +61,14 @@ public class RESTController {
   @GetMapping("/greeter")
   public Greeting greet(@RequestParam("name") String name, @RequestParam("title") String title) {
     return greeting;
+  }
+
+  @Autowired
+  AppendA appendA;
+
+  @GetMapping("/appenda/{appendable}")
+  public AppendA appendA(@PathVariable String appendable) {
+    appendA.setAppended(appendable);
+    return appendA;
   }
 }
