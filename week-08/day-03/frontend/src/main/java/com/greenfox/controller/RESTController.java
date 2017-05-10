@@ -1,9 +1,6 @@
 package com.greenfox.controller;
 
-import com.greenfox.model.AppendA;
-import com.greenfox.model.DoubleService;
-import com.greenfox.model.ErrorMessage;
-import com.greenfox.model.Greeting;
+import com.greenfox.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
@@ -70,5 +67,22 @@ public class RESTController {
   public AppendA appendA(@PathVariable String appendable) {
     appendA.setAppended(appendable);
     return appendA;
+  }
+
+  @Autowired
+  DoUntil doUntil;
+
+  @PostMapping("/dountil/{what}")
+  public DoUntil doUntil(@PathVariable String what) {
+    int result = 9;
+    if (what.equals("sum")) {
+      System.out.println("sum");
+    } else if (what.equals("factor")) {
+      System.out.println("factor");
+    } else {
+      System.out.println("error");
+    }
+    doUntil.setResult(result);
+    return doUntil;
   }
 }
