@@ -1,0 +1,15 @@
+td {
+    border: solid 1px black;
+}
+
+.done {
+    background: green;
+}
+
+.urgent {
+    background: red;
+}
+
+.average {
+    background: yellow;
+}

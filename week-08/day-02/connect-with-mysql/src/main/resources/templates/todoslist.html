@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Notes</title>
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
 <h2>Notes</h2>
@@ -17,8 +18,7 @@
         <td>[[${todo.id}]]</td>
         <td>[[${todo.description}]]</td>
         <td>[[${todo.isDone()}]]</td>
-        <td>[[${todo.isUrgent()}]]</td>
-        <td></td>
+        <td th:class="${todo.isDone()}?done:(${todo.isUrgent()}?urgent:average)">[[${todo.isUrgent()}]]</td>
     </tr>
 </table>
 <form th:action="@{/addTodo}" method="post">
