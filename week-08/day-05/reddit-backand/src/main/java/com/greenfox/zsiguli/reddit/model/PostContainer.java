@@ -1,6 +1,5 @@
 package com.greenfox.zsiguli.reddit.model;
 
-
 import lombok.Getter;
 
 @Getter
