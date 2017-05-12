@@ -25,5 +25,4 @@ public class Post {
     this.href = href;
     score = 0;
   }
-
 }
