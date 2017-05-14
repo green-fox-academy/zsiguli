@@ -50,4 +50,17 @@ public class PostsController {
     }
     return postToReturn;
   }
+
+  @DeleteMapping("/posts/{id}")
+  public Post deletePost(@PathVariable int id) {
+    PostContainer postContainer = new PostContainer(postRepository.findAll());
+    Post postToReturn = new Post();
+    for (Post post : postContainer.getPosts()) {
+      if (post.getId() == id) {
+        postRepository.delete(post);
+        postToReturn = post;
+      }
+    }
+    return postToReturn;
+  }
 }
