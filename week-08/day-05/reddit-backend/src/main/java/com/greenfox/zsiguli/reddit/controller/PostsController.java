@@ -36,4 +36,18 @@ public class PostsController {
     }
     return postToReturn;
   }
+
+  @PutMapping("/posts/{id}/downvote")
+  public Post downVote(@PathVariable int id) {
+    PostContainer postContainer = new PostContainer(postRepository.findAll());
+    Post postToReturn = new Post();
+    for (Post post : postContainer.getPosts()) {
+      if (post.getId() == id) {
+        post.setScore(post.getScore() - 1);
+        postRepository.save(post);
+        postToReturn = post;
+      }
+    }
+    return postToReturn;
+  }
 }
