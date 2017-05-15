@@ -9,6 +9,6 @@ public class Groot {
 
   public Groot(String receivedMessage) {
     received = receivedMessage;
-    translated = "I' am groot!";
+    translated = "I am groot!";
   }
 }

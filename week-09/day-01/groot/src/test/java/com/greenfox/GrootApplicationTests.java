@@ -37,6 +37,13 @@ public class GrootApplicationTests {
     mockMvc.perform(get("/groot?message=something"))
             .andExpect(status().isOk())
             .andExpect(MockMvcResultMatchers.jsonPath("$.received").value("something"))
-            .andExpect(MockMvcResultMatchers.jsonPath("$.translated").value("I' am groot!"));
+            .andExpect(MockMvcResultMatchers.jsonPath("$.translated").value("I am groot!"));
+  }
+
+  @Test
+  public void errorMessageTest() throws Exception {
+    mockMvc.perform(get("/groot"))
+            .andExpect(status().isOk())
+            .andExpect(MockMvcResultMatchers.jsonPath("$.error").value("I am groot!"));
   }
 }

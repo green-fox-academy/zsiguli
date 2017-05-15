@@ -1,0 +1,12 @@
+package com.greenfox.service;
+
+import lombok.Getter;
+
+@Getter
+public class ErrorMessage {
+  String error;
+
+  public ErrorMessage() {
+    error = "I am groot!";
+  }
+}
