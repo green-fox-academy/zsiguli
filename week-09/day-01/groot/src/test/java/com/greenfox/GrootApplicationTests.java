@@ -62,4 +62,16 @@ public class GrootApplicationTests {
             .andExpect(status().isOk())
             .andExpect(MockMvcResultMatchers.jsonPath("$.error").value("I am groot!"));
   }
+
+  @Test
+  public void cargoStatusTest() throws Exception {
+    mockMvc.perform(get("/rocket"))
+            .andExpect(status().isOk())
+            .andExpect(MockMvcResultMatchers.jsonPath("$.caliber25").value(0))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.caliber30").value(0))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.caliber50").value(0))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.shipstatus").value("empty"))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.ready").value(false));
+  }
 }
+
