@@ -1,5 +1,6 @@
 package com.greenfox.controller;
 
+import com.greenfox.service.Arrow;
 import com.greenfox.service.ErrorMessage;
 import com.greenfox.service.Groot;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -19,5 +20,10 @@ public class GuardianController {
   @GetMapping("/groot")
   public Groot translate(@RequestParam(name = "message") String received) {
     return new Groot(received);
+  }
+
+  @GetMapping("/yondu")
+  public Arrow arrow(@RequestParam("distance") double distance, @RequestParam("time") double time) {
+    return new Arrow(distance, time);
   }
 }

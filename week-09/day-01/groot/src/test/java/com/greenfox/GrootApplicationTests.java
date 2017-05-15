@@ -46,4 +46,13 @@ public class GrootApplicationTests {
             .andExpect(status().isOk())
             .andExpect(MockMvcResultMatchers.jsonPath("$.error").value("I am groot!"));
   }
+
+  @Test
+  public void yonduTest() throws Exception {
+    mockMvc.perform(get("/yondu?distance=100.0&time=10.0"))
+            .andExpect(status().isOk())
+            .andExpect(MockMvcResultMatchers.jsonPath("$.distance").value(100.0))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.time").value(10.0))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.speed").value(10.0));
+  }
 }
