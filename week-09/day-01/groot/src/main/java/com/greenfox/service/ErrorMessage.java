@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class ErrorMessage {
-  String error;
+  private String error;
 
   public ErrorMessage() {
     error = "I am groot!";

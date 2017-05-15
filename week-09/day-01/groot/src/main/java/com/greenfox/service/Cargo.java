@@ -1,8 +1,10 @@
 package com.greenfox.service;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class Cargo {
   private int caliber25;
   private int caliber30;

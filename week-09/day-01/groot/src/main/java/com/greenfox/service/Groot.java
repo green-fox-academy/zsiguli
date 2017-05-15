@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public class Groot {
-  String received;
-  String translated;
+  private String received;
+  private String translated;
 
   public Groot(String receivedMessage) {
     received = receivedMessage;
