@@ -48,11 +48,18 @@ public class GrootApplicationTests {
   }
 
   @Test
-  public void yonduTest() throws Exception {
+  public void arrowTest_withProperParameters() throws Exception {
     mockMvc.perform(get("/yondu?distance=100.0&time=10.0"))
             .andExpect(status().isOk())
             .andExpect(MockMvcResultMatchers.jsonPath("$.distance").value(100.0))
             .andExpect(MockMvcResultMatchers.jsonPath("$.time").value(10.0))
             .andExpect(MockMvcResultMatchers.jsonPath("$.speed").value(10.0));
+  }
+
+  @Test
+  public void arrowTest_withoutParameters() throws Exception {
+    mockMvc.perform(get("/yondu"))
+            .andExpect(status().isOk())
+            .andExpect(MockMvcResultMatchers.jsonPath("$.error").value("I am groot!"));
   }
 }
