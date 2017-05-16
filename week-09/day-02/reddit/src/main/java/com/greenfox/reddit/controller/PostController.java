@@ -27,33 +27,27 @@ public class PostController {
   public Post upVote(@PathVariable long id) {
     PostContainer postContainer = new PostContainer(postRepository.findAll());
     postRepository.save(postContainer.findSelected(id).incScore());
-    return postContainer.findSelected(id).incScore();
+    return postContainer.findSelected(id);
   }
 
   @PutMapping("/posts/{id}/downvote")
-  public Post downVote(@PathVariable int id) {
+  public Post downVote(@PathVariable long id) {
     PostContainer postContainer = new PostContainer(postRepository.findAll());
-    Post postToReturn = new Post();
-    for (Post post : postContainer.getPosts()) {
-      if (post.getId() == id) {
-        post.setScore(post.getScore() - 1);
-        postRepository.save(post);
-        postToReturn = post;
-      }
-    }
-    return postToReturn;
+    postRepository.save(postContainer.findSelected(id).decScore());
+    return postContainer.findSelected(id);
   }
 
   @DeleteMapping("/posts/{id}")
-  public Post deletePost(@PathVariable int id) {
+  public Post deletePost(@PathVariable long id) {
     PostContainer postContainer = new PostContainer(postRepository.findAll());
-    Post postToReturn = new Post();
-    for (Post post : postContainer.getPosts()) {
-      if (post.getId() == id) {
-        postRepository.delete(post);
-        postToReturn = post;
-      }
-    }
-    return postToReturn;
+    postRepository.delete(postContainer.findSelected(id));
+    return postContainer.findSelected(id);
+  }
+
+  @PostMapping("/posts/{id}")
+  public Post modifyPost(@PathVariable long id, @RequestBody Post post) {
+    PostContainer postContainer = new PostContainer(postRepository.findAll());
+    postRepository.save(postContainer.findSelected(id).modify(post));
+    return postContainer.findSelected(id);
   }
 }

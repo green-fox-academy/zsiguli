@@ -38,4 +38,15 @@ public class Post {
     ++score;
     return this;
   }
+
+  public Post decScore() {
+    --score;
+    return this;
+  }
+
+  public Post modify(Post post) {
+    title = post.title;
+    href = post.href;
+    return this;
+  }
 }
