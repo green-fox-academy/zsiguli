@@ -22,8 +22,28 @@ class Factory {
   }
 }
 
+class Troop {
+  int owner;
+  int leavedFactory;
+  int targetedFactory;
+  int numberOfCyborgs;
+  int remainingTurnsBeforeArrive;
+
+  public Troop(int owner, int leavedFactory, int targetedFactory, int numberOfCyborgs, int remainingTurnsBeforeArrive) {
+    this.owner = owner;
+    this.leavedFactory = leavedFactory;
+    this.targetedFactory = targetedFactory;
+    this.numberOfCyborgs = numberOfCyborgs;
+    this.remainingTurnsBeforeArrive = remainingTurnsBeforeArrive;
+  }
+
+
+}
+
 class Player {
   static Scanner in = new Scanner(System.in);
+
+  static List<Troop> troops = new ArrayList<>();
 
   public static int[][] initializeDistances() {
     int factoryCount = in.nextInt();
@@ -53,6 +73,8 @@ class Player {
 
       if (entityType.equals("FACTORY")) {
         factories.add(new Factory(entityId, arg1, arg2, arg3));
+      } else if (entityType.equals("TROOP")) {
+        troops.add(new Troop(arg1, arg2, arg3, arg4, arg5));
       }
     }
     return factories;
