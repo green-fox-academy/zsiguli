@@ -24,17 +24,10 @@ public class PostController {
   }
 
   @PutMapping("/posts/{id}/upvote")
-  public Post upVote(@PathVariable int id) {
+  public Post upVote(@PathVariable long id) {
     PostContainer postContainer = new PostContainer(postRepository.findAll());
-    Post postToReturn = new Post();
-    for (Post post : postContainer.getPosts()) {
-      if (post.getId() == id) {
-        post.setScore(post.getScore() + 1);
-        postRepository.save(post);
-        postToReturn = post;
-      }
-    }
-    return postToReturn;
+    postRepository.save(postContainer.findSelected(id).incScore());
+    return postContainer.findSelected(id).incScore();
   }
 
   @PutMapping("/posts/{id}/downvote")
@@ -45,6 +38,19 @@ public class PostController {
       if (post.getId() == id) {
         post.setScore(post.getScore() - 1);
         postRepository.save(post);
+        postToReturn = post;
+      }
+    }
+    return postToReturn;
+  }
+
+  @DeleteMapping("/posts/{id}")
+  public Post deletePost(@PathVariable int id) {
+    PostContainer postContainer = new PostContainer(postRepository.findAll());
+    Post postToReturn = new Post();
+    for (Post post : postContainer.getPosts()) {
+      if (post.getId() == id) {
+        postRepository.delete(post);
         postToReturn = post;
       }
     }

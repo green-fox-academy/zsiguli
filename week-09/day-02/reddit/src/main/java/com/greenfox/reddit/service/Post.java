@@ -33,4 +33,9 @@ public class Post {
     this.timestamp = new Timestamp(System.currentTimeMillis());
     score = 0;
   }
+
+  public Post incScore() {
+    ++score;
+    return this;
+  }
 }

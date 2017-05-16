@@ -1,6 +1,8 @@
 package com.greenfox.reddit.service;
 
+import com.greenfox.reddit.repository.PostRepository;
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Getter
 public class PostContainer {
@@ -9,5 +11,14 @@ public class PostContainer {
 
   public PostContainer(Iterable<Post> posts) {
     this.posts = posts;
+  }
+
+  public Post findSelected(long id) {
+    for (Post post : posts) {
+      if (post.getId() == id) {
+        return post;
+      }
+    }
+    return new Post();
   }
 }
