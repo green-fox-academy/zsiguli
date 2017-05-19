@@ -1,6 +1,5 @@
 package com.greenfox.reddit.controller;
 
-import com.greenfox.reddit.repository.PostRepository;
 import com.greenfox.reddit.service.Post;
 import com.greenfox.reddit.service.PostContainer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PostController {
-
-  @Autowired
-  PostRepository postRepository;
 
   @Autowired
   PostContainer postContainer;
