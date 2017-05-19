@@ -1,7 +1,7 @@
 var classNumber = 0;
 var requestedData;
 var id;
-var domain = 'https://gf-mock-reddit.herokuapp.com';
+var domain = 'http://localhost:8080';
 var body = document.querySelector('body');
 var articleContainer = document.querySelector('.article-container');
 var postFormContainer = document.querySelector('.post-form-container');
@@ -20,44 +20,44 @@ var dateAndTimeDesign = function(){
 
 
 function getFromServer(callback) {
-	var xhr = new XMLHttpRequest();
-	method = "GET";
+    var xhr = new XMLHttpRequest();
+    method = "GET";
 
-	xhr.open(method, domain + '/posts', true);
+    xhr.open(method, domain + '/posts', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader('Accept', 'application/json');
 
-	xhr.onreadystatechange = function () {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200){
             var requestedData = JSON.parse(xhr.response);
             requestedData = requestedData.posts;
             console.log(requestedData);
             callback(requestedData);
-		}
-	}
-	xhr.send();
+        }
+    }
+    xhr.send();
 }
 
 
 function postToServer(givenTitle, givenUrl, callback) {
-	var xhr = new XMLHttpRequest();
-	method = "POST";
+    var xhr = new XMLHttpRequest();
+    method = "POST";
 
-	xhr.open(method, domain + '/posts', true);
+    xhr.open(method, domain + '/posts', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader('Accept', 'application/json');
 
-	xhr.onreadystatechange = function () {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200){
-            var requestedData = JSON.parse(xhr.response);
+            // var requestedData = JSON.parse(xhr.response);
             callback(postCreator);
-		}
-	}
+        }
+    }
     var data = {
         title: givenTitle,
         href: givenUrl
     }
-	xhr.send(JSON.stringify(data));
+    xhr.send(JSON.stringify(data));
 }
 
 var upVote = function(id, upArrow){
@@ -117,7 +117,7 @@ var deleteRemove = function(id){
 var postForm = function(){
 
     articleContainer.innerHTML = '';
-    newPostBut.innerHTML = '';
+    newPostBut.style.visibility = 'hidden';
 
     var newUrlLabel = document.createElement('label');
     newUrlLabel.setAttribute('class', 'label');
@@ -160,7 +160,7 @@ var postForm = function(){
     sendPostBut.addEventListener('click', function(){
         postToServer(newTitleInput.value, newUrlInput.value, getFromServer);
         postFormContainer.innerHTML = '';
-        newPostBut.innerHTML = 'add new post';
+        newPostBut.style.visibility = 'visible';
     });
 }
 

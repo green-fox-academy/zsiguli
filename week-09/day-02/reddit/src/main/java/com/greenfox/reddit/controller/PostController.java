@@ -14,7 +14,7 @@ public class PostController {
 
   @GetMapping("/posts")
   public PostContainer sendBackAllAvailablePosts() {
-    return new PostContainer(postRepository.findAll());
+    return new PostContainer(postRepository.findAllByOrderByScoreDesc());
   }
 
   @PostMapping("/posts")
@@ -25,28 +25,28 @@ public class PostController {
 
   @PutMapping("/posts/{id}/upvote")
   public Post upVote(@PathVariable long id) {
-    PostContainer postContainer = new PostContainer(postRepository.findAll());
+    PostContainer postContainer = new PostContainer(postRepository.findAllByOrderByScoreDesc());
     postRepository.save(postContainer.findSelected(id).incScore());
     return postContainer.findSelected(id);
   }
 
   @PutMapping("/posts/{id}/downvote")
   public Post downVote(@PathVariable long id) {
-    PostContainer postContainer = new PostContainer(postRepository.findAll());
+    PostContainer postContainer = new PostContainer(postRepository.findAllByOrderByScoreDesc());
     postRepository.save(postContainer.findSelected(id).decScore());
     return postContainer.findSelected(id);
   }
 
   @DeleteMapping("/posts/{id}")
   public Post deletePost(@PathVariable long id) {
-    PostContainer postContainer = new PostContainer(postRepository.findAll());
+    PostContainer postContainer = new PostContainer(postRepository.findAllByOrderByScoreDesc());
     postRepository.delete(postContainer.findSelected(id));
     return postContainer.findSelected(id);
   }
 
   @PostMapping("/posts/{id}")
   public Post modifyPost(@PathVariable long id, @RequestBody Post post) {
-    PostContainer postContainer = new PostContainer(postRepository.findAll());
+    PostContainer postContainer = new PostContainer(postRepository.findAllByOrderByScoreDesc());
     postRepository.save(postContainer.findSelected(id).modify(post));
     return postContainer.findSelected(id);
   }
