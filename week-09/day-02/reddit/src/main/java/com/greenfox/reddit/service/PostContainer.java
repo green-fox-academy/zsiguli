@@ -24,7 +24,7 @@ public class PostContainer {
     return new PostContainer(postRepository.findAllByOrderByScoreDesc());
   }
 
-  public Post addPost(Post post) {
+  public Post add(Post post) {
     postRepository.save(post);
     return post;
   }
@@ -41,6 +41,19 @@ public class PostContainer {
     Post downVoted = findSelected(id).decScore();
     postRepository.save(downVoted);
     return downVoted;
+  }
+
+  public Post delete(long id) {
+    posts = postRepository.findAllByOrderByScoreDesc();
+    postRepository.delete(id);
+    return findSelected(id);
+  }
+
+  public Post modify(long id, Post post) {
+    posts = postRepository.findAllByOrderByScoreDesc();
+    Post modified = findSelected(id).modify(post);
+    postRepository.save(modified);
+    return modified;
   }
 
   public Post findSelected(long id) {

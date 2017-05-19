@@ -22,11 +22,11 @@ public class PostController {
 
   @PostMapping("/posts")
   public Post addPost(@RequestBody Post post) {
-    return postContainer.addPost(post);
+    return postContainer.add(post);
   }
 
   @PutMapping("/posts/{id}/upvote")
-  public Post upVote(@PathVariable long id) {
+  public Post upVotePost(@PathVariable long id) {
     return postContainer.upVote(id);
   }
 
@@ -37,15 +37,11 @@ public class PostController {
 
   @DeleteMapping("/posts/{id}")
   public Post deletePost(@PathVariable long id) {
-    PostContainer postContainer = new PostContainer(postRepository.findAllByOrderByScoreDesc());
-    postRepository.delete(postContainer.findSelected(id));
-    return postContainer.findSelected(id);
+    return postContainer.delete(id);
   }
 
   @PostMapping("/posts/{id}")
   public Post modifyPost(@PathVariable long id, @RequestBody Post post) {
-    PostContainer postContainer = new PostContainer(postRepository.findAllByOrderByScoreDesc());
-    postRepository.save(postContainer.findSelected(id).modify(post));
-    return postContainer.findSelected(id);
+    return postContainer.modify(id, post);
   }
 }
