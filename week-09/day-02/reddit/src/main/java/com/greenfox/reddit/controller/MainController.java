@@ -27,4 +27,10 @@ public class MainController {
     System.out.println(username + ", " + password);
     return "redirect:/";
   }
+
+  @GetMapping("logout")
+  public String logout() {
+    session.setAuthenticated(false);
+    return "redirect:/";
+  }
 }
