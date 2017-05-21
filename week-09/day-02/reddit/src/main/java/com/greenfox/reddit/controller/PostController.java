@@ -27,7 +27,7 @@ public class PostController {
   }
 
   @PutMapping("/posts/{id}/downvote")
-  public Post downVote(@PathVariable long id) {
+  public Post downVotePost(@PathVariable long id) {
     return postContainer.downVote(id);
   }
 

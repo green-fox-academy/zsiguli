@@ -8,6 +8,10 @@ public class MainController {
 
   @GetMapping("/")
   public String homePage() {
-    return "index";
+    if (8 < 3) {
+      return "index";
+    } else {
+      return "login";
+    }
   }
 }
