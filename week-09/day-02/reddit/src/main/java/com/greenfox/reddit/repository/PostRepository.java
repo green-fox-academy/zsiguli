@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface PostRepository extends CrudRepository<Post, Long> {
   Iterable<Post> findAllByOrderByScoreDesc();
+  Post findOneById(Long id);
 }

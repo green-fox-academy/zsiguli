@@ -30,38 +30,26 @@ public class PostContainer {
   }
 
   public Post upVote(long id) {
-    posts = postRepository.findAllByOrderByScoreDesc();
-    Post upVoted = findSelected(id).incScore();
+    Post upVoted = postRepository.findOneById(id).incScore();
     postRepository.save(upVoted);
     return upVoted;
   }
 
   public Post downVote(long id) {
-    posts = postRepository.findAllByOrderByScoreDesc();
-    Post downVoted = findSelected(id).decScore();
+    Post downVoted = postRepository.findOneById(id).decScore();
     postRepository.save(downVoted);
     return downVoted;
   }
 
   public Post delete(long id) {
-    posts = postRepository.findAllByOrderByScoreDesc();
+    Post deleted = postRepository.findOneById(id);
     postRepository.delete(id);
-    return findSelected(id);
+    return deleted;
   }
 
   public Post modify(long id, Post post) {
-    posts = postRepository.findAllByOrderByScoreDesc();
-    Post modified = findSelected(id).modify(post);
+    Post modified = postRepository.findOneById(id).modify(post);
     postRepository.save(modified);
     return modified;
-  }
-
-  public Post findSelected(long id) {
-    for (Post post : posts) {
-      if (post.getId() == id) {
-        return post;
-      }
-    }
-    return new Post();
   }
 }
