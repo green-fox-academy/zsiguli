@@ -39,9 +39,11 @@ public class MainController {
 
   @PostMapping("/register")
   public String register(@RequestParam("username") String username, @RequestParam("password") String password) {
-    if (true) {
+    if (userRepository.findOneByName(username) == null) {
       User user = new User(username, password);
       userRepository.save(user);
+    } else {
+      return "redirect:/error";
     }
     return "redirect:/";
   }
