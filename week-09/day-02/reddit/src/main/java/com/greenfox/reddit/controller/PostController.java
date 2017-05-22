@@ -40,4 +40,4 @@ public class PostController {
   public Post modifyPost(@PathVariable long id, @RequestBody Post post) {
     return postContainer.modify(id, post);
   }
-}
+  }

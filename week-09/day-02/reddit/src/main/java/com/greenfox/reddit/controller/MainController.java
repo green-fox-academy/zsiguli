@@ -1,5 +1,7 @@
 package com.greenfox.reddit.controller;
 
+import com.greenfox.reddit.model.User;
+import com.greenfox.reddit.repository.UserRepository;
 import com.greenfox.reddit.service.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,8 @@ public class MainController {
 
   @Autowired
   Session session;
+  @Autowired
+  UserRepository userRepository;
 
   @GetMapping("/")
   public String homePage() {
@@ -20,11 +24,10 @@ public class MainController {
 
   @PostMapping("/authenticate")
   public String authenticate(@RequestParam("username") String username, @RequestParam("password") String password) {
-    if (true) {
+    if (userRepository.findOneByName(username).getPassword().equals(password)) {
       session.setAuthenticated(true);
       session.setUserName(username);
     }
-    System.out.println(username + ", " + password);
     return "redirect:/";
   }
 
@@ -32,5 +35,19 @@ public class MainController {
   public String logout() {
     session.setAuthenticated(false);
     return "redirect:/";
+  }
+
+  @PostMapping("/register")
+  public String register(@RequestParam("username") String username, @RequestParam("password") String password) {
+    if (true) {
+      User user = new User(username, password);
+      userRepository.save(user);
+    }
+    return "redirect:/";
+  }
+
+  @GetMapping("/register")
+  public String register() {
+    return "register";
   }
 }

@@ -19,19 +19,22 @@ public class Post {
   private String href;
   private Timestamp timestamp;
   private long score;
+  private String owner;
 
   public Post() {
     this.title = "title";
     this.href = "href";
     this.timestamp = new Timestamp(System.currentTimeMillis());
     score = 0;
+    owner = "anonymus";
   }
 
-  public Post(String title, String href) {
+  public Post(String title, String href, String authenticatedUser) {
     this.title = title;
     this.href = href;
     this.timestamp = new Timestamp(System.currentTimeMillis());
     score = 0;
+    owner = authenticatedUser;
   }
 
   public Post incScore() {

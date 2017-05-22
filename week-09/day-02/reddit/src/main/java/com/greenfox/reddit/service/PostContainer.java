@@ -13,6 +13,8 @@ public class PostContainer {
 
   @Autowired
   PostRepository postRepository;
+  @Autowired
+  Session session;
 
   private Iterable<Post> posts;
 
@@ -25,6 +27,7 @@ public class PostContainer {
   }
 
   public Post add(Post post) {
+    post.setOwner(session.getUserName());
     postRepository.save(post);
     return post;
   }

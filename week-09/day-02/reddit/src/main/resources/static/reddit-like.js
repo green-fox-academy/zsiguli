@@ -1,6 +1,7 @@
 var classNumber = 0;
 var requestedData;
 var id;
+// var domain = 'https://gf-mock-reddit.herokuapp.com';
 var domain = 'http://localhost:8080';
 var body = document.querySelector('body');
 var articleContainer = document.querySelector('.article-container');
