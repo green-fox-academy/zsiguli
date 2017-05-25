@@ -16,10 +16,6 @@ public class Session {
   private boolean authenticated;
 
   public String loginChecker() {
-    if (authenticated) {
-      return "index";
-    } else {
-      return "login";
-    }
+    return authenticated ? "index" : "login";
   }
 }
