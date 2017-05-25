@@ -12,7 +12,7 @@ var newPostBut = document.querySelector('.new-post');
 //     document.location.href = 'file:///D:/greenfox/PamelaPaprasz/week-08/day5/reddit-like.html';
 // }
 
-var dateAndTimeDesign = function(){
+var dateAndTimeDesign = function () {
     var currentTime = Date.now();
     var currentSec = parseInt(currentTime / 1000);
     var timePassedBy = currentSec - requestedData.posts.timestamp;
@@ -29,7 +29,7 @@ function getFromServer(callback) {
     xhr.setRequestHeader('Accept', 'application/json');
 
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200){
+        if (xhr.readyState === 4 && xhr.status === 200) {
             var requestedData = JSON.parse(xhr.response);
             requestedData = requestedData.posts;
             console.log(requestedData);
@@ -49,7 +49,7 @@ function postToServer(givenTitle, givenUrl, callback) {
     xhr.setRequestHeader('Accept', 'application/json');
 
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200){
+        if (xhr.readyState === 4 && xhr.status === 200) {
             // var requestedData = JSON.parse(xhr.response);
             callback(postCreator);
         }
@@ -61,7 +61,7 @@ function postToServer(givenTitle, givenUrl, callback) {
     xhr.send(JSON.stringify(data));
 }
 
-var upVote = function(id, upArrow){
+var upVote = function (id, upArrow) {
     console.log(id);
     var xhr = new XMLHttpRequest();
     var url = domain + '/posts/' + id + '/upvote';
@@ -74,13 +74,13 @@ var upVote = function(id, upArrow){
     xhr.send();
 
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200){
+        if (xhr.readyState === 4 && xhr.status === 200) {
             getFromServer(postCreator);
         }
     }
 }
 
-var downVote = function(id, downArrow){
+var downVote = function (id, downArrow) {
     var xhr = new XMLHttpRequest();
     var url = domain + '/posts/' + id + '/downvote';
     method = 'PUT';
@@ -92,15 +92,15 @@ var downVote = function(id, downArrow){
     xhr.send();
 
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200){
+        if (xhr.readyState === 4 && xhr.status === 200) {
             getFromServer(postCreator);
         }
     }
 }
 
-var deleteRemove = function(id){
+var deleteRemove = function (id) {
     var xhr = new XMLHttpRequest();
-    var url = domain + '/posts/'+ id;
+    var url = domain + '/posts/' + id;
     method = 'DELETE';
 
     xhr.open(method, url, true);
@@ -109,13 +109,13 @@ var deleteRemove = function(id){
     xhr.send();
 
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200){
+        if (xhr.readyState === 4 && xhr.status === 200) {
             getFromServer(postCreator);
         }
     }
 }
 
-var postForm = function(){
+var postForm = function () {
 
     articleContainer.innerHTML = '';
     newPostBut.style.visibility = 'hidden';
@@ -158,7 +158,7 @@ var postForm = function(){
     sendPostBut.innerHTML = 'submit';
     postFormContainer.appendChild(sendPostBut);
 
-    sendPostBut.addEventListener('click', function(){
+    sendPostBut.addEventListener('click', function () {
         postToServer(newTitleInput.value, newUrlInput.value, getFromServer);
         postFormContainer.innerHTML = '';
         newPostBut.style.visibility = 'visible';

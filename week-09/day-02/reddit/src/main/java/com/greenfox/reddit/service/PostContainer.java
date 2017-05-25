@@ -45,9 +45,11 @@ public class PostContainer {
   }
 
   public Post delete(long id) {
-    Post deleted = postRepository.findOneById(id);
-    postRepository.delete(id);
-    return deleted;
+    Post toDelete = postRepository.findOneById(id);
+    if (session.getUserName().equals(postRepository.findOneById(id).getOwner())) {
+      postRepository.delete(id);
+    }
+    return toDelete;
   }
 
   public Post modify(long id, Post post) {

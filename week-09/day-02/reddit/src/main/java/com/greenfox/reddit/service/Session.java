@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Getter
 @Setter
 @Service
-@Scope(value="session", proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Session {
 
   private String userName;
