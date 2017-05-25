@@ -2,6 +2,7 @@ package com.greenfox.reddit.controller;
 
 import com.greenfox.reddit.service.Post;
 import com.greenfox.reddit.service.PostContainer;
+import com.greenfox.reddit.service.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

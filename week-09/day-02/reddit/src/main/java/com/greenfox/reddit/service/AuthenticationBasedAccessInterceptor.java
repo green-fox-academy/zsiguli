@@ -17,10 +17,7 @@ public class AuthenticationBasedAccessInterceptor extends HandlerInterceptorAdap
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                            Object handler) throws IOException {
-    if (session == null) {
-      response.sendRedirect("/");
-      return false;
-    } else if (session.isAuthenticated()){
+    if (session.isAuthenticated()) {
       return true;
     } else {
       response.sendRedirect("/");
