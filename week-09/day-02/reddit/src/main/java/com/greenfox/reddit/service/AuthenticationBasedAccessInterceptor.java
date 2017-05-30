@@ -17,6 +17,7 @@ public class AuthenticationBasedAccessInterceptor extends HandlerInterceptorAdap
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                            Object handler) throws IOException {
+
     if (session.isAuthenticated()) {
       return true;
     } else {

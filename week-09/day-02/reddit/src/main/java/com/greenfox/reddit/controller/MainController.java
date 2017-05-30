@@ -21,7 +21,8 @@ public class MainController {
   }
 
   @PostMapping("/authenticate")
-  public String authenticate(@RequestParam("username") String username, @RequestParam("password") String password) {
+  public String authenticate(@RequestParam("username") String username,
+                             @RequestParam("password") String password) {
     if (userRepository.findOneByName(username).getPassword().equals(password)) {
       session.setAuthenticated(true);
       session.setUserName(username);
